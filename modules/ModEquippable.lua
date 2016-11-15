@@ -128,7 +128,6 @@ function ModEquippable:activateSpritePiece( user )
 end
 
 function ModEquippable:use()
-	lume.trace()
 	local isDown = love.keyboard.isDown
 	local user = self.user
 	self.user.status = "offense"
@@ -224,6 +223,7 @@ function ModEquippable:useUp(player,frame)
 	self:useStand(player,frame)
 end
 function ModEquippable:useStand(player,frame)
+	lume.trace()
 	player.exit = true
 end
 function ModEquippable:useDown(player,frame)

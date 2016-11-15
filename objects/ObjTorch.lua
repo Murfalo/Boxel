@@ -2,9 +2,8 @@ local ObjBase = require "ObjBase"
 local ObjTorch = Class.create("ObjTorch", ObjBase)
 	
 function ObjTorch:create()
-	self:addModule( require "modules.ModEquippable")
+	self:addModule( require "modules.ModWeapon")
 	self:addModule( require "modules.ModHitboxMaker")
-	self:addModule(require "modules.ModDrawable")
 
 	self.shape = love.physics.newRectangleShape(32,32)
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)
@@ -19,23 +18,14 @@ function ObjTorch:create()
 
 	self.spritePiece = 	self:createSpritePiece(8,8,"weapon", require ("assets.spr.scripts.SprTorchEqp"))
 	--self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
+	self:setFrameData(8,10,10)
+	self:setAnimation("slash")
+	self:setCanMove(true)
 end
 
-function ObjTorch:useStand(player,frame)
-	-- player:animate()
-	if frame == 1 then
-		player:changeAnimation("slash_p")
-	end
-	if frame >= 8 then
-		player:changeAnimation("slash_r")
-	end
-	if frame == 12 then
-		lume.trace(self.x,self.y)
-		self:createHitbox({width = 60, height = 15,xOffset = 10, yOffset = -5, damage = 15, guardDamage = 12,
-			stun = 35, persistence = 0.15,xKnockBack = 4 * 32, yKnockBack = -3 * 32, element = "fire"})
-	elseif frame >= 35 then
-		player.exit = true
-	end
+function ObjTorch:onAttack()
+	self:createHitbox({width = 60, height = 15,xOffset = 10, yOffset = -5, damage = 15, guardDamage = 12,
+	stun = 35, persistence = 0.15,xKnockBack = 4 * 32, yKnockBack = -3 * 32, element = "fire"})
 end
 
 return ObjTorch
