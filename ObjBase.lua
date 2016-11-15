@@ -8,19 +8,19 @@ local ObjBase = Class.new {
 
 	-- overridable methods
 	create = _NOOP,
-	destroy = _NOOP,
 	draw = _NOOP,
 	onCollide = _NOOP,
 	postCollide = _NOOP,
-	allFuncts = {},
-	overRideFuncts = {"create","tick","destroy"},
-	modules = {},
 }
 
-function ObjBase:tick( dt )
-end
 
 function ObjBase:addModule( newModule )
+	if not self.modules then self.modules = {} end
+	if not self.allFuncts then self.allFuncts = {} end
+	if not self.overRideFuncts then
+		self.overRideFuncts = {"create","tick","destroy"}
+	end
+
 	local modName = newModule.type
 
 	if newModule.dependencies then

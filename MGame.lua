@@ -52,6 +52,7 @@ function MGame:init()
 	self.permdata  = {}  -- stores permanent object state (i.e. switches, etc.)
 	self.scissor   = {} 
 	self.entities  = {}  -- list of entities. This is a list of everything currently in the world. It is importante because.....
+	self.toDestroy = {}
 	self.world     = love.physics.newWorld()
 	self.lights    = Lights.newLightScene(GAME_SIZE.w, GAME_SIZE.h)
 	self.wrapPreSolve  = lume.fn(self.preSolve, self)
@@ -117,6 +118,9 @@ function MGame:update( dt )
 	xl.DScreen.print("Physics: ", "(%f)", (love.timer.getTime() - baseTime))
 	baseTime = love.timer.getTime()
 
+	for k,v in pairs(self.toDestroy) do
+		self:mDel(v)
+	end
 	self.locked = false
 end
 
@@ -251,12 +255,18 @@ end
 -- @return entity
 ----
 function MGame:del(entity)
+	self.toDestroy[entity] = entity
+end
+
+function MGame:mDel( entity )
 	local permid = entity.permanentid
+	self.toDestroy[entity] = nil
 	if permid then
 		self.permdata[permid] = self.permdata[permid] or {}
 		entity:save( self.permdata[permid] )
 	end
 	entity:destroy()
+	self.entities[entity].destroyed = true
 	self.entities[entity] = nil
 
 	-- remove entity from listeners

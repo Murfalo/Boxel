@@ -47,10 +47,11 @@ function ModPhysics:tick(dt)
 
 	--If the object is not affected by Gravity, apply force to oppose Gravity
 	if self.noGrav == true then 
-		body:applyForce(0, -self.body:getMass() * 480 * dt * 60) 
+		self.body:setGravityScale(0.0)
+		--body:applyForce(0, -self.body:getMass() * 480) 
 	elseif self.noGrav and self.noGrav > 0 then
 		self.noGrav = self.noGrav - 1
-		body:applyForce(0, -self.body:getMass() * 480 * dt * 60)
+		body:applyForce(0, -self.body:getMass() * 480)
 	end
 
 	--Teleportation code. Since Set position can only be called on the tick step, the body is not
@@ -60,8 +61,11 @@ function ModPhysics:tick(dt)
 		body:setPosition(self.newX, self.newY)
 	end
 	
-	self:processJumpThru()	
-	self:checkGround() -- Special code is required to handle slopes. Also needed to determine if object is on ground or not.
+	if not self.noGrav then
+
+		self:processJumpThru()	
+		self:checkGround() -- Special code is required to handle slopes. Also needed to determine if object is on ground or not.
+	end
 
 	-- --Apply the body's intrinsic forces to the body
 	self:move( dt, self.body, self.forceX, self.forceY, self.isMoving)
@@ -79,15 +83,15 @@ function ModPhysics:move( dt, body, forceX, forceY, isMovingX)
 	local velX, velY = body:getLinearVelocity()
 
 	-- Staying stable on slopes
-	if self.groundLevel and not self.jumping and (self.state ~= 3) then
+	if not self.noGrav and self.groundLevel and not self.jumping and (self.state ~= 3) then
 		if self.groundLevel - self.y > 2 then
 			self.body:applyForce(0, self.body:getMass() * math.max(2500,(6000 * math.abs(self.velX/self.maxXSpeed)))* dt * 60)
 		end
 	end
-	if self.jumping or self.numContacts == 0 then
+	if not self.noGrav and self.jumping or self.numContacts == 0 then
 		self:setJumpThru(1)
 		self.inAir = true
-	else
+	elseif not self.noGrav then
 		self.inAir = false
 	end
 
@@ -111,9 +115,11 @@ function ModPhysics:move( dt, body, forceX, forceY, isMovingX)
 	end
 	
 	-- reset gravity change due to slope
-	self.body:setGravityScale(1.0)
+	if not self.noGrav then
+		self.body:setGravityScale(1.0)
+	end
 	--deceleration
-	if  not self.inAir and (isMovingX == false or math.abs(self.velX- self.referenceVel) > math.abs(self.maxXSpeed) * 1.1) then
+	if not self.noGrav and not self.inAir and (isMovingX == false or math.abs(self.velX- self.referenceVel) > math.abs(self.maxXSpeed) * 1.1) then
 		if self.state == 3 then
 			forceX = velX * (decForce/4)
 		else
@@ -126,7 +132,7 @@ function ModPhysics:move( dt, body, forceX, forceY, isMovingX)
 			forceX = forceX * 2
 		end
 	end
-	if self.noGrav == true and self.isMoving == false then
+	if self.noGrav and self.isMoving == false then
 		forceY = velY * decForce
 	end 
 
@@ -135,6 +141,10 @@ function ModPhysics:move( dt, body, forceX, forceY, isMovingX)
 	end
 	--Apply force updates.
 	body:applyForce(forceX*60*dt,forceY*60*dt)
+end
+
+function ModPhysics:setNoGrav(gravity )
+	self.noGrav = gravity
 end
 
 function ModPhysics:createBody( bodyType ,isFixedRotation, isBullet)
@@ -183,9 +193,9 @@ end
 
 --when something lands on an object from a long fall, he/she will kneel down for a second.
 function ModPhysics:onCollide(other, collision)
-	if self.state == 1 and self.velY > 400 then
-		self:landing()
-	end
+	-- if self.state == 1 and self.velY > 400 then
+	-- 	self:landing()
+	-- end
 end
 
 function ModPhysics:landing( )
@@ -321,13 +331,10 @@ function ModPhysics:mCheckGround(fixture, x, y, xn, yn, fraction )
 				if self.groundLevel and self.type == "ObjChar" then
 					local newLevel = y - (self.height/2)
 					self.slopeDir = 0
-					--self.body:applyForce(0, -self.body:getMass() * 480)
 					if self.groundLevel - newLevel < -2 then
 						self.slopeDir = -1
-						--self.body:applyForce(0, -self.body:getMass() * 480)
 					elseif self.groundLevel - newLevel > 2 then
 						self.slopeDir = 1
-						--self.body:applyForce(0, -self.body:getMass() * 480)
 					end
 					self.groundLevel = math.min(self.groundLevel, newLevel)
 				else
@@ -355,6 +362,8 @@ function ModPhysics:destroy()
 	if self.body then
 		self.body:destroy()
 	end
+	self.modules = {}
+	self.allFuncts = {}
 end
 
 return ModPhysics
