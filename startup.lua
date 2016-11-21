@@ -31,6 +31,13 @@ function startup.takeScreenshot()
 	xl.AddMessage(string.format("Screenshot saved to '%s'",fname))
 end
 
+function startup.getCursor()
+	-- Will want to eventually replace cursor with custom image
+	-- Just setVisible false and draw custom sprite at position of mouse in love.draw
+	love.mouse.setVisible(true)
+	love.mouse.setGrabbed(true)
+end
+
 function startup.GotoDebugMenu(  )
 	Gamestate.push( DebugMenu )
 end

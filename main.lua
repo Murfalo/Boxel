@@ -42,6 +42,7 @@ function love.load(args)
 		xl.AddMessage("Invalid settings file")
 	end
 	startup.dothings()
+	startup.getCursor()
 	Gamestate.switch( Game )
 	Gamestate.push( MainMenu )
 

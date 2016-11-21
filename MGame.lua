@@ -39,6 +39,8 @@ function MGame:init()
 	self.backgrounds = Scene.new(10) -- the level backgrounds.
 	self.cam    = Camera()  -- a camera! 
 	self.listeners = { -- Listeners are simple, they simply sit around and wait for something to happen. If it does happen it will call a function.
+		mousepressed = {},
+		mousereleased = {},
 		keypressed = {}, -- These are events. You use this one the most.
 		keyreleased = {},
 		pretick = {},
@@ -174,6 +176,20 @@ function MGame:resize(w,h)
 	local scale, sciz = 1, self.scissor
 	scale, sciz[1], sciz[2], sciz[3], sciz[4], sciz.ox, sciz.oy = xl.calculateViewport(GAME_SIZE, w, h, 1, 16)
 	self.cam:zoomTo(scale * 2)
+end
+
+----
+-- Gamestate callback
+---
+function MGame:mousepressed()
+	self:emitEvent( "mousepressed" )
+end
+
+----
+-- Gamestate callback
+---
+function MGame:mousepressed()
+	self:emitEvent( "mousereleased" )
 end
 
 ----
