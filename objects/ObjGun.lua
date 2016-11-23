@@ -23,9 +23,6 @@ end
 
 function ObjGun:onAttack()
 	local newShot = ObjShot(self.x,self.y,self)
-	lume.trace(newShot.modules)
-	lume.trace(ObjShot.modules)
-	util.print_table(newShot.modules)
 	Game:add(newShot)
 end
 

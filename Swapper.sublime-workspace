@@ -3,94 +3,6 @@
 	{
 		"selected_items":
 		[
-			[
-				"Obja",
-				"ObjBaseUnit"
-			],
-			[
-				"ac",
-				"ActiveObj"
-			],
-			[
-				"for",
-				"fori\tfor i,v in ipairs()"
-			],
-			[
-				"proce",
-				"processJumpThru"
-			],
-			[
-				"count",
-				"count"
-			],
-			[
-				"up",
-				"up"
-			],
-			[
-				"checks",
-				"checkSide"
-			],
-			[
-				"Health",
-				"health"
-			],
-			[
-				"value",
-				"value"
-			],
-			[
-				"startX",
-				"startX"
-			],
-			[
-				"addPr",
-				"addPredefRoom"
-			],
-			[
-				"lig",
-				"light"
-			],
-			[
-				"fx",
-				"fx"
-			],
-			[
-				"fo",
-				"forp\tfor k,v in pairs()"
-			],
-			[
-				"b",
-				"boundMovie"
-			],
-			[
-				"p",
-				"properties"
-			],
-			[
-				"x",
-				"x"
-			],
-			[
-				"platf",
-				"platformWidth"
-			],
-			[
-				"or",
-				"orange_building"
-			],
-			[
-				"exit",
-				"exit"
-			],
-			[
-				"plat",
-				"platformWidth"
-			],
-			[
-				"pla",
-				"platformWidth"
-			]
 		]
 	},
 	"buffers":
@@ -101,6 +13,76 @@
 			{
 				"buffer_size": 453,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		}
@@ -137,134 +119,6 @@
 	},
 	"file_history":
 	[
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjTest.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModActive.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjWeapon.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjAttackHitbox.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ObjTest.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModDrawable.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModActive.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ObjUnit.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ObjChar.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ObjBaseUnit.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ObjAttackHitbox.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModHitboxMaker.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ObjWeapon.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModEquippable.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModInteractive.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModWooden.lua",
-		"/C/Users/LuoLei Zhao/leetlib/assets/spr/scripts/PceWheel.lua",
-		"/C/Users/LuoLei Zhao/leetlib/assets/spr/scripts/PceBody.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModPartEmitter.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModInventory.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModControllable.lua",
-		"/C/Users/LuoLei Zhao/leetlib/SettingManager.lua",
-		"/C/Users/LuoLei Zhao/leetlib/ObjBase.lua",
-		"/C/Users/LuoLei Zhao/leetlib/libs/Global.lua",
-		"/C/Users/LuoLei Zhao/leetlib/ModBase.lua",
-		"/C/Users/LuoLei Zhao/leetlib/Error",
-		"/C/Users/LuoLei Zhao/leetlib/xl/Inventory.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModPhysics.lua",
-		"/C/Users/LuoLei Zhao/leetlib/assets/spr/scripts/SprKnife.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModCheckView.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModEscapeFromHitstun.lua",
-		"/C/Users/LuoLei Zhao/leetlib/assets/spr/scripts/SprBox.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ObjBox.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ObjCrate.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModDash.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModHasHUD.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModInventoryControl.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ModExperimental.lua",
-		"/C/Users/LuoLei Zhao/leetlib/MGame.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ModShield.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ModDash.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ModuleBase.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ModToggleClip.lua",
-		"/C/Users/LuoLei Zhao/leetlib/xl/Keymap.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ModuleTest.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/Drawable.lua",
-		"/C/Users/LuoLei Zhao/leetlib/libs/sti.lua",
-		"/C/Users/LuoLei Zhao/leetlib/state/DebugMenu.lua",
-		"/C/Users/LuoLei Zhao/leetlib/assets/spr/scripts/AneBody.lua",
-		"/C/Users/LuoLei Zhao/leetlib/assets/spr/scripts/AneWheel.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ModLight.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ModHitboxMaker.lua",
-		"/C/Users/LuoLei Zhao/leetlib/state/MainMenu.lua",
-		"/C/Users/LuoLei Zhao/leetlib/hump/camera.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ObjDebugCamera.lua",
-		"/C/Users/LuoLei Zhao/leetlib/hump/gamestate.lua",
-		"/C/Users/LuoLei Zhao/leetlib/assets/rooms/initial_room.lua",
-		"/C/Users/LuoLei Zhao/leetlib/modules/ActiveObj.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/ActiveObj.lua",
-		"/C/Users/LuoLei Zhao/leetlib/objects/Drawable.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/state/MainMenu.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/MGame.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/hump/class.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/ObjUnit.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/assets/spr/scripts/PceAneBodySm.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/assets/spr/scripts/PceLegsSm.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/ObjIntLevelChanger.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/ObjWorldManager.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/Room.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/WorldGen.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/conf.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/mixin/Jumper.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/SettingManager.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/startup.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/extra.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/npcs/Relationships.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/mixin/CSUtils.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/hump/gamestate.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/lvl/ObjChestCoin.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/lvl/ObjChest.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/util.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/npcs/test_npc.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/shots/SHHope.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/ObjDialogSequence.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/mixin/DialogActive.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/mixin/ClickText.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/mixin/Shop.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/eqp/EqpBottle.lua",
-		"/C/Users/LuoLei Zhao/Documents/NU2016/Fall2016/IEMS/t-table.pdf",
-		"/C/Users/defaultuser0/omegalib/master/modules/firefly/firefly.py",
-		"/C/Users/defaultuser0/omegalib/master/modules/python/Lib/site-packages/numpy/core/__init__.py",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/npcs/test_npc2.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/state/Dialog2.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/RoomGen.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/StCornerHV.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/STCornerVH.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/StVert.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/structs/VtStairway.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/structs/VtDrops.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/structs/VtJumps.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/structs/VtPlatforms.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/structs/VtJumpsSolid.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/ExTop.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/StCross.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/StStop.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/StHoriz.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/worlds/WRHetairoi.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/enLists/fadeCombinations.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/lvl/ObjAnchor.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/substructs/SSGroundLight.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/Structure.lua",
-		"/C/Users/LuoLei Zhao/AppData/Local/Temp/scp00871/fastdata/home/lzhao/cami/apps/modelViewer.py",
-		"/C/Users/LuoLei Zhao/AppData/Local/Temp/scp00654/fastdata/home/lzhao/cami/apps/modelViewer.html",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/ObjChar.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/worlds/Hetairoi_StartingRoom.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/ObjNPC.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/xl/SpritePiece.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/ObjWall.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/StStairs.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/StCeil.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/substructs/SSHangingLight.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/npcs/Relationship.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/roomgen/themes/THHetairoi.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/anim8.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/objects/ObjLight.lua",
-		"/C/Users/LuoLei Zhao/IrrelevantGame/xl/Scene.lua",
-		"/C/Users/defaultuser0/omegalib/master/modules/firefly/loader_readsnap.py",
-		"/C/Users/defaultuser0/omegalib/master/modules/firefly/readsnap.py"
 	],
 	"find":
 	{
@@ -285,134 +139,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"objunit:specialstate",
-			"specialState",
-			"ObjUnit",
-			"oncollide",
-			"setHealth",
-			"v.count",
-			"specialState",
-			"addToInv",
-			"proccessInventory",
-			"passive",
-			"setSpecialState",
-			"useStand",
-			"addToInv",
-			"addSpritePiece",
-			"activateSpritepiece",
-			"addspritePiece",
-			"setPrimary",
-			"proccessInventory",
-			"setPrimary",
-			"primary",
-			"addToinv",
-			"proccessInventory",
-			"use",
-			"setPrimary",
-			"ObjTest",
-			"addToAttackList",
-			"checkRange",
-			"wrap",
-			"checkRange",
-			"velY",
-			"velX",
-			"attackList",
-			"destroyed",
-			"self.dir",
-			"xModifier",
-			"refr",
-			"refreshSpeed",
-			"yRange",
-			"xRange",
-			"mUseLight",
-			"refreshSpeed",
-			"ObjInteractive",
-			"checkRange",
-			"wrapCheckRange",
-			"ModEquippable",
-			"keymap",
-			"ObjInteractive",
-			"ObjAttackhitbox",
-			"ObjintHitbox",
-			"fxexplosion",
-			"FxExplosion",
-			"ObjEquippable",
-			"ObjInteractive",
-			"FXSparkle",
-			"destroy",
-			"setSprPos",
-			"addSpritePiece",
-			"setSprPos",
-			"changeAnimation",
-			"-",
-			"setOrigin",
-			"setSprPos",
-			"height",
-			"charHeight",
-			"- 8",
-			"self.height",
-			"charheight",
-			"self.x",
-			"+ 16",
-			"scale",
-			"ModBase",
-			"onCollide",
-			"destroy",
-			"updateSprites",
-			"self.state",
-			"oncollide",
-			"onCollide",
-			"jump",
-			"currentJumpTime",
-			"applyForce",
-			"setLinearvelocity",
-			"checkGround",
-			"self.advancedSprites",
-			"Objunit",
-			"normalState",
-			"ObjTest",
-			"canBeDeflected",
-			"attachPositions",
-			"SomeOtherObj",
-			"ObjBaseUnit",
-			"ModuleExperimental",
-			"abs",
-			"ObjChar",
-			"inventory",
-			"InventoryMenu",
-			"gameState",
-			"Lights",
-			"Modinventory",
-			"ObjChar",
-			"keyItemList",
-			"Inventory",
-			"deathShade",
-			"ObjChar",
-			"TextInterface",
-			"keymap",
-			"KeyMap",
-			"ObjChar",
-			"normalMove",
-			"mod",
-			"lume.",
-			"Experimental",
-			"ModuleTest",
-			"ModuleBase",
-			"ModuleTest",
-			"self:control",
-			"ObjUnit",
-			"controlDash",
-			"invincibleTime",
-			"ModToggleClip",
-			"ObjChar",
-			"isDown",
-			"shielddelay",
-			"ObjUnit",
-			"shield",
-			"override",
-			"hitstate",
-			"sethitState",
-			"ModHitboxMaker"
+			"normalMove"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -420,134 +147,7 @@
 		"regex": false,
 		"replace_history":
 		[
-			"ModActive",
-			"ObjWeapon",
-			"ModCheckView",
-			"ModEquippable",
-			"ModInteractive",
-			"ObjBase",
-			"ModActive",
-			"ObjBox",
-			"ObjTest",
-			"SomeOtherObj",
-			"ModBase",
-			"ModInventoryControl",
-			"ModControllable",
-			"ModInventory",
-			"ModEscapeFromHitstun",
-			"ModControllable",
-			"ModuleBase",
-			"ModuleExperimental",
-			"ModuleBase",
-			"--self:control",
-			"ModActive",
-			"ModDash",
-			"ModShield",
-			"ModHitbox",
-			"ModLight",
-			"updateHealth",
-			"ModInventory",
-			"ModDrawable",
-			"ModPhysics",
-			"ModActive",
-			"BodyObj",
-			"ObjBaseUnit",
-			"speedModifier",
-			"Relationship",
-			"Memory",
-			"SSHangingLight",
-			"buyer",
-			"Shop",
-			"self.speaker",
-			"ObjDialogSequence",
-			"dark_building",
-			"orange_building",
-			"yellow_building",
-			"red_building",
-			"SSVending",
-			"EqpStaff",
-			"",
-			"}}}",
-			"self:useStand(player,frame",
-			"EqpBlade",
-			"EIWeapon",
-			"DialogActive",
-			"DialogOverlap",
-			"EqpThrowKnife",
-			".__package = \"eqp\"",
-			"eqp.",
-			"self",
-			"ObjVending",
-			"Hetairoi_SavePoint",
-			"HtSavePoint",
-			"centY",
-			"centX",
-			"StPredef",
-			"RoomGenPredef",
-			"self:setOverlay",
-			"self.isActive",
-			"ObjAnchor",
-			"EqpTest",
-			"EqpHealthLarge",
-			"EqpHealthSmall",
-			"",
-			"EqpGrenade",
-			"self.invSlot",
-			"self.isPrimary",
-			"ObjVending",
-			"ObjReal",
-			"SSChest",
-			"EILoS",
-			"self.isOpen",
-			"ObjOldChest",
-			"ObjCoinGold",
-			"ObjCoinSilver",
-			"CoinSilver",
-			"ObjCoin",
-			"setEquip(nil,false,true",
-			"EqpBottle",
-			"SSLightHanging",
-			"throw_r",
-			"player.currentTarget",
-			"self.currentTarget",
-			"SHDagger",
-			"EqpDagger",
-			"\"hit\"",
-			"EqpStaff",
-			"EnFade",
-			"EqpBottle",
-			"EqpHook",
-			"self.attachPositions",
-			"EqpMace",
-			"self.links",
-			"SpwnLeak",
-			"tick",
-			"EOFall",
-			"EOGrass",
-			"moveToPoint",
-			"dir",
-			"moveToPoint",
-			"RefreshTime",
-			"self.dir",
-			"EILoS",
-			"EILos",
-			"objects.eqp",
-			"objects.",
-			"objects.eqp.ObjEquippable",
-			"ObjChainLight",
-			"ObjGoldChain",
-			"ObjChainLink",
-			"SSLightSide",
-			"ObjChainLink",
-			"ObjChain",
-			"SSBottom",
-			"SSBand",
-			"SSLowFence",
-			"SSFence",
-			"Theme",
-			"EnTrace",
-			"VtJumpsSolid",
-			"VtJumps"
+			"ObjTorch"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -558,7 +158,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -574,8 +174,92 @@
 						"selection":
 						[
 							[
-								453,
-								453
+								437,
+								437
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -588,6 +272,202 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -626,14 +506,14 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 130.0
+		"height": 302.0
 	},
 	"output.find_results":
 	{
 		"height": 0.0
 	},
 	"pinned_build_system": "Love",
-	"project": "LeetLib.sublime-project",
+	"project": "Swapper.sublime-project",
 	"replace":
 	{
 		"height": 94.0
@@ -646,516 +526,8 @@
 		"selected_items":
 		[
 			[
-				"modac",
-				"modules\\ModActive.lua"
-			],
-			[
-				"objweapo",
-				"objects\\ObjWeapon.lua"
-			],
-			[
-				"moda",
-				"modules\\ModActive.lua"
-			],
-			[
-				"objtest",
-				"objects\\ObjTest.lua"
-			],
-			[
 				"objattack",
 				"objects\\ObjAttackHitbox.lua"
-			],
-			[
-				"objun",
-				"objects\\ObjUnit.lua"
-			],
-			[
-				"modacti",
-				"modules\\ModActive.lua"
-			],
-			[
-				"modequip",
-				"modules\\ModEquippable.lua"
-			],
-			[
-				"objweapon",
-				"objects\\ObjWeapon.lua"
-			],
-			[
-				"hitboxm",
-				"modules\\ModHitboxMaker.lua"
-			],
-			[
-				"objwe",
-				"objects\\ObjWeapon.lua"
-			],
-			[
-				"objch",
-				"objects\\ObjChar.lua"
-			],
-			[
-				"objw",
-				"objects\\ObjWeapon.lua"
-			],
-			[
-				"hitbox",
-				"modules\\ModHitboxMaker.lua"
-			],
-			[
-				"modequi",
-				"modules\\ModEquippable.lua"
-			],
-			[
-				"objattackhit",
-				"objects\\ObjAttackHitbox.lua"
-			],
-			[
-				"objbaseunit",
-				"objects\\ObjBaseUnit.lua"
-			],
-			[
-				"modinter",
-				"modules\\ModInteractive.lua"
-			],
-			[
-				"setting",
-				"SettingManager.lua"
-			],
-			[
-				"modcontro",
-				"modules\\ModControllable.lua"
-			],
-			[
-				"global",
-				"libs\\Global.lua"
-			],
-			[
-				"modpartemi",
-				"modules\\ModPartEmitter.lua"
-			],
-			[
-				"modactive",
-				"modules\\ModActive.lua"
-			],
-			[
-				"modactiv",
-				"modules\\ModActive.lua"
-			],
-			[
-				"modwoodn",
-				"modules\\ModWooden.lua"
-			],
-			[
-				"modinventory",
-				"modules\\ModInventory.lua"
-			],
-			[
-				"objchar",
-				"objects\\ObjChar.lua"
-			],
-			[
-				"pcewheel",
-				"assets\\spr\\scripts\\PceWheel.lua"
-			],
-			[
-				"modbase",
-				"ModBase.lua"
-			],
-			[
-				"moddraw",
-				"modules\\ModDrawable.lua"
-			],
-			[
-				"pceweh",
-				"assets\\spr\\scripts\\PceWheel.lua"
-			],
-			[
-				"pcebody",
-				"assets\\spr\\scripts\\PceBody.lua"
-			],
-			[
-				"modcontr",
-				"modules\\ModControllable.lua"
-			],
-			[
-				"modintera",
-				"modules\\ModInteractive.lua"
-			],
-			[
-				"modequippable",
-				"modules\\ModEquippable.lua"
-			],
-			[
-				"modinv",
-				"modules\\ModInventory.lua"
-			],
-			[
-				"modeqi",
-				"modules\\ModEquippable.lua"
-			],
-			[
-				"sprknife",
-				"assets\\spr\\scripts\\SprKnife.lua"
-			],
-			[
-				"drawable",
-				"modules\\ModDrawable.lua"
-			],
-			[
-				"modph",
-				"modules\\ModPhysics.lua"
-			],
-			[
-				"objcahr",
-				"objects\\ObjChar.lua"
-			],
-			[
-				"inven",
-				"xl\\Inventory.lua"
-			],
-			[
-				"modhitboxmaker",
-				"modules\\ModHitboxMaker.lua"
-			],
-			[
-				"sprbox",
-				"assets\\spr\\scripts\\SprBox.lua"
-			],
-			[
-				"modhitb",
-				"modules\\ModHitboxMaker.lua"
-			],
-			[
-				"interactiv",
-				"modules\\ModInteractive.lua"
-			],
-			[
-				"mod",
-				"modules\\ModActive.lua"
-			],
-			[
-				"modcont",
-				"modules\\ModControllable.lua"
-			],
-			[
-				"modbas",
-				"ModBase.lua"
-			],
-			[
-				"mode",
-				"modules\\ModEscapeFromHitstun.lua"
-			],
-			[
-				"pcewhe",
-				"assets\\spr\\scripts\\PceWheel.lua"
-			],
-			[
-				"modparte",
-				"modules\\ModPartEmitter.lua"
-			],
-			[
-				"pcewh",
-				"assets\\spr\\scripts\\PceWheel.lua"
-			],
-			[
-				"sprb",
-				"assets\\spr\\scripts\\SprBox.lua"
-			],
-			[
-				"drawa",
-				"modules\\ModDrawable.lua"
-			],
-			[
-				"box",
-				"objects\\ObjBox.lua"
-			],
-			[
-				"sprpos",
-				"assets\\spr\\scripts\\SprBox.lua"
-			],
-			[
-				"modphy",
-				"modules\\ModPhysics.lua"
-			],
-			[
-				"moddr",
-				"modules\\ModDrawable.lua"
-			],
-			[
-				"baseu",
-				"objects\\ObjBaseUnit.lua"
-			],
-			[
-				"objunit",
-				"objects\\ObjUnit.lua"
-			],
-			[
-				"drwa",
-				"modules\\ModDrawable.lua"
-			],
-			[
-				"objcrate",
-				"objects\\ObjCrate.lua"
-			],
-			[
-				"acti",
-				"modules\\ModActive.lua"
-			],
-			[
-				"drawabl",
-				"modules\\ModDrawable.lua"
-			],
-			[
-				"moddas",
-				"modules\\ModDash.lua"
-			],
-			[
-				"objbaseu",
-				"objects\\ObjBaseUnit.lua"
-			],
-			[
-				"modact",
-				"modules\\ModActive.lua"
-			],
-			[
-				"objbox",
-				"objects\\ObjBox.lua"
-			],
-			[
-				"drawab",
-				"modules\\ModDrawable.lua"
-			],
-			[
-				"physic",
-				"modules\\ModPhysics.lua"
-			],
-			[
-				"objbase",
-				"objects\\ObjBaseUnit.lua"
-			],
-			[
-				"inventoryco",
-				"modules\\ModInventoryControl.lua"
-			],
-			[
-				"modex",
-				"objects\\ModExperimental.lua"
-			],
-			[
-				"inventory",
-				"xl\\Inventory.lua"
-			],
-			[
-				"mgame",
-				"MGame.lua"
-			],
-			[
-				"objchr",
-				"objects\\ObjChar.lua"
-			],
-			[
-				"modexpi",
-				"objects\\ModExperimental.lua"
-			],
-			[
-				"modexp",
-				"objects\\ModExperimental.lua"
-			],
-			[
-				"modulet",
-				"objects\\ModuleTest.lua"
-			],
-			[
-				"moduletest",
-				"objects\\ModuleTest.lua"
-			],
-			[
-				"keymap",
-				"xl\\Keymap.lua"
-			],
-			[
-				"mga",
-				"MGame.lua"
-			],
-			[
-				"bodyob",
-				"modules\\BodyObj.lua"
-			],
-			[
-				"draw",
-				"modules\\Drawable.lua"
-			],
-			[
-				"activeo",
-				"modules\\ActiveObj.lua"
-			],
-			[
-				"sti",
-				"libs\\sti.lua"
-			],
-			[
-				"",
-				"MGame.lua"
-			],
-			[
-				"game",
-				"hump\\gamestate.lua"
-			],
-			[
-				"objdebug",
-				"objects\\ObjDebugCamera.lua"
-			],
-			[
-				"camera",
-				"hump\\camera.lua"
-			],
-			[
-				"mainmenu",
-				"state\\MainMenu.lua"
-			],
-			[
-				"objattac",
-				"objects\\ObjAttackHitbox.lua"
-			],
-			[
-				"debug",
-				"state\\DebugMenu.lua"
-			],
-			[
-				"anebod",
-				"assets\\spr\\scripts\\AneBody.lua"
-			],
-			[
-				"anewheel",
-				"assets\\spr\\scripts\\AneWheel.lua"
-			],
-			[
-				"pcebod",
-				"assets\\spr\\scripts\\PceBody.lua"
-			],
-			[
-				"active",
-				"modules\\ActiveObj.lua"
-			],
-			[
-				"modeu",
-				"objects\\ModuleTest.lua"
-			],
-			[
-				"initial_room",
-				"assets\\rooms\\initial_room.lua"
-			],
-			[
-				"pcelegs",
-				"assets\\spr\\scripts\\PceLegsSm.lua"
-			],
-			[
-				"anebody",
-				"assets\\spr\\scripts\\PceAneBodySm.lua"
-			],
-			[
-				"class",
-				"hump\\class.lua"
-			],
-			[
-				"jumper",
-				"mixin\\Jumper.lua"
-			],
-			[
-				"gamestate",
-				"hump\\gamestate.lua"
-			],
-			[
-				"settingmanager",
-				"SettingManager.lua"
-			],
-			[
-				"extra",
-				"extra.lua"
-			],
-			[
-				"startup",
-				"startup.lua"
-			],
-			[
-				"main",
-				"main.lua"
-			],
-			[
-				"room",
-				"roomgen\\Room.lua"
-			],
-			[
-				"util",
-				"util.lua"
-			],
-			[
-				"objchest",
-				"objects\\lvl\\ObjChest.lua"
-			],
-			[
-				"chest",
-				"objects\\lvl\\ObjChestCoin.lua"
-			],
-			[
-				"shop",
-				"mixin\\Shop.lua"
-			],
-			[
-				"shope",
-				"objects\\shots\\SHHope.lua"
-			],
-			[
-				"test_npc",
-				"npcs\\test_npc.lua"
-			],
-			[
-				"clicktext",
-				"mixin\\ClickText.lua"
-			],
-			[
-				"test_npc2",
-				"npcs\\test_npc2.lua"
-			],
-			[
-				"dialog",
-				"state\\Dialog2.lua"
-			],
-			[
-				"ac",
-				"mixin\\DialogActive.lua"
-			],
-			[
-				"dialogac",
-				"mixin\\DialogActive.lua"
-			],
-			[
-				"dialogse",
-				"objects\\ObjDialogSequence.lua"
-			],
-			[
-				"testnpc",
-				"npcs\\test_npc.lua"
-			],
-			[
-				"objnpc",
-				"objects\\ObjNPC.lua"
-			],
-			[
-				"vt",
-				"roomgen\\structs\\VtJumpsSolid.lua"
-			],
-			[
-				"vtplatf",
-				"roomgen\\structs\\VtPlatforms.lua"
-			],
-			[
-				"vtjumps",
-				"roomgen\\structs\\VtJumps.lua"
-			],
-			[
-				"vtdro",
-				"roomgen\\structs\\VtDrops.lua"
 			]
 		],
 		"width": 0.0

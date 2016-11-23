@@ -16,9 +16,10 @@ local ObjBase = Class.new {
 
 function ObjBase:addModule( newModule )
 	if not self.modules then self.modules = {} end
+	if not self.removableModules then self.removableModules = {} end
 	if not self.allFuncts then self.allFuncts = {} end
 	if not self.overRideFuncts then
-		self.overRideFuncts = {"create","tick","destroy"}
+		self.overRideFuncts = {"create","tick","destroy","onRemove"}
 	end
 
 	local modName = newModule.type
@@ -26,7 +27,7 @@ function ObjBase:addModule( newModule )
 	if newModule.dependencies then
 		for i,v in ipairs(newModule.dependencies) do
 			if not self:hasModule(v) then
-				lume.trace("module: ",v,"added through dependency to module: ", modName)
+				-- lume.trace("module: ",v,"added through dependency to module: ", modName)
 				local dependencyPath = "modules." .. v
 				self:addModule(require(dependencyPath))
 			end
@@ -67,6 +68,9 @@ function ObjBase:addModule( newModule )
 		self[v] = iterateFunctions
 	end
 	self.modules[modName] = true
+	if newModule.removable then
+		self.removableModules[modName] = true
+	end
 end
 
 function ObjBase:hasModule( modName )
@@ -74,16 +78,20 @@ function ObjBase:hasModule( modName )
 end
 
 function ObjBase:removeModule(modName )
-	if self.allFuncts["onRemove"][modName] then
+	if self.allFuncts["onRemove"] and self.allFuncts["onRemove"][modName] then
 		self.allFuncts["onRemove"][modName](self)
 	end
-	for i,v in ipairs(self.allFuncts) do
+	for k,v in pairs(self.allFuncts) do
 		v[modName] = nil
 	end
 end
 
 function ObjBase:getModules()
 	return self.modules
+end
+
+function ObjBase:getAllRemovableModules()
+	return self.removableModules
 end
 
 function ObjBase:trackFunction( functionName )
