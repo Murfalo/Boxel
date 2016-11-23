@@ -16,7 +16,8 @@ function ObjTest:create()
 	self:addSpritePiece(require("assets.spr.scripts.SprBox"))
 	self:addModule(require "modules.ModWooden")
 	-- lume.trace("getting removable functions")
-	-- for k,v in pairs(self:getAllRemovableModules()) do
+	util.print_table(self:getAllRemovableModules())
+	-- for k,v in pairs() do
 	-- 	self:removeModule(k)
 	-- 	lume.trace("removed module:" ,k)
 	-- end

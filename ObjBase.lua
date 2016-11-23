@@ -91,7 +91,11 @@ function ObjBase:getModules()
 end
 
 function ObjBase:getAllRemovableModules()
-	return self.removableModules
+	local newTable = {}
+	for k,v in pairs(self.removableModules) do
+		table.insert(newTable,k)
+	end
+	return newTable
 end
 
 function ObjBase:trackFunction( functionName )
