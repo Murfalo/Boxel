@@ -15,6 +15,11 @@ function ObjTest:create()
 	self:addModule(require "modules.ModDrawable")
 	self:addSpritePiece(require("assets.spr.scripts.SprBox"))
 	self:addModule(require "modules.ModWooden")
+	-- lume.trace("getting removable functions")
+	-- for k,v in pairs(self:getAllRemovableModules()) do
+	-- 	self:removeModule(k)
+	-- 	lume.trace("removed module:" ,k)
+	-- end
 	--self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
 end
 

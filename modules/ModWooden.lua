@@ -2,6 +2,7 @@ local ModWooden = Class.create("ModWooden", Entity)
 ModWooden.dependencies = {"ModPartEmitter", "ModActive","ModHitboxMaker"}
 
 ModWooden.trackFunctions = {}
+ModWooden.removable = true
 
 function ModWooden:create()
 	self:addEmitter("wood" , "assets/spr/woodchip.png")
