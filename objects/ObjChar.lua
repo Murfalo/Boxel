@@ -78,7 +78,7 @@ function ObjChar:create()
 end
 
 --
-function ObjChar:die()
+function ObjChar:onDeath()
 	self.isAlive = false
 	local function death( player, frame )
 		lume.trace(frame)
@@ -90,9 +90,9 @@ function ObjChar:die()
 			player.exit = true
 		end
 	end
-	if not self.onDeath then
+	if not self.die then
 		lume.trace("on death")
-		self.onDeath = true
+		self.die = true
 		self:setSpecialState(death,false,true)
 	end
 end

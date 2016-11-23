@@ -127,7 +127,7 @@ function ModDrawable:updateSprites()
 	end
 	self.referenceVel = 0
 	-- lume.trace(self.height)
-	self:setSprPos(self.x,self.y + 24 + (self.charHeight or self.height)/2)
+	self:setSprPos(self.x,self.y + 32)
 end
 
 function ModDrawable:orientAllSprites()
@@ -258,8 +258,6 @@ function ModDrawable:addSpritePiece( piece , d)
 	local SpritePiece = require "xl.SpritePiece"
 	d = d or self.depth or 9000
 	self.advancedSprites = true
-	util.print_table(piece)
-	lume.trace(piece.path)
 	sprite = SpritePiece(piece.path, (piece.width or 128), (piece.height or 128),0,d)
 	--sprite:setOrigin(16,16)
 	sprite:setOrigin((piece.originX or piece.width/2), (piece.originY or piece.height/2))
@@ -320,7 +318,7 @@ function ModDrawable:setSprPos( x , y )
 		end
 	end
 	if self.sprite then
-		self.sprite:setPosition(x,y)
+		self.sprite:setPosition(x,y - 16)
 	end
 end
 

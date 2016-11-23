@@ -1,6 +1,6 @@
 local ModEquippable = require "modules.ModEquippable"
 local ModWeapon = Class.create("ModWeapon", ModEquippable)
--- ModWeapon.dependencies = {"ModEquippable"}
+
 ModWeapon.trackFunctions = {"onAttack"}
 
 function ModWeapon:create()
@@ -20,15 +20,16 @@ function ModWeapon:setAnimation( animation )
 	else
 	end
 end
+
 function ModWeapon:setCanMove( canMove )
 	self.canMove = canMove
 end
+
 function ModWeapon:useStand(player,frame)
 	if self.canMove then
 		player:animate()
 		player:normalMove()
 	end
-
 	if frame == 1 and self.preAnim then
 		player:changeAnimation(self.preAnim)
 	end

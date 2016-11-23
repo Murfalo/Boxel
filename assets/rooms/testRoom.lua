@@ -8,7 +8,7 @@ return {
   height = 100,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 13,
+  nextobjectid = 14,
   properties = {},
   tilesets = {
     {
@@ -470,6 +470,19 @@ return {
           type = "ObjTest",
           shape = "rectangle",
           x = 224,
+          y = 224,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 13,
+          name = "",
+          type = "ObjEnemy",
+          shape = "rectangle",
+          x = 384,
           y = 224,
           width = 0,
           height = 0,

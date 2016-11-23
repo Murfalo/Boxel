@@ -25,7 +25,7 @@ function ObjWall:tick(dt)
 end
 
 function ObjWall:onCollide(other, collision)
-	if self.jumpThru and Class.istype(other,"ObjUnit") then
+	if self.jumpThru and other:hasModule("ObjActive") then
 		local x1, y1, x2, y2 = collision:getPositions()
 		local otherX, otherY = other.body:getPosition()
 		if x1 ~= nil and y1 ~= nil and not other.inAir and not other.jumping then

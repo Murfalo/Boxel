@@ -50,6 +50,8 @@ function ObjBase:addModule( newModule )
 			self.allFuncts[v][modName] = newModule[v]
 		end
 	end
+	Class.include(self,newModule)
+
 	if newModule.create then
 		newModule.create(self)
 	end
@@ -57,7 +59,6 @@ function ObjBase:addModule( newModule )
 		self.allFuncts["onRemove"][modName] = newModule.onRemove
 	end
 
-	Class.include(self,newModule)
 	for i,v in ipairs(self.overRideFuncts) do
 		local function iterateFunctions( self, ... )
 			for k,funct in pairs(self.allFuncts[v]) do

@@ -4,13 +4,6 @@ local Keymap  = require "xl.Keymap"
 ModControllable.dependencies = {"ModActive","ModInventory"}
 ModControllable.trackFunctions = {"normalState"}
 --calculates necessary force to make the character move in a certain direction
-function ModControllable:calcForce( dv, vel, accel, maxSpeed )
-	local f = dv * accel-- - vel
-	if math.abs( vel - self.referenceVel) >= (maxSpeed ) and dv == util.sign( vel ) then
-		f = dv * 0.000001
-	end
-	return f
-end
 
 function ModControllable:normalState()
 
@@ -109,11 +102,11 @@ function ModControllable:moveLateral(maxXSpeed, maxYSpeed, acceleration)
 	else
 		accForce = self.acceleration * self.body:getMass()
 	end
-	local dvX,xdir = 0,0
+	local dvX = 0
 	if not self.inAir then self.turnTime = nil end
 	if Keymap.isDown("left") then 
 		dvX = dvX - 1
-		if self.dir == 1 and self.velX > 0 then
+		 if self.dir == 1 and self.velX > 0 then
 			self.turnTime = 16
 		end
 		--if not self.inAir  or self.velX < 0 then
