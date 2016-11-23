@@ -1,6 +1,6 @@
 local ModActive = Class.create("ModActive", Entity)
 
-ModActive.trackFunctions = {"setHitState","normalState","hitState"}
+ModActive.trackFunctions = {"setHitState","normalState","hitState","onDeath","onHitConfirm"}
 
 function ModActive:create()
 	--default state information
@@ -51,6 +51,7 @@ function ModActive:tick( dt )
 	
 	if self.health <= 0 and not self.immortal then
 		self.isAlive = false	
+		self:onDeath()
 	elseif self.state == 3 then
 		self:hitState() 			-- self.status = "stun"
 	end
@@ -91,7 +92,9 @@ function ModActive:updateHealth()
 		self:setHealth(self.health,self.redHealth)
 	end
 end
-
+function ModActive:setFaction( factionName )
+	self.faction = factionName
+end
 
 function ModActive:setHitState(stunTime, forceX, forceY, damage, element,faction,shieldDamage,blockStun,unblockable)
 	self.prepTime = 0
@@ -283,4 +286,28 @@ function ModActive:getHealth(  )
 	return self.health
 end
 
+function ModActive:onDeath()
+	Game:del(self)
+end
+
+function ModActive:onHitConfirm(target, hitType, hitbox)
+end
+
+function ModActive:jump()
+	local velX, velY = self.body:getLinearVelocity()
+	if not self.inAir and self.jumpCooldown == 0 then
+		if self.jumpSpeed ~= 0  then
+			self.body:setLinearVelocity(velX, -self.jumpSpeed)
+		end
+		self.jumpCooldown = 15
+		self.jumping = true
+		self.isMoving = true
+	end
+	if self.jumping then
+		self.currentJumpTime = self.currentJumpTime + 1
+	end
+	if self.currentJumpTime > self.maxJumpTime then
+		self.jumping = false
+	end
+end
 return ModActive

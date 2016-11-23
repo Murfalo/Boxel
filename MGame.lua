@@ -553,6 +553,18 @@ function MGame:findObjects( ... )
 	return results
 end
 
+function MGame:findObjectsWithModule( ... )
+	local args = {...}
+	local results = {}
+	for _,entity in pairs( self.entities ) do
+		for _,ty in pairs( args ) do
+			if Class.istype( entity, "ObjBase" ) and entity:hasModule(ty) then
+				table.insert( results, entity )
+			end
+		end
+	end
+	return results
+end
 function MGame:findObjectsAt( x, y )
 	local x1,y1,x2,y2 = x, y, x + 0.1, y + 0.1
 	return self:findObjectsIn( x1, y1, x2, y2 )

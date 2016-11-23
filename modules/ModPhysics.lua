@@ -78,6 +78,14 @@ function ModPhysics:setSpeedModifier(modifier)
 	self.speedModifier = modifier
 end
 
+function ModPhysics:calcForce( dv, vel, accel, maxSpeed )
+	local f = dv * accel-- - vel
+	if math.abs( vel - self.referenceVel) >= (maxSpeed ) and dv == util.sign( vel ) then
+		f = dv * 0.000001
+	end
+	return f
+end
+
 function ModPhysics:move( dt, body, forceX, forceY, isMovingX)
 	local decForce = self.deceleration * body:getMass()
 	local velX, velY = body:getLinearVelocity()
@@ -85,7 +93,7 @@ function ModPhysics:move( dt, body, forceX, forceY, isMovingX)
 	-- Staying stable on slopes
 	if not self.noGrav and self.groundLevel and not self.jumping and (self.state ~= 3) then
 		if self.groundLevel - self.y > 2 then
-			self.body:applyForce(0, self.body:getMass() * math.max(2500,(6000 * math.abs(self.velX/self.maxXSpeed)))* dt * 60)
+			self.body:applyForce(0, self.body:getMass() * math.max(2500,(6000 * math.abs(self.velX/self.maxXSpeed))))
 		end
 	end
 	if not self.noGrav and self.jumping or self.numContacts == 0 then
@@ -135,6 +143,13 @@ function ModPhysics:move( dt, body, forceX, forceY, isMovingX)
 	if self.noGrav and self.isMoving == false then
 		forceY = velY * decForce
 	end 
+
+		if self.type == "ObjEnemy" then
+			lume.trace()
+			xl.DScreen.print("111111", "(%f)", self.slopeDir)
+			xl.DScreen.print("Njs: ", "(%f)", self.dir)
+
+		end
 
 	if isMovingX and self.dir == self.slopeDir then
 		self.body:applyForce(0, -self.body:getMass() * 480 * 60 * dt)
@@ -328,7 +343,7 @@ function ModPhysics:mCheckGround(fixture, x, y, xn, yn, fraction )
 			if fixture:isSensor() == false and category ~= CL_INT and other ~= self and mask1 ~= CL_CHAR then--and not (category == CL_PLAT and self.thruTimer > 0)  then
 					--and not Class.istype(other,"ObjChar") and other ~= self then
 				self.numContacts = self.numContacts + 1
-				if self.groundLevel and self.type == "ObjChar" then
+				if self.groundLevel then
 					local newLevel = y - (self.height/2)
 					self.slopeDir = 0
 					if self.groundLevel - newLevel < -2 then
