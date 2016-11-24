@@ -27,7 +27,7 @@ function ObjEnemy:create()
 	self:setMeleeHitbox({width = 60, height = 15,xOffset = 10, yOffset = -5, damage = 15, guardDamage = 12,
 	stun = 35, persistence = 0.15,xKnockBack = 4 * 32, yKnockBack = -3 * 32, element = "fire"})
 	self:setFrameData(8,10,10)
-	self:setAttackAnimation("slash")
+	self:setAnimation("slash")
 	self:setAttackRangeRate(50,1)
 
 	self:addSpritePiece(require("assets.spr.scripts.PceWheel"))

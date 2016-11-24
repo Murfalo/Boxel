@@ -15,8 +15,10 @@ function ObjTest:create()
 	self:addModule(require "modules.ModDrawable")
 	self:addSprite(require("assets.spr.scripts.SprBox"))
 	self:addModule(require "modules.ModWooden")
+	-- lume.trace(self.onHitConfirm)
+	self.max_health = 1000
+	self.health = self.max_health
 	-- lume.trace("getting removable functions")
-	util.print_table(self:getAllRemovableModules())
 	-- for k,v in pairs() do
 	-- 	self:removeModule(k)
 	-- 	lume.trace("removed module:" ,k)

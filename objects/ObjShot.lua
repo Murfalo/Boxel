@@ -22,12 +22,12 @@ function ObjShot:create()
 	
 	--Sprite initialization
 	self.refresh = 30 
-	self.damage = 7
+	self.damage = 20
 	self.stun = 20
 	self.range = 120
 	self.forceX = 6 * 32
 	self.forceY = -6 * 32
-	self.element = "hit"
+	self.element = "fire"
 
 	if self.creator.dir == 1 then
 		self:fireAtPoint(self.x + 128,self.y,4*32)

@@ -144,13 +144,6 @@ function ModPhysics:move( dt, body, forceX, forceY, isMovingX)
 		forceY = velY * decForce
 	end 
 
-		if self.type == "ObjEnemy" then
-			lume.trace()
-			xl.DScreen.print("111111", "(%f)", self.slopeDir)
-			xl.DScreen.print("Njs: ", "(%f)", self.dir)
-
-		end
-
 	if isMovingX and self.dir == self.slopeDir then
 		self.body:applyForce(0, -self.body:getMass() * 480 * 60 * dt)
 	end

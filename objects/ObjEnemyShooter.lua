@@ -1,7 +1,7 @@
 local ObjBaseUnit = require "objects.ObjBaseUnit"
-local ObjEnemy = Class.create("ObjEnemy", ObjBaseUnit)
+local ObjEnemyShooter = Class.create("ObjEnemyShooter", ObjBaseUnit)
 
-function ObjEnemy:init( )
+function ObjEnemyShooter:init( )
 	-- init other data
 	self.max_health = 100
 	self.health = 100
@@ -19,20 +19,19 @@ function ObjEnemy:init( )
 	self.faction = "enemy"
 end
 
-function ObjEnemy:create()
+function ObjEnemyShooter:create()
 	ObjBaseUnit.create(self)
 	lume.trace("HOhoh")
 
-	self:addModule(require "modules.ModMeleeEnemy")
-	self:setMeleeHitbox({width = 60, height = 15,xOffset = 10, yOffset = -5, damage = 15, guardDamage = 12,
-	stun = 35, persistence = 0.15,xKnockBack = 4 * 32, yKnockBack = -3 * 32, element = "fire"})
+	self:addModule(require "modules.ModProjectileEnemy")
+	self:setProjectile(require "objects.ObjShot")
 	self:setFrameData(8,10,10)
-	self:setAttackAnimation("slash")
-	self:setAttackRangeRate(50,1)
+	self:setAttackAnimation(nil)
+	self:setAttackRangeRate(150,1)
 
 	self:addSpritePiece(require("assets.spr.scripts.PceWheel"))
 	self:addSpritePiece(require("assets.spr.scripts.PceEvilBody"))
-	self:addSpritePiece(require("assets.spr.scripts.SprTorchEqp"))
+	self:addSpritePiece(require("assets.spr.scripts.SprGunEqp"))
 
 
 	self:setDepth(self.depth or 5000)
@@ -45,4 +44,4 @@ function ObjEnemy:create()
 	self.fixture:setCategory(CL_NPC)
 end
 
-return ObjEnemy
+return ObjEnemyShooter

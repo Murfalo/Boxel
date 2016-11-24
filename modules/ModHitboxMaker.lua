@@ -1,8 +1,17 @@
 local ModHitboxMaker = Class.create("ModHitboxMaker", Entity)
 local ObjAttackHitbox = require "objects.ObjAttackHitbox"
-ModHitboxMaker.trackFunctions = {"registerHit"}
+ModHitboxMaker.trackFunctions = {"onHitConfirm"}
 
-function ModHitboxMaker:createHitbox(wth, hgt, XOffset, YOffset, dmg, stn, pers, Xforce, Yforce, elem, deflect)
+function ModHitboxMaker:tick( dt )
+	if self.toCreateHitbox then
+		self:mCreateHitbox(unpack(self.toCreateHitbox))
+		self.toCreateHitbox = nil 
+	end
+end
+function ModHitboxMaker:createHitbox( ... )
+	self.toCreateHitbox = {...}
+end
+function ModHitboxMaker:mCreateHitbox(wth, hgt, XOffset, YOffset, dmg, stn, pers, Xforce, Yforce, elem, deflect)
 	local myWidth = wth
 	local guardDamage
 	local guardStun
@@ -28,6 +37,11 @@ function ModHitboxMaker:createHitbox(wth, hgt, XOffset, YOffset, dmg, stn, pers,
 		light = wth["isLight"] or false
 		heavy = wth["heavy"] or false
 		faction = wth["faction"] or self.faction
+
+		if wth["radius"] then
+			myWidth = wth["radius"]
+			hgt = nil
+		end
 		-- lume.trace(guardDamage)
 	end
 	local x = self.x + (XOffset * self.dir)
@@ -45,7 +59,8 @@ function ModHitboxMaker:createHitbox(wth, hgt, XOffset, YOffset, dmg, stn, pers,
 	return ObjAttackHitbox
 end
 
-function ModHitboxMaker:registerHit(target, hitType, hitbox) end
+function ModHitboxMaker:onHitConfirm(target, hitType, hitbox) 
+end
 
 function ModHitboxMaker:addToAttackList( prob,conditionCheck,funct,properties)
 	local newList = {}

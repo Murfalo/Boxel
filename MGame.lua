@@ -61,6 +61,7 @@ function MGame:init()
 	self.wrapPostSolve = lume.fn(self.postSolve, self)
 	self.wrapOnContactBegin = lume.fn(self.onContactBegin, self)
 	self.wrapOnContactEnd   = lume.fn(self.onContactEnd, self)
+	self.round =1
 
 	self:resize( love.graphics.getDimensions() )
 
