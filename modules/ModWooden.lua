@@ -15,7 +15,9 @@ function ModWooden:create()
 
 	self:addEmitter("fire" , "assets/spr/fire.png")
 	self:setRandomDirection("fire" , 3 * 32)
-
+	self:setRandRotation("fire",32,0,1)
+	local fire = self.psystems["fire"]
+	fire:setParticleLifetime(1, 2);
 	self:setAreaSpread("fire","normal",8,8)
 	self.fireTime = 90
 	self:setFade("fire")
@@ -31,8 +33,8 @@ function ModWooden:setHitState(stunTime, forceX, forceY, damage, element,faction
 
 			if frame % 16 == 0 then
 				self.health = self.health - 4
-				self:createHitbox({width = 60, height = 15,xOffset = 10, yOffset = -5, damage = 15, guardDamage = 12,
-					stun = 35, persistence = 8,xKnockBack = 4 * 32, yKnockBack = -3 * 32, element = "fire"})
+				self:createHitbox({width = 48, height = 48,xOffset = 0, yOffset = 0, damage = 15, guardDamage = 12,
+					stun = 35, persistence = 0.15,xKnockBack = 4 * 32, yKnockBack = -3 * 32, element = "fire"})
 				self:emit("fire", 2)
 			end
 			

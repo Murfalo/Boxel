@@ -1,6 +1,6 @@
 local ModActive = Class.create("ModActive", Entity)
 
-ModActive.trackFunctions = {"setHitState","normalState","hitState","onDeath","onHitConfirm"}
+ModActive.trackFunctions = {"setHitState","normalState","hitState","onDeath","onHitConfirm","onKill"}
 
 function ModActive:create()
 	--default state information
@@ -24,6 +24,7 @@ function ModActive:create()
 	self.health = self.health or self.max_health
 	self.redHealth = self.health
 	self.redHealthDelay = 0
+	self.killCount = 0
 end
 
 function ModActive:destroy()
@@ -291,8 +292,15 @@ function ModActive:onDeath()
 end
 
 function ModActive:onHitConfirm(target, hitType, hitbox)
+	lume.trace()
+	if target.destroyed or target.health <= 0 then
+		self:onKill(target,hitType,hitbox)
+	end
 end
 
+function ModActive:onKill( target,hitType,hitbox )
+	self.killCount = self.killCount + 1
+end
 function ModActive:jump()
 	local velX, velY = self.body:getLinearVelocity()
 	if not self.inAir and self.jumpCooldown == 0 then

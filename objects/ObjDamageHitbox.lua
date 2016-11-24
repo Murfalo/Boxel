@@ -35,6 +35,7 @@ end
 function ObjDamageHitbox:tick(dt)
 	self.x, self.y = self.body:getPosition()
 	if self.attacker and not self.attacker.destroyed then
+		self.forceX = self.forceX * self.attacker.dir
 		local posX, posY = self.attacker.body:getPosition()
 		self:setPosition(posX,posY)
 		self:setAngle(self.attacker.body:getAngle())

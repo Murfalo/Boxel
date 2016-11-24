@@ -113,6 +113,7 @@ function ModProjectile:onCollide(other, collision)
 			self.pinned = true
 		end
 	end
+	
 end
 
 function ModProjectile:onPin()
@@ -127,7 +128,10 @@ end
 
 function ModProjectile:onHitWall() end
 
-function ModProjectile:registerHit() end
+function ModProjectile:onHitConfirm(target, hitType, hitbox)
+	self.range = 0
+	self.creator:onHitConfirm(target,hitType,hitbox)
+end
 
 
 function ModProjectile:setDeflectState(stunTime, forceX, forceY, damage, element,faction)

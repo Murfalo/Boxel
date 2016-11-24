@@ -8,7 +8,7 @@ return {
   height = 100,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 14,
+  nextobjectid = 16,
   properties = {},
   tilesets = {
     {
@@ -478,14 +478,27 @@ return {
           properties = {}
         },
         {
-          id = 13,
+          id = 14,
           name = "",
-          type = "ObjEnemy",
+          type = "ObjBomb",
           shape = "rectangle",
           x = 384,
-          y = 224,
+          y = 192,
           width = 0,
           height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 15,
+          name = "",
+          type = "ObjSpawnZone",
+          shape = "rectangle",
+          x = 704,
+          y = 64,
+          width = 32,
+          height = 32,
           rotation = 0,
           visible = true,
           properties = {}

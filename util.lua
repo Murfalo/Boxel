@@ -170,6 +170,7 @@ function util.concat(t1,t2)
     end
     return t1
 end
+
 ----
 -- Changes the transient parts of an object. When called with no parameters
 -- this function makes the object itself transient. When called with
