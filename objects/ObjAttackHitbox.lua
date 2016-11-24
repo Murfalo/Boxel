@@ -166,7 +166,7 @@ function ObjAttackHitbox:onCollide(other, collision)
 				end
 				-- lume.trace(self.guardDamage)
 				local hitType = other:setHitState(self.stun,self.forceX,self.forceY,self.damage, self.element,self.faction,self.guardDamage,self.guardStun,self.isUnblockable)
-				if hitType then
+				if util.hasValue(hitType,"hit") then
 					-- table.insert(self.objectsHit, other)
 					self.objectsHit[other] = 1
 					self.refresh = 0
@@ -174,10 +174,12 @@ function ObjAttackHitbox:onCollide(other, collision)
 					local posY2 = other.y
 					local x = (self.x + posX2)/2
 					local y = (self.y + posY2)/2
-					if not self.attacker.registerHit then
+					if not self.attacker.onHitConfirm then
 						error("attacker: ", self.attacker.type, "cannot register hit")
 					end
-					self.attacker:registerHit(other, hitType, self)
+					if not self.attacker.destroyed then
+						self.attacker:onHitConfirm(other, hitType, self)
+					end
 				end
 			end
 		end
