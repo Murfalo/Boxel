@@ -1268,7 +1268,7 @@ function ObjUnit:mCheckJumpThru(fixture, x, y, xn, yn, fraction )
 end
 ---------------------------AI Tests----------------------------
 
-function ObjUnit:registerHit(target, hitType, hitbox)
+function ObjUnit:onHitConfirm(target, hitType, hitbox)
 	-- lume.trace(target.type)
 	-- lume.trace(target.health)
 	-- lume.trace(target.max_health)

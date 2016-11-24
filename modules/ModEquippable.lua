@@ -1,8 +1,8 @@
 local Keymap  = require "xl.Keymap"
 local ModEquippable = Class.create("ModEquippable", Entity)
--- local FXExplosion = require "objects.fx.FXExplosion"
 
 ModEquippable.dependencies = {"ModInteractive","ModPhysics","ModDrawable"}
+ModEquippable.trackFunctions = {"onHitConfirm"}
 
 function ModEquippable:create()
 	-- physics initialization
@@ -274,9 +274,9 @@ function ModEquippable:setLightActive( active )
 	end
 end
 
-function ModEquippable:registerHit(target, hitType, hitbox)
+function ModEquippable:onHitConfirm(target, hitType, hitbox)
 	if self.user then
-		self.user:registerHit(target,hitType,hitbox)
+		self.user:onHitConfirm(target,hitType,hitbox)
 	end
 end
 

@@ -6,7 +6,7 @@ function ObjTest:create()
 
 
 	self:createBody( "dynamic" ,false, true)
-	self.shape = love.physics.newRectangleShape(16,16)
+	self.shape = love.physics.newCircleShape(16,16)
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 	self:setFixture(self.shape, 22.6)
 	self.health = 100

@@ -36,6 +36,7 @@ function ObjBase:addModule( newModule )
 
 	if newModule.trackFunctions then
 		for i,v in ipairs(newModule.trackFunctions) do
+			
 			if not self.allFuncts[v] then
 				self:trackFunction(v)
 			end
@@ -61,9 +62,14 @@ function ObjBase:addModule( newModule )
 
 	for i,v in ipairs(self.overRideFuncts) do
 		local function iterateFunctions( self, ... )
+			local returnVals = {}
 			for k,funct in pairs(self.allFuncts[v]) do
-				funct(self,...)
+				local ret = funct(self,...)
+				if ret then
+					table.insert(returnVals,ret)
+				end
 			end
+			return returnVals
 		end
 		--local funct = lume.fn(iterateFunctions, self)
 		self[v] = iterateFunctions

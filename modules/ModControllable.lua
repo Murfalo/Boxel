@@ -1,5 +1,6 @@
 local ModControllable = Class.create("ModControllable", Entity)
 local Keymap  = require "xl.Keymap"
+local TimedText = require "objects.TimedText"
 
 ModControllable.dependencies = {"ModActive","ModInventory"}
 ModControllable.trackFunctions = {"normalState"}
@@ -184,4 +185,25 @@ function ModControllable:drawJumpFX( amount )
 	-- end
 end
 
+function ModControllable:onKill(target, hitType, hitbox)
+	local Advanced = true
+	lume.trace(self.killCount)
+	if self.killCount == 1 then
+		Game.round = 2
+	elseif self.killCount == 5 then
+		Game.round = 3
+	elseif self.killCount == 10 then
+		Game.round = 4
+	elseif self.killCount == 20 then
+		Game.round = 5
+	else 
+		Advanced = false
+	end
+	if Advanced then
+		lume.trace(self.killCount)
+		local newText = TimedText("Round Advanced", nil, nil, false)
+		Game:add(newText)
+		newText:setPosition(self.x,self.y)
+	end
+end
 return ModControllable
