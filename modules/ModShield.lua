@@ -17,7 +17,7 @@ function ModShield:tick( dt )
 end
 
 
-function ModShield:setHitState(stunTime, forceX, forceY, damage, element,faction,shieldDamage,blockStun,unblockable)
+function ModShield:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
 	self.prepTime = 0
 	if faction and self.faction and faction == self.faction then
 		return false

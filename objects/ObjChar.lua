@@ -12,8 +12,8 @@ function ObjChar:init( )
 	self.inventory = Inventory(3,3)
 
 	-- init other data
-	self.max_health = 100
-	self.health = 100
+	self.max_health = 500
+	self.health = 500
 
 	--initialize movement data
 	self.maxJumpTime = 300

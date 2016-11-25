@@ -198,7 +198,7 @@ end
 ---------------------State information---------------
 function ObjUnit:normalState()		end
 
-function ObjUnit:setHitState(stunTime, forceX, forceY, damage, element,faction,shieldDamage,blockStun,unblockable)
+function ObjUnit:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
 	self.prepTime = 0
 	if faction and self.faction and faction == self.faction then
 		return false
