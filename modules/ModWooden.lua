@@ -24,7 +24,7 @@ function ModWooden:create()
 
 end
 
-function ModWooden:setHitState(stunTime, forceX, forceY, damage, element,faction,shieldDamage,blockStun,unblockable)
+function ModWooden:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
 	if element == "fire" then
 		local function onFire(player,extraInfo)
 			if not extraInfo.frame then extraInfo.frame = 0 end

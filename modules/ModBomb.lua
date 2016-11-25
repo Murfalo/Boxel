@@ -20,7 +20,7 @@ end
 function ModBomb:tick( dt )
 	self.bombCoolDown = self.bombCoolDown - dt
 end
-function ModBomb:setHitState(stunTime, forceX, forceY, damage, element,faction,shieldDamage,blockStun,unblockable)
+function ModBomb:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
 	if element == "fire" and self.bombCoolDown <= 0 then
 		self.bombCoolDown = 2.0
 		self:onAttack()
@@ -28,7 +28,6 @@ function ModBomb:setHitState(stunTime, forceX, forceY, damage, element,faction,s
 end
 
 function ModBomb:onAttack()
-	lume.trace()
 	self:createHitbox({radius = 48,xOffset = 0, yOffset = 0, damage = 40, guardDamage = 12,
 	stun = 35, persistence = 0.35,xKnockBack = 3 * 32, yKnockBack = -8 * 32, element = "fire"})
 	self:setHitState(2, 0, -8 * 32, 40, "fire",nil,40)

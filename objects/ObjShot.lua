@@ -1,15 +1,15 @@
 local ObjBase = require "ObjBase"
 local ObjShot = Class.create("ObjShot", ObjBase)
 
-function ObjShot:init( x,y,creator )
+function ObjShot:init( x,y,attacker )
 	self.x = x
 	self.y = y
-	self.creator = creator
+	self.attacker = attacker
 end
 
 function ObjShot:create()
 	self:addModule( require "modules.ModProjectile")
-	self:setFaction(self.creator.faction)
+	self:setFaction(self.attacker.faction)
 
 	self:createBody("dynamic", true, true)
 	self:setNoGrav(true)
@@ -29,7 +29,7 @@ function ObjShot:create()
 	self.forceY = -6 * 32
 	self.element = "fire"
 
-	if self.creator.dir == 1 then
+	if self.attacker.dir == 1 then
 		self:fireAtPoint(self.x + 128,self.y,4*32)
 	else
 		self:fireAtPoint(self.x - 128,self.y,4*32)

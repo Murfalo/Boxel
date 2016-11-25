@@ -1,5 +1,4 @@
-local ObjBase = require "ObjBase"
-local TimedText = Class.create("TimedText", ObjBase)
+local TimedText = Class.create("TimedText", Entity)
 local TextBox = require "xl.TextBox"
 local Text = require "xl.Text"
 local Scene = require "xl.Scene"

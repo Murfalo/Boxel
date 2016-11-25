@@ -1,7 +1,7 @@
 local ModEnemy = Class.create("ModEnemy", Entity)
 ModEnemy.dependencies = {"ModActive"}
 
-ModEnemy.trackFunctions = {"onAttack"}
+ModEnemy.trackFunctions = {"onAttack","onAttackStart"}
 
 function ModEnemy:create( )
 	self.aggressive = false
@@ -68,16 +68,20 @@ end
 function ModEnemy:tryAttack()
 	local dist = self:getDistanceToPoint(self.target.x,self.target.y)
 	if dist <= self.attackRange and self.timeSinceLastAttack > self.attackRate then
-		self:onAttack()
+		self:onAttackStart()
 	end
 end
 
+function ModEnemy:onAttack() end
+
 function ModEnemy:findTarget()
+	if self.x == 0 and self.y == 0 then return end
 	local found = false
 	local actList = Game:findObjectsWithModule("ModActive")
 	local minDist = 9999999
 	for i,v in ipairs(actList) do
 		if not self.faction or not v.faction or (v.faction and v.faction ~= self.faction) then
+			lume.trace(self.x,self.y)
 			local dist = self:getDistanceToPoint(v.x,v.y) 
 			if dist < minDist then
 				minDist = dist
@@ -173,9 +177,9 @@ function ModEnemy:setSelfCanMove( canMove )
 	self.canMove = canMove
 end
 
-function ModEnemy:onAttack()
+function ModEnemy:onAttackStart()
 	self.timeSinceLastAttack = 0
-	local function MeleeAttack( player, frame )
+	local function attackAnimation( player, frame )
 		if self.canMove then
 			player:animate()
 			player:normalMove()
@@ -188,12 +192,12 @@ function ModEnemy:onAttack()
 			player:changeAnimation(self.recoveryAnim)
 		end
 		if frame == self.activeFrame then
-			self:onMelee()
+			self:onAttack()
 		elseif frame >= self.recovery then
 			player.exit = true
 		end
 	end
-	self:setSpecialState(MeleeAttack)
+	self:setSpecialState(attackAnimation)
 end
 
 return ModEnemy
