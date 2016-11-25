@@ -7,7 +7,7 @@ function ModProjectile:create()
 	self.referenceVel = 0
 	self.angle = 0
 	self.objectsHit = {}
-	self.dir = self.creator.dir
+	self.dir = self.attacker.dir
 end
 
 function ModProjectile:fireAtPoint( pointX,pointY,speed )
@@ -25,7 +25,21 @@ function ModProjectile:setFaction( faction )
 	self.faction = faction
 end
 
+
+function ModProjectile:addTickFunction( funct )
+	table.insert(self.tickFuncts,funct)
+end
+
+function ModProjectile:addDestroyFunction( funct )
+	table.insert(self.destroyFuncts,funct)
+end
+
+function ModProjectile:addOnHitFunction( funct )
+	table.insert(self.hitFuncts,funct)
+end
+
 function ModProjectile:tick( dt )
+
 	if not self.syncHitboxes then
 		self.syncHitboxes = true
 		self.hb = ObjDamageHitbox(self, self.damage, self.stun, self.refresh, self.forceX, self.forceY, self.element, self.ignoreType)
@@ -47,6 +61,7 @@ function ModProjectile:tick( dt )
 		self:onPin()
 		self.stopOnPin = nil
 	end
+
 	if self.range then
 		self.range = self.range - 1
 		if self.range <= 0 then
@@ -65,7 +80,13 @@ function ModProjectile:deflectState()
 	end
 end
 
-function ModProjectile:normalState() end
+function ModProjectile:normalState() 
+	if self.tickFuncts then
+		for i,v in ipairs(self.tickFuncts) do
+			v(self)
+		end
+	end
+end
 
 function ModProjectile:moveToPoint(destinationX, destinationY, proximity, velocity)
 	local distance = math.sqrt(((destinationX - self.x) * (destinationX - self.x)) +
@@ -80,10 +101,10 @@ function ModProjectile:moveToPoint(destinationX, destinationY, proximity, veloci
 	end
 end
 
-function ModProjectile:setHitState(stunTime, forceX, forceY, damage, element,faction)
+function ModProjectile:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
 	local st = stunTime or 0
 	local dm = damage or 0
-	local x, y = self.creator.body:getPosition()
+	local x, y = self.attacker.body:getPosition()
 	if faction and self.faction and self.faction == faction then
 		return false
 	else
@@ -130,7 +151,12 @@ function ModProjectile:onHitWall() end
 
 function ModProjectile:onHitConfirm(target, hitType, hitbox)
 	self.range = 0
-	self.creator:onHitConfirm(target,hitType,hitbox)
+	self.attacker:onHitConfirm(target,hitType,hitbox)
+	if self.hitFuncts then
+		for i,v in ipairs(self.hitFuncts) do
+			v(self)
+		end
+	end
 end
 
 

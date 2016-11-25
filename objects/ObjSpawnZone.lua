@@ -4,8 +4,8 @@ local ModSpawner = require "modules.ModSpawner"
 	
 function ObjSpawnZone:create()
 	self:addModule(ModSpawner)
-	self:setObject({"ObjEnemy","ObjEnemyShooter"})
-	self:setSpawnRate(5,5)
+	self:setObject({"EnSword","EnShooter","EnTorch"})
+	self:setSpawnRate(5,10)
 end
 
 return ObjSpawnZone

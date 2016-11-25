@@ -25,7 +25,7 @@ function ModWeapon:setCanMove( canMove )
 	self.canMove = canMove
 end
 
-function ModWeapon:useStand(player,frame)
+function ModWeapon:onStartAttack(player,frame)
 	if self.canMove then
 		player:animate()
 		player:normalMove()

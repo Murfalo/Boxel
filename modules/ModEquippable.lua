@@ -2,7 +2,7 @@ local Keymap  = require "xl.Keymap"
 local ModEquippable = Class.create("ModEquippable", Entity)
 
 ModEquippable.dependencies = {"ModInteractive","ModPhysics","ModDrawable"}
-ModEquippable.trackFunctions = {"onHitConfirm"}
+ModEquippable.trackFunctions = {"onHitConfirm","onStartAttack"}
 
 function ModEquippable:create()
 	-- physics initialization
@@ -68,6 +68,10 @@ function ModEquippable:tick(dt)
 		end
 
 		self:updateIntBox()
+		if not self.sprite then
+			lume.trace(self.type)
+			lume.trace(self.user.type)
+		end
 		self.sprite:setPosition(self.x, self.y + 16)
 		self.sprite:setAngle((self.angle or self.body:getAngle()))
 		if self.depth then Game.scene:move(self.sprite, self.depth) end
@@ -166,7 +170,7 @@ function ModEquippable:use()
 		elseif isDown("d", "a") then
 			self.action = "useSide"
 		else
-			self.action = "useStand"
+			self.action = "onStartAttack"
 		end
 	end
 end
@@ -182,7 +186,7 @@ function ModEquippable:specialState(player, frame)
 	elseif self.action == "useSide" then self:useSide(player,frame)
 	elseif self.action == "useUp" then self:useUp(player,frame)
 	elseif self.action == "useDown" then self:useDown(player,frame)
-	elseif self.action == "useStand" then self:useStand(player,frame)
+	elseif self.action == "onStartAttack" then self:onStartAttack(player,frame)
 	elseif self.action == "useLight" then self:useLight(player,frame)
 	elseif self.action == "useOver" then self:useOver(player,frame)
 	end
@@ -199,7 +203,7 @@ function ModEquippable:onPrimaryEnd( )
 end
 --Default Use commands
 function ModEquippable:useItem( player,frame )
-	self:useStand(player,frame)
+	self:onStartAttack(player,frame)
 end
 function ModEquippable:useAirSide(player,frame)
 	self.canMove = true
@@ -214,20 +218,20 @@ function ModEquippable:useAirDown(player,frame)
 end
 function ModEquippable:useAir(player,frame)
 	self.canMove = true
-	self:useStand(player,frame)
+	self:onStartAttack(player,frame)
 end
 function ModEquippable:useSide(player,frame)
-	self:useStand(player,frame)
+	self:onStartAttack(player,frame)
 end
 function ModEquippable:useUp(player,frame)
-	self:useStand(player,frame)
+	self:onStartAttack(player,frame)
 end
-function ModEquippable:useStand(player,frame)
+function ModEquippable:onStartAttack(player,frame)
 	lume.trace()
 	player.exit = true
 end
 function ModEquippable:useDown(player,frame)
-	self:useStand(player,frame)
+	self:onStartAttack(player,frame)
 end
 
 function ModEquippable:setPosition(xOffset , yOffset)
