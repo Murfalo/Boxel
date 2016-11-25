@@ -97,7 +97,7 @@ function ModActive:setFaction( factionName )
 	self.faction = factionName
 end
 
-function ModActive:setHitState(stunTime, forceX, forceY, damage, element,faction,shieldDamage,blockStun,unblockable)
+function ModActive:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
 	self.prepTime = 0
 	if faction and self.faction and faction == self.faction then
 		return false
@@ -292,7 +292,6 @@ function ModActive:onDeath()
 end
 
 function ModActive:onHitConfirm(target, hitType, hitbox)
-	lume.trace()
 	if target.destroyed or target.health <= 0 then
 		self:onKill(target,hitType,hitbox)
 	end
