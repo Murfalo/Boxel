@@ -4,8 +4,12 @@
 		"selected_items":
 		[
 			[
+				"self",
+				"self"
+			],
+			[
 				"for",
-				"forp\tfor k,v in pairs()"
+				"fori\tfor i,v in ipairs()"
 			],
 			[
 				"spawn",
@@ -34,6 +38,122 @@
 			}
 		},
 		{
+			"file": "ObjBase.lua",
+			"settings":
+			{
+				"buffer_size": 2972,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "objects/ObjChar.lua",
+			"settings":
+			{
+				"buffer_size": 3187,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "objects/ObjGun.lua",
+			"settings":
+			{
+				"buffer_size": 745,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModShooter.lua",
+			"settings":
+			{
+				"buffer_size": 495,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModSpawner.lua",
+			"settings":
+			{
+				"buffer_size": 2092,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "objects/ObjTest.lua",
+			"settings":
+			{
+				"buffer_size": 939,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModDuplicator.lua",
+			"settings":
+			{
+				"buffer_size": 1490,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "util.lua",
+			"settings":
+			{
+				"buffer_size": 15342,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "objects/EnShooter.lua",
+			"settings":
+			{
+				"buffer_size": 1193,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModEnemy.lua",
+			"settings":
+			{
+				"buffer_size": 5084,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "objects/SpawnZone.lua",
+			"settings":
+			{
+				"buffer_size": 217,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "objects/ObjSpawnZone.lua",
+			"settings":
+			{
+				"buffer_size": 303,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModEquippable.lua",
+			"settings":
+			{
+				"buffer_size": 8860,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "objects/ObjShot.lua",
 			"settings":
 			{
@@ -43,119 +163,10 @@
 			}
 		},
 		{
-			"file": "assets/rooms/testRoom.lua",
+			"file": "modules/ModMeleeEnemy.lua",
 			"settings":
 			{
-				"buffer_size": 97418,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "MGame.lua",
-			"settings":
-			{
-				"buffer_size": 18667,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "\nlocal _NOOP = function () end\n\nlocal ObjBase = Class.new {\n\tpersistent = false,\n\tworld = function () return Game.world end,\n\ttype = \"ObjBase\",\n\n\t-- overridable methods\n\tcreate = _NOOP,\n\tdraw = _NOOP,\n\tonCollide = _NOOP,\n\tpostCollide = _NOOP,\n}\n\n\nfunction ObjBase:addModule( newModule )\n\tif not self.modules then self.modules = {} end\n\tif not self.removableModules then self.removableModules = {} end\n\tif not self.allFuncts then self.allFuncts = {} end\n\tif not self.overRideFuncts then\n\t\tself.overRideFuncts = {\"create\",\"tick\",\"destroy\",\"onRemove\"}\n\tend\n\n\tlocal modName = newModule.type\n\n\tif newModule.dependencies then\n\t\tfor i,v in ipairs(newModule.dependencies) do\n\t\t\tif not self:hasModule(v) then\n\t\t\t\t-- lume.trace(\"module: \",v,\"added through dependency to module: \", modName)\n\t\t\t\tlocal dependencyPath = \"modules.\" .. v\n\t\t\t\tself:addModule(require(dependencyPath))\n\t\t\tend\n\t\tend\n\tend\n\n\tif newModule.trackFunctions then\n\t\tfor i,v in ipairs(newModule.trackFunctions) do\n\t\t\t\n\t\t\tif not self.allFuncts[v] then\n\t\t\t\tself:trackFunction(v)\n\t\t\tend\n\t\tend\n\tend\n\n\tfor i,v in ipairs(self.overRideFuncts) do\n\t\tif newModule[v] then\n\t\t\tif not self.allFuncts[v] then\n\t\t\t\tself.allFuncts[v] = {}\n\t\t\tend\n\t\t\tself.allFuncts[v][modName] = newModule[v]\n\t\tend\n\tend\n\tClass.include(self,newModule)\n\n\tif newModule.create then\n\t\tnewModule.create(self)\n\tend\n\tif newModule.onRemove then\n\t\tself.allFuncts[\"onRemove\"][modName] = newModule.onRemove\n\tend\n\n\tfor i,v in ipairs(self.overRideFuncts) do\n\t\tlocal function iterateFunctions( self, ... )\n\t\t\tlocal returnVals = {}\n\t\t\tfor k,funct in pairs(self.allFuncts[v]) do\n\t\t\t\tlocal ret = funct(self,...)\n\t\t\t\tif ret then\n\t\t\t\t\ttable.insert(returnVals,ret)\n\t\t\t\tend\n\t\t\tend\n\t\t\treturn returnVals\n\t\tend\n\t\t--local funct = lume.fn(iterateFunctions, self)\n\t\tself[v] = iterateFunctions\n\tend\n\tself.modules[modName] = true\n\tif newModule.removable then\n\t\tself.removableModules[modName] = true\n\tend\nend\n\nfunction ObjBase:hasModule( modName )\n\treturn self.modules[modName]\nend\n\nfunction ObjBase:removeModule(modName )\n\tif self.allFuncts[\"onRemove\"] and self.allFuncts[\"onRemove\"][modName] then\n\t\tself.allFuncts[\"onRemove\"][modName](self)\n\tend\n\tfor k,v in pairs(self.allFuncts) do\n\t\tv[modName] = nil\n\tend\nend\n\nfunction ObjBase:getModules()\n\treturn self.modules\nend\n\nfunction ObjBase:getAllRemovableModules()\n\tlocal newTable = {}\n\tfor k,v in pairs(self.removableModules) do\n\t\ttable.insert(newTable,k)\n\tend\n\treturn newTable\nend\n\nfunction ObjBase:trackFunction( functionName )\n\ttable.insert(self.overRideFuncts,functionName)\n\tif self[functionName] and self[functionName] ~= _NOOP then\n\t\tif not self.allFuncts[functionName] then \n\t\t\tself.allFuncts[functionName] = {}\n\t\tend\n\t\tself.allFuncts[functionName][\"default\"] = self[functionName]\n\tend\n\n\tlocal function iterateFunctions( self, ... )\n\t\tfor k,funct in pairs(self.allFuncts[functionName]) do\n\t\t\tfunct(self,...)\n\t\tend\n\tend\n\t--local funct = lume.fn(iterateFunctions, self)\n\tself[functionName] = iterateFunctions\nend\n\nreturn ObjBase\n\n",
-			"file": "ObjBase.lua",
-			"file_size": 3123,
-			"file_write_time": 131245035094986007,
-			"settings":
-			{
-				"buffer_size": 2972,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "objects/TimedText.lua",
-			"settings":
-			{
-				"buffer_size": 2016,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModWooden.lua",
-			"settings":
-			{
-				"buffer_size": 1962,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModShield.lua",
-			"settings":
-			{
-				"buffer_size": 3688,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModProjectile.lua",
-			"settings":
-			{
-				"buffer_size": 4839,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModPowered.lua",
-			"settings":
-			{
-				"buffer_size": 485,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModGlass.lua",
-			"settings":
-			{
-				"buffer_size": 1108,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModDelicious.lua",
-			"settings":
-			{
-				"buffer_size": 496,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModBomb.lua",
-			"settings":
-			{
-				"buffer_size": 1554,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModActive.lua",
-			"settings":
-			{
-				"buffer_size": 7955,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModControllable.lua",
-			"settings":
-			{
-				"buffer_size": 6353,
+				"buffer_size": 349,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -197,11 +208,28 @@
 	],
 	"file_history":
 	[
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModProjectileEnemy.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEnemy.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjEnemy.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModProjectile.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnShooter.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModWeapon.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEquippable.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/extra.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModControllable.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModActive.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/TimedText.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModBomb.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDelicious.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModGlass.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPowered.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModShield.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModWooden.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/MGame.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/rooms/testRoom.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjShot.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjUnit.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/ObjBase.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDelicious.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPowered.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModActive.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModIrresistable.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModInteractive.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModHasHUD.lua",
@@ -209,41 +237,27 @@
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjSpawnZone.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDuplicator.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/util.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEquippable.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjAttackHitbox.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModBomb.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprBox.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDrawable.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjBomb.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModWooden.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnSword.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/SpawnZone.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprKnife.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprKnifeEqp.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjChar.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprTorchEqp.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModProjectile.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnShooter.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnBigSword.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/rooms/testRoom.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/MGame.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModHitboxMaker.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModSpawner.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjGameInterface.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEnemy.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjTest.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModControllable.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjEnemyProjectile.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjShot.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprShot.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/TimedText.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPhysics.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjDamageHitbox.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjGun.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjEnemyShooter.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModProjectileEnemy.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjEnemy.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModWeapon.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjWall.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjCrate.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModMeleeEnemy.lua",
@@ -274,6 +288,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"attackAni",
+			"onAttack",
+			"ModWeapon",
+			"useStand",
 			"creator",
 			"attacker",
 			"creator",
@@ -373,6 +391,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"ModShooter",
+			"onStartAttack",
 			"attacker",
 			"ModPowered",
 			"ModGlass",
@@ -410,7 +430,7 @@
 	"groups":
 	[
 		{
-			"selected": 14,
+			"selected": 9,
 			"sheets":
 			[
 				{
@@ -439,7 +459,7 @@
 						"translation.y": 3121.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -455,8 +475,66 @@
 						"selection":
 						[
 							[
-								311,
-								311
+								889,
+								889
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "ObjBase.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2972,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1582,
+								1582
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 896.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "objects/ObjChar.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3187,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								539,
+								539
 							]
 						],
 						"settings":
@@ -472,20 +550,194 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "objects/ObjShot.lua",
+					"buffer": 4,
+					"file": "objects/ObjGun.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 924,
+						"buffer_size": 745,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								572,
-								572
+								81,
+								81
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "modules/ModShooter.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								495,
+								495
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "modules/ModSpawner.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2092,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								745,
+								745
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 71.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "objects/ObjTest.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 939,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								634,
+								634
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "modules/ModDuplicator.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1490,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								674,
+								674
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 151.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "util.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15342,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6824,
+								6824
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5031.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "objects/EnShooter.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1193,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								623,
+								623
 							]
 						],
 						"settings":
@@ -501,27 +753,26 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "assets/rooms/testRoom.lua",
+					"buffer": 11,
+					"file": "modules/ModEnemy.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 97418,
+						"buffer_size": 5084,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								42,
+								48
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -531,142 +782,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "MGame.lua",
+					"buffer": 12,
+					"file": "objects/SpawnZone.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18667,
+						"buffer_size": 217,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17034,
-								17034
+								197,
+								197
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 11271.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "ObjBase.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2972,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1937,
-								1937
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1660.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "objects/TimedText.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2016,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "modules/ModWooden.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1962,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								870,
-								870
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 121.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "modules/ModShield.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3688,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								555,
-								555
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -676,49 +810,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "modules/ModProjectile.lua",
+					"buffer": 13,
+					"file": "objects/ObjSpawnZone.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4839,
+						"buffer_size": 303,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								328,
-								336
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "modules/ModPowered.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 485,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								449,
-								449
+								276,
+								276
 							]
 						],
 						"settings":
@@ -733,20 +838,62 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "modules/ModGlass.lua",
+					"buffer": 14,
+					"file": "modules/ModEquippable.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1108,
+						"buffer_size": 8860,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								581,
-								581
+								1913,
+								1913
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1131.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "objects/ObjShot.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 924,
+						"regions":
+						{
+							"mark":
+							{
+								"flags": 144,
+								"icon": "dot",
+								"regions":
+								[
+									[
+										253,
+										253
+									]
+								],
+								"scope": "mark"
+							}
+						},
+						"selection":
+						[
+							[
+								515,
+								515
 							]
 						],
 						"settings":
@@ -758,24 +905,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "modules/ModDelicious.lua",
+					"buffer": 16,
+					"file": "modules/ModMeleeEnemy.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 496,
+						"buffer_size": 349,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								263,
-								263
+								160,
+								160
 							]
 						],
 						"settings":
@@ -786,94 +933,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "modules/ModBomb.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1554,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1091,
-								1091
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 16.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "modules/ModActive.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7955,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7130,
-								7130
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 5481.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "modules/ModControllable.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6353,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5523,
-								5523
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3511.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 13,
 					"type": "text"
 				}
 			]
@@ -932,6 +992,90 @@
 		"selected_items":
 		[
 			[
+				"objtest",
+				"objects\\ObjTest.lua"
+			],
+			[
+				"modspawn",
+				"modules\\ModSpawner.lua"
+			],
+			[
+				"modsth",
+				"modules\\ModShooter.lua"
+			],
+			[
+				"enshooter",
+				"objects\\EnShooter.lua"
+			],
+			[
+				"objchar",
+				"objects\\ObjChar.lua"
+			],
+			[
+				"objspawn",
+				"objects\\ObjSpawnZone.lua"
+			],
+			[
+				"spawnz",
+				"objects\\SpawnZone.lua"
+			],
+			[
+				"modenem",
+				"modules\\ModEnemy.lua"
+			],
+			[
+				"ensho",
+				"objects\\EnShooter.lua"
+			],
+			[
+				"objenemy",
+				"objects\\ObjEnemy.lua"
+			],
+			[
+				"meleee",
+				"modules\\ModMeleeEnemy.lua"
+			],
+			[
+				"modprojectileene",
+				"modules\\ModProjectileEnemy.lua"
+			],
+			[
+				"shoot",
+				"objects\\EnShooter.lua"
+			],
+			[
+				"modproj",
+				"modules\\ModProjectile.lua"
+			],
+			[
+				"modproje",
+				"modules\\ModProjectile.lua"
+			],
+			[
+				"objsho",
+				"objects\\ObjShot.lua"
+			],
+			[
+				"objsh",
+				"objects\\ObjShot.lua"
+			],
+			[
+				"objgun",
+				"objects\\ObjGun.lua"
+			],
+			[
+				"modeqp",
+				"modules\\ModEquippable.lua"
+			],
+			[
+				"modwea",
+				"modules\\ModWeapon.lua"
+			],
+			[
+				"",
+				"extra.lua"
+			],
+			[
 				"timedt",
 				"objects\\TimedText.lua"
 			],
@@ -942,10 +1086,6 @@
 			[
 				"modpro",
 				"modules\\ModProjectile.lua"
-			],
-			[
-				"objsho",
-				"objects\\ObjShot.lua"
 			],
 			[
 				"objdama",
@@ -1084,10 +1224,6 @@
 				"ObjBase.lua"
 			],
 			[
-				"objchar",
-				"objects\\ObjChar.lua"
-			],
-			[
 				"objch",
 				"objects\\ObjChar.lua"
 			],
@@ -1112,10 +1248,6 @@
 				"modules\\ModControllable.lua"
 			],
 			[
-				"modproj",
-				"modules\\ModProjectile.lua"
-			],
-			[
 				"objpro",
 				"objects\\ObjEnemyProjectile.lua"
 			],
@@ -1134,14 +1266,6 @@
 			[
 				"objattack",
 				"objects\\ObjAttackHitbox.lua"
-			],
-			[
-				"spawnz",
-				"objects\\SpawnZone.lua"
-			],
-			[
-				"objtest",
-				"objects\\ObjTest.lua"
 			],
 			[
 				"objcr",
@@ -1168,10 +1292,6 @@
 				"objects\\ObjAttackHitbox.lua"
 			],
 			[
-				"objsh",
-				"objects\\ObjShot.lua"
-			],
-			[
 				"shot",
 				"assets\\spr\\scripts\\SprShot.lua"
 			],
@@ -1192,10 +1312,6 @@
 				"objects\\ObjCrate.lua"
 			],
 			[
-				"modenem",
-				"modules\\ModProjectileEnemy.lua"
-			],
-			[
 				"modhit",
 				"modules\\ModHitboxMaker.lua"
 			],
@@ -1214,14 +1330,6 @@
 			[
 				"objenemypr",
 				"objects\\ObjEnemyProjectile.lua"
-			],
-			[
-				"objgun",
-				"objects\\ObjGun.lua"
-			],
-			[
-				"objenemy",
-				"objects\\ObjEnemy.lua"
 			],
 			[
 				"modmele",
