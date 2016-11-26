@@ -8,21 +8,17 @@ function ObjSimpleEmitter:init( x,y )
 end
 function ObjSimpleEmitter:create()
 	self:addModule(ModPartEmitter)
-	lume.trace()
 end
 
 function ObjSimpleEmitter:setDestroyAfterTimer( timer )
 	self.timer = timer
 end
 function ObjSimpleEmitter:setDestroyAfterEmpty( destroyOnEmpty )
-	lume.trace()
 	self.destroyOnEmpty = destroyOnEmpty
 end
 
 function ObjSimpleEmitter:tick( dt )
-	lume.trace()
 	ModPartEmitter.tick(self,dt)
-	lume.trace()
 	if self.destroyOnEmpty then
 		local toDestroy = true
 		for k,v in pairs(self.psystems) do
