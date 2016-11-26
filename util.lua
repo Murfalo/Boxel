@@ -45,6 +45,18 @@ function util.loopvalue( value, min, max )
 	end
 end
 
+
+function util.copyClass( original )
+  local ObjBase = require("ObjBase")
+  local new = util.deepcopy(original)
+  new.addModule = ObjBase.addModule
+  new.hasModule = ObjBase.hasModule
+  new.removeModule = ObjBase.removeModule
+  new.getModules = ObjBase.getModules
+  new.getAllRemovableModules = ObjBase.getAllRemovableModules
+  new.trackFunction = ObjBase.trackFunction
+  return new
+end
 ----
 -- Round val. If the decimal portion of val is < 0.5 it will be rounded down.
 -- If it is >= 0.5 it will be rounded up.
@@ -263,7 +275,10 @@ function util.deepcopy(orig)
     if orig_type == 'table' then
         copy = {}
         for orig_key, orig_value in next, orig, nil do
+          -- lume.trace(orig_key)
+          if orig_value ~= orig then
             copy[util.deepcopy(orig_key)] = util.deepcopy(orig_value)
+          end
         end
         setmetatable(copy, util.deepcopy(getmetatable(orig)))
     else -- number, string, boolean, etc
