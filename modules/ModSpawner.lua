@@ -22,7 +22,7 @@ function ModSpawner:create()
 	self.maxX = tonumber(self.maxX) or 0
 	self.minY = tonumber(self.minY) or 0
 	self.maxY = tonumber(self.maxY) or 0
-	self:setActive(true)
+	self:setActive(false)
 end
 
 function ModSpawner:tick(dt)

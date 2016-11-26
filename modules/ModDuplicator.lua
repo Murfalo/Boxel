@@ -2,7 +2,7 @@ local ModDuplicator = Class.create("ModDuplicator", Entity)
 -- local ObjSimpleEmitter = require "objects.ObjSimpleEmitter"
 ModDuplicator.dependencies = {"ModPartEmitter", "ModActive"}
 
-ModDuplicator.trackFunctions = {"onAttack"}
+ModDuplicator.trackFunctions = {"onAttack","onDeath"}
 ModDuplicator.removable = true
 
 function ModDuplicator:create()
@@ -17,19 +17,19 @@ function ModDuplicator:create()
 
 end
 
-function ModDuplicator:destroy()
+function ModDuplicator:onDeath()
 	self:removeModule("ModDuplicator")
-	local newCopy = util.deepcopy(self)
-	newCopy.health = self.max_health
-	newCopy.destroyed = false
-	Game:add(newCopy)
-	newCopy.body:setLinearVelocity(math.random(-3,3) * 32, -8 * 32)
+	local selfType = require("objects."..self.type)
+	for i=1,3 do
+		local newCopy = selfType(self)
+		Class.include(newCopy,self)
+		newCopy.health = self.max_health
+		newCopy.destroyed = false
+		Game:add(newCopy)
+		newCopy:removeModule("ModDuplicator")
+		newCopy.body:setLinearVelocity(math.random(-4,4) * 32, -12 * 32)
+	end
 
-	local newCopy2 = util.deepcopy(self)
-	newCopy2.health = self.max_health
-	newCopy2.destroyed = false
-	Game:add(newCopy2)
-	newCopy2.body:setLinearVelocity(math.random(-3,3) * 32, -8 * 32)
 	-- local newEmitter = ObjSimpleEmitter(self.x,self.y)
 	-- Game:add(newEmitter)
 	-- newEmitter:setDestroyAfterEmpty(true)

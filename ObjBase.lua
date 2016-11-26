@@ -17,7 +17,20 @@ local ObjBase = Class.new {
 function ObjBase:addModule( newModule )
 	if not self.modules then self.modules = {} end
 	if not self.removableModules then self.removableModules = {} end
-	if not self.allFuncts then self.allFuncts = {} end
+	if not self.allFuncts then 
+		self.allFuncts = {}
+		self.allFuncts["create"]= {}
+		self.allFuncts["create"]["default"] = self.create
+
+		self.allFuncts["tick"]= {}
+		self.allFuncts["tick"]["default"] = self.default
+
+		self.allFuncts["destroy"]= {}
+		self.allFuncts["destroy"]["default"] = self.destroy
+
+		self.allFuncts["onRemove"]= {}
+		self.allFuncts["onRemove"]["default"] = self.onRemove
+	end
 	if not self.overRideFuncts then
 		self.overRideFuncts = {"create","tick","destroy","onRemove"}
 	end
@@ -64,9 +77,11 @@ function ObjBase:addModule( newModule )
 		local function iterateFunctions( self, ... )
 			local returnVals = {}
 			for k,funct in pairs(self.allFuncts[v]) do
-				local ret = funct(self,...)
-				if ret then
-					table.insert(returnVals,ret)
+				if funct then
+					local ret = funct(self,...)
+					if ret then
+						table.insert(returnVals,ret)
+					end
 				end
 			end
 			return returnVals
