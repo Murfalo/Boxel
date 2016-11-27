@@ -29,7 +29,11 @@ function ModInteractive:setIntBox( active )
 end
 	
 function ModInteractive:destroy( ... )
-	self.intFixture:destroy()
-	self.intBody:destroy()
+	if self.intFixture then	
+		self.intFixture:destroy()
+	end
+	if self.intBody then
+		self.intBody:destroy()
+	end
 end
 return ModInteractive

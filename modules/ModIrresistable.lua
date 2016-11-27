@@ -14,15 +14,15 @@ function ModIrresistable:create()
 	-- self.bombCoolDown = 0
 	-- self:setFade("fire")
 	self.users = {}
-	self.refreshTime = 2
+	self.refreshTime = 1
 end
 
 function ModIrresistable:tick( dt )
 	--self:emit("fire",14)
 	for k,v in pairs(self.users) do
-		self.users[other] = self.users[other] - dt
-		if self.users[other] < 0 then
-			self.users[other] = nil
+		self.users[k] = v - dt
+		if v < 0 then
+			self.users[k] = nil
 		end
 	end
 end

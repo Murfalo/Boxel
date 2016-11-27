@@ -72,7 +72,6 @@ function ModActive:setPassive(name,effect)
 	end
 	if effect then
 		self.passiveEffects[name] = effect
-		lume.trace("Added to set passive: ", self.passiveEffects[name])
 		self.passiveVars[name] = {}
 	end
 end
@@ -111,7 +110,7 @@ function ModActive:setHitState(stunTime, forceX, forceY, damage, element,faction
 
 		self.stun = blockStun or stunTime
 		if not self.superArmor then
-			self.body:setLinearVelocity(forceX * ratio,forceY * ratio)
+			self.body:setLinearVelocity((forceX or 0) * ratio, (forceY or 0) * ratio)
 		end
 	elseif self.isAlive and self.invincibleTime == 0 then
 
@@ -119,7 +118,7 @@ function ModActive:setHitState(stunTime, forceX, forceY, damage, element,faction
 		local dm = damage or 0
 		local ratio = self.KBRatio or 1
 
-		if forceX > 0 then
+		if forceX and (forceX > 0) then
 			self.dir = -1
 		else
 			self.dir = 1
@@ -129,7 +128,7 @@ function ModActive:setHitState(stunTime, forceX, forceY, damage, element,faction
 
 		self:setHealth(self.redHealth - dm)
 		if not self.superArmor then
-			self.body:setLinearVelocity(forceX * ratio,forceY * ratio)
+			self.body:setLinearVelocity((forceX or 0) * ratio, (forceY or 0) * ratio)
 		end
 		self.regainTime = 240
 		self.invincibleTime = 0
