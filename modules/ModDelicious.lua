@@ -2,15 +2,17 @@ local ModDelicious = Class.create("ModDelicious", Entity)
 ModDelicious.dependencies = {"ModActive", "ModInteractive"}
 ModDelicious.removable = true
 
-function ModInteractive:create()
-	self:setdeliciousness(20)
+function ModDelicious:create()
+	self:setDeliciousness(20)
 end
-function ModInteractive:onPlayerInteract(player) 
+
+function ModDelicious:onPlayerInteract(player) 
+	lume.trace(self.health)
 	self:setHitState(0, nil, nil, self.deliciousness, nil,nil)
 	player.health = player.health + self.deliciousness
 end
 
-function ModDelicious:setdeliciousness( deliciousness )
+function ModDelicious:setDeliciousness( deliciousness )
 	self.deliciousness = deliciousness
 end
 

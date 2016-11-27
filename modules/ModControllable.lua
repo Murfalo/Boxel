@@ -1,6 +1,7 @@
 local ModControllable = Class.create("ModControllable", Entity)
 local Keymap  = require "xl.Keymap"
 local TimedText = require "objects.TimedText"
+local ObjIntHitbox = require "objects.ObjIntHitbox"
 
 ModControllable.dependencies = {"ModActive","ModInventory"}
 ModControllable.trackFunctions = {"normalState"}
