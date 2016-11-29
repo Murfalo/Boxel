@@ -18,7 +18,7 @@ function ObjShot:create()
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 	self:setFixture(self.shape, 22.6, true)
 	
-	self:addSprite(require("assets.spr.scripts.SprShot"))
+	self:addSpritePiece(require("assets.spr.scripts.SprShot"))
 	
 	--Sprite initialization
 	self.refresh = 30 
@@ -36,6 +36,7 @@ function ObjShot:create()
 	end
 
 	self.fixture:setSensor(true)
+	self:orientAllSprites()
 end
 
 return ObjShot

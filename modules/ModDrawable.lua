@@ -131,6 +131,9 @@ function ModDrawable:updateSprites()
 end
 
 function ModDrawable:orientAllSprites()
+	if self.type == "ObjShot" then
+		lume.trace(self.dir)
+	end
 	for key,value in pairs(self.sprites) do
 		value:setScale(self.dir * value.mDir,1)
 		value.dir = self.dir

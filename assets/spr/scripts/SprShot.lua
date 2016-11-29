@@ -1,6 +1,7 @@
 local ane = {}
 
 local pce = {
+	name = "shot",
 	path = "assets/spr/plasma_shot.png",
 	width = 32,
 	height = 32,
@@ -8,7 +9,10 @@ local pce = {
 	imgY = 16,
 	originX = 16,
 	originY = 16,
-	attachPoints = {},
+	attachPoints = 
+		{
+			center = {x = 16,y = 16}
+		},
 	animations = ane
 }
 

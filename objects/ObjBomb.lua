@@ -4,6 +4,7 @@ local ObjBomb = Class.create("ObjBomb", ObjBaseUnit)
 function ObjBomb:create()
 	ObjBaseUnit.create(self)
 	self:addModule(require "modules.ModBomb")
+	
 
 	self:createBody( "dynamic" ,false, true)
 	self.shape = love.physics.newRectangleShape(24,32)

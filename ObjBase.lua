@@ -106,6 +106,8 @@ function ObjBase:removeModule(modName )
 	for k,v in pairs(self.allFuncts) do
 		v[modName] = nil
 	end
+	self.modules[modName] = nil
+	self.removableModules[modName] = nil
 end
 
 function ObjBase:getModules()
