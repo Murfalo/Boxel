@@ -13,6 +13,7 @@ function ModDrawable:create()
 	self.initImgW = 64
 	self.animationsPending = {}
 	self.attachPositions = {}
+	self.icons = self.icons or {}
 end
 
 function ModDrawable:tick(dt)
@@ -338,4 +339,47 @@ function ModDrawable:setDepth( depth )
 	self.depth = depth
 end
 
+
+function ModDrawable:addIcon( newIcon )
+	local newPieces
+	local newTable = {}
+	local iconName = "icon" .. #self.icons
+	newIcon.name = iconName
+	if #self.icons > 0 then
+		newIcon.connectSprite = "icon" .. (#self.icons - 1)
+	elseif self.sprites["main"] then
+		newIcon.connectSprite = "main"
+		newIcon.connectPoint = "center"
+		newIcon.attachPoints.prevIco = {x=16,y=48}
+	end
+	self.icons[#self.icons + 1] = newIcon
+	self:addSpritePiece(newIcon)
+end
+
+function ModDrawable:removeIcon( iconPath   )
+	local pushBack = false
+	local deletedInd = 0
+	for i,v in pairs(self.icons) do
+		if v.path == iconPath then
+			pushBack = true
+			self:delSpritePiece(v.name)
+			deletedInd = i
+		elseif pushBack then
+			self:delSpritePiece(v.name)
+			v.connectSprite = "icon" .. (i - 1)
+			v.name = "icon" .. (i - 1)
+			if (i-1) == 1 then
+				v.connectSprite = "main"
+				v.connectPoint = "center"
+				v.attachPoints.prevIco = {x=16,y=48}
+			end
+			self:addSpritePiece(v)
+		end
+	end
+	if deletedInd ~= 0 then
+		table.remove(self.icons,deletedInd)
+	else
+		lume.trace("Attempting to remove icon that does not exist.")
+	end
+end
 return ModDrawable
