@@ -2,14 +2,14 @@ local ane = {}
 
 local pce = {
 	name = "main",
-	path = "assets/spr/bomb.png",
+	path = "assets/spr/mine.png",
 	width = 32,
-	height = 48,
+	height = 32,
 	imgX = 32,
-	imgY = 48,
+	imgY = 32,
 	originX = 16,
 	originY = 16,
-	attachPoints = 	{ center = {x = 16,y = 32}},
+	attachPoints = 	{ center = {x = 16,y = 16}},
 	animations = ane
 }
 return pce
