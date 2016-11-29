@@ -163,6 +163,14 @@ function MGame:draw()
 	self:nocamera( true )
 	self.hud:draw()
 	self:nocamera( false )
+
+	-- draw the round and health (this is gross but it works!)
+	-- possibly change color if this becomes hard to read
+	love.graphics.print("Round: " .. Game.round, 10, 10)
+	love.graphics.rectangle("line", 5, 5, 115, 45)
+	if Game.player then
+		love.graphics.print("Health: " .. Game.player.health .. "/" .. Game.player.max_health, 10, 30)
+	end
 	
 	-- reset the scissor
 	self:setScissor( false )

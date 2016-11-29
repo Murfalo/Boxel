@@ -203,9 +203,9 @@ function ModControllable:onKill(target, hitType, hitbox)
 	if Advanced then
 		lume.trace(self.killCount)
 		local newText = TimedText("Round Advanced", nil, nil, false)
-		newText:setPosition(self.x,self.y)
+
 		Game:add(newText)
-		Game:emitEvent( "newRound" )
+		newText:setPosition(self.x,self.y)
 	end
 end
 return ModControllable
