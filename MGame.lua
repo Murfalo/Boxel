@@ -70,7 +70,6 @@ function MGame:init()
 	-----Initialize Canvases for drawing
 	self.ActiveCanvas = love.graphics.newCanvas( GAME_SIZE.w, GAME_SIZE.h) --this canvas will hold all active objects (sprites,tiles)
 	love.graphics.setBackgroundColor(0,0,0,0)
-	--Background("assets/night_sky.png", true, 0, 9, 0, 1, 1)
 
 	------------------------ 
 end
@@ -352,6 +351,7 @@ function MGame:loadRoom( name )
 			self:add(v)
 		end
 	end
+	Background("assets/bkgs/space.png", true, 0, 9, 0, 1, 1)
 end
 
 ----
