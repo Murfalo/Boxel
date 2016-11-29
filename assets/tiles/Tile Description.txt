@@ -1,0 +1,29 @@
+Tileset Reference:
+
+Every two rows = 1 tileset. 
+They are designed to be thematically similar to one another.
+Of course, there is nothing preventing you from throwing together multiple
+tilesets together in the same room if you feel like it makes the world look better.
+
+I will always put the tiles in the tileset in the following format:
+
+Row 1:
+-1: block: Intended to build walls with.
+-2: Steep Slope: Intended to be thematically similar to siding blocks.
+-3: Vertical Border: Surround solid areas with this siding to make the
+edges look more apparent. Place on top of the solid blocks in a different layer.
+-4: Solid block: Use for solid objects.
+-5: Solid slope: Another slope, intended to be thematically similar to # 4
+-6: Background: Place on background layer
+-7: Background Vertical: use for "pillars" in the background
+-8: Background horizontal: typically placed under ceiling or along the ground.
+
+Row 2:
+-1: Slope bottom: Thematically similar to siding. bottom of slope
+-2: Slope top: Thematically similar to siding. top of slope
+-3: Outer Corner Border: Surround solid areas with this siding to make the edges look more apparent. Place on top of the solid blocks in a different layer.
+-4: Horizontal Border:
+-5: Inner Corner Border: 
+-6: Jump through platform: Thin platform the character can jump through.
+-7: Jump through platform 2: Alternate form of jump through platform.
+-8: Foreground Fence: Place on a separate layer. Will appear in front of player.
