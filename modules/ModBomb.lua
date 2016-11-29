@@ -1,6 +1,6 @@
 local ModBomb = Class.create("ModBomb", Entity)
 local ObjSimpleEmitter = require "objects.ObjSimpleEmitter"
-ModBomb.dependencies = {"ModPartEmitter", "ModActive","ModHitboxMaker"}
+ModBomb.dependencies = {"ModPartEmitter", "ModActive","ModHitboxMaker","ModInteractive"}
 
 ModBomb.trackFunctions = {"onAttack"}
 ModBomb.removable = true
@@ -28,8 +28,8 @@ function ModBomb:setHitState(stunTime, forceX, forceY, damage, element,faction,h
 end
 
 function ModBomb:onAttack()
-	self:createHitbox({radius = 48,xOffset = 0, yOffset = 0, damage = 40, guardDamage = 12,
-	stun = 35, persistence = 0.35,xKnockBack = 3 * 32, yKnockBack = -8 * 32, element = "fire"})
+	self:createHitbox({radius = 64,xOffset = 0, yOffset = 0, damage = 40, guardDamage = 12,
+	stun = 35, persistence = 0.35,xKnockBack = 3 * 32, yKnockBack = -12 * 32, element = "fire"})
 	self:setHitState(2, 0, -8 * 32, 40, "fire",nil,40)
 	self:emit("fire",8)
 end
@@ -44,6 +44,10 @@ function ModBomb:destroy()
 	fire:setParticleLifetime(1, 2);
 	newEmitter:setFade("fire")
 	newEmitter:emit("fire",16)
+end
+
+function ModBomb:onPlayerInteract(player) 
+	self:onAttack()
 end
 
 return ModBomb

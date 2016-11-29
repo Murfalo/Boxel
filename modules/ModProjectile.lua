@@ -7,6 +7,9 @@ function ModProjectile:create()
 	self.referenceVel = 0
 	self.angle = 0
 	self.objectsHit = {}
+	self.tickFuncts = {}
+	self.destroyFuncts ={}
+	self.hitFuncts = {}
 	self.dir = self.attacker.dir
 end
 
@@ -27,6 +30,7 @@ end
 
 
 function ModProjectile:addTickFunction( funct )
+
 	table.insert(self.tickFuncts,funct)
 end
 
@@ -49,7 +53,7 @@ function ModProjectile:tick( dt )
 		self.body:setLinearVelocity(self.iVelX,self.iVelY)
 		self.initialVelocity = false
 	end
-	self.sprite:setScale(self.dir * 1,1)
+	--self.sprite:setScale(self.dir * 1,1)
 
 	if self.deflected then
 		self:deflectState()
@@ -154,12 +158,18 @@ function ModProjectile:onHitConfirm(target, hitType, hitbox)
 	self.attacker:onHitConfirm(target,hitType,hitbox)
 	if self.hitFuncts then
 		for i,v in ipairs(self.hitFuncts) do
-			v(self)
+			v(self,target,hitType,hitbox)
 		end
 	end
 end
 
-
+function ModProjectile:destroy()
+	if self.destroyFuncts then
+		for i,v in ipairs(self.destroyFuncts) do
+			v(self)
+		end
+	end
+end
 function ModProjectile:setDeflectState(stunTime, forceX, forceY, damage, element,faction)
 	if faction and self.faction and self.faction == faction then
 		return false

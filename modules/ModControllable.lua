@@ -2,6 +2,8 @@ local ModControllable = Class.create("ModControllable", Entity)
 local Keymap  = require "xl.Keymap"
 local TimedText = require "objects.TimedText"
 local ObjIntHitbox = require "objects.ObjIntHitbox"
+local ObjSwapper = require "objects.ObjSwapper"
+
 
 ModControllable.dependencies = {"ModActive","ModInventory"}
 ModControllable.trackFunctions = {"normalState"}
@@ -145,19 +147,24 @@ function ModControllable:proccessInventory()
 		InventoryMenu:open(self.inventory)
 	end
 	--Item using code
-	if Keymap.isPressed("use") and self.currentEquips["neutral"] then
-		lume.trace()
-		self.currentEquips["neutral"]:use()
-		-- if Keymap.isDown("up") and self.currentEquips["up"] then
-		-- 	self.currentEquips["up"]:use()
-		-- elseif Keymap.isDown("down") and self.currentEquips["down"] then
-		-- 	self.currentEquips["down"]:use()
-		-- elseif self.currentEquips["neutral"] then
-		-- 	self.currentEquips["neutral"]:use()
-		-- end
-		-- elseif self.currentPrimary then
-		-- 	self.currentPrimary:use()
-		-- end
+	-- if Keymap.isPressed("use") and self.currentEquips["neutral"] then
+	-- 	lume.trace()
+	-- 	self.currentEquips["neutral"]:use()
+	-- 	-- if Keymap.isDown("up") and self.currentEquips["up"] then
+	-- 	-- 	self.currentEquips["up"]:use()
+	-- 	-- elseif Keymap.isDown("down") and self.currentEquips["down"] then
+	-- 	-- 	self.currentEquips["down"]:use()
+	-- 	-- elseif self.currentEquips["neutral"] then
+	-- 	-- 	self.currentEquips["neutral"]:use()
+	-- 	-- end
+	-- 	-- elseif self.currentPrimary then
+	-- 	-- 	self.currentPrimary:use()
+	-- 	-- end
+	-- end
+
+	if Keymap.isPressed("use") and not self.swapperOut then
+		local newShot = ObjSwapper(self.x,self.y,self)
+		Game:add(newShot)
 	end
 
 	self:setPrimary(Keymap.isPressed("primary"))
@@ -202,10 +209,9 @@ function ModControllable:onKill(target, hitType, hitbox)
 	end
 	if Advanced then
 		lume.trace(self.killCount)
-		local newText = TimedText("Round Advanced", nil, nil, false)
+		local newText = TimedText("Round Advanced", self.x, self.y, 20)
 
 		Game:add(newText)
-		newText:setPosition(self.x,self.y)
 	end
 end
 return ModControllable
