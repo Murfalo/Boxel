@@ -12,7 +12,7 @@ function ObjBomb:create()
 	self:setFixture(self.shape, 22.6)
 	self.health = 100
 
-	self:addSprite(require("assets.spr.scripts.SprBomb"))
+	self:addSpritePiece(require("assets.spr.scripts.SprBomb"))
 	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
 end
 

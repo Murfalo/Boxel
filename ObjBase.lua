@@ -70,6 +70,7 @@ function ObjBase:addModule( newModule )
 		newModule.create(self)
 	end
 	if newModule.onRemove then
+		lume.trace()
 		self.allFuncts["onRemove"][modName] = newModule.onRemove
 	end
 

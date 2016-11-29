@@ -14,7 +14,7 @@ function ObjTest:create()
 	self:setFixture(self.shape, 22.6)
 
 	self:addModule(require "modules.ModDrawable")
-	self:addSprite(require("assets.spr.scripts.SprBox"))
+	self:addSpritePiece(require("assets.spr.scripts.SprBox"))
 	self:addModule(require "modules.ModWooden")
 	self:addModule(require "modules.ModDelicious")
 	self:addModule(require "modules.ModIrresistable")

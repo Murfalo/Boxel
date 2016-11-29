@@ -4,6 +4,7 @@ ModDelicious.removable = true
 
 function ModDelicious:create()
 	self:setDeliciousness(20)
+	self:addIcon(require("assets.spr.scripts.IcoDelicious"))
 end
 
 function ModDelicious:onPlayerInteract(player) 
