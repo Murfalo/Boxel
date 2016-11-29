@@ -12,6 +12,7 @@ local Camera = require "hump.camera"
 local Keymap = require "xl.Keymap"
 local Lights = require "xl.Lights"
 local Gamestate = require "hump.gamestate"
+local Background = require "xl.Background"
 
 local MGame = {}
 local function __NULL__() end
@@ -69,6 +70,8 @@ function MGame:init()
 	-----Initialize Canvases for drawing
 	self.ActiveCanvas = love.graphics.newCanvas( GAME_SIZE.w, GAME_SIZE.h) --this canvas will hold all active objects (sprites,tiles)
 	love.graphics.setBackgroundColor(0,0,0,0)
+	--Background("assets/night_sky.png", true, 0, 9, 0, 1, 1)
+
 	------------------------ 
 end
 
