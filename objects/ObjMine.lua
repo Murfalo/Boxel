@@ -4,7 +4,7 @@ local ObjMine = Class.create("ObjMine", ObjBaseUnit)
 function ObjMine:create()
 	ObjBaseUnit.create(self)
 	self:createBody( "dynamic" ,false, true)
-	self.shape = love.physics.newRectangleShape(24,32)
+	self.shape = love.physics.newRectangleShape(16,16)
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 	self:setFixture(self.shape, 22.6)
 	self.health = 20
