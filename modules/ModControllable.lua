@@ -49,7 +49,6 @@ function ModControllable:moveVertical()
 	if Keymap.isPressed("jump") and not Keymap.isDown("down") and self.jumpCooldown == 0 then
 		self.noGrav = false
 		if not self.inAir then
-			lume.trace(self.jumpSpeed)
 			self.body:setLinearVelocity(self.velX, -self.jumpSpeed/15) 
 			self.jumpCooldown = 10 
 			self.jumping = true
