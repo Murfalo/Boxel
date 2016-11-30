@@ -1,20 +1,18 @@
 local ObjBaseUnit = require "objects.ObjBaseUnit"
-local ObjBomb = Class.create("ObjBomb", ObjBaseUnit)
+local ObjMine = Class.create("ObjMine", ObjBaseUnit)
 	
-function ObjBomb:create()
+function ObjMine:create()
 	ObjBaseUnit.create(self)
-	self:addModule(require "modules.ModBomb")
-	self:addModule(require "modules.ModIrresistable")
-	
-
 	self:createBody( "dynamic" ,false, true)
 	self.shape = love.physics.newRectangleShape(24,32)
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 	self:setFixture(self.shape, 22.6)
 	self.health = 20
 
-	self:addSprite(require("assets.spr.scripts.SprMine"))
+	self:addSpritePiece(require("assets.spr.scripts.SprMine"))
 	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
+	self:addModule(require "modules.ModBomb")
+	self:addModule(require "modules.ModIrresistable")
 end
 
-return ObjBomb
+return ObjMine

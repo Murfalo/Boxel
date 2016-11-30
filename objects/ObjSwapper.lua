@@ -51,15 +51,16 @@ function ObjSwapper:create()
 	local function foundTarget(self,target, hitType, hitbox)
 		if Class.istype(target,"ObjBase") then
 			if target ~= self.attacker then
-				self.returnToChar = true
 				if self.attacker.currentSwapper then
 					target:addModule(require("modules."..self.attacker.currentSwapper))
+					util.print_table(target:getAllRemovableModules())
 					self.attacker.currentSwapper = nil
 					self:changeAnimation("unactive")
 				else
 					self.range = 900
 					self.haveSomething = true
 					local mods = target:getAllRemovableModules()
+					util.print_table(mods)
 					if #mods > 0 then
 						local removeMod = mods[math.random(1,#mods)]
 						target:removeModule(removeMod)
@@ -71,18 +72,20 @@ function ObjSwapper:create()
 		end
 	end
 	self:addOnHitFunction(foundTarget)
-
+	self.hitPlayer = false
 	local function returnToPlayer(self)
 		if self.haveSomething then
 			self:moveToPoint(self.attacker.x,self.attacker.y,0,7*32)
-			if self:getDistanceToPoint(self.attacker.x,self.attacker.y) < 16 then
+			if self:getDistanceToPoint(self.attacker.x,self.attacker.y) < 16 and not self.hitPlayer then
 				local displayText = "Nothing"
 				if self.haveSomething ~= true then
 					displayText = self.haveSomething
 					self.attacker.currentSwapper = self.haveSomething
 				end
+				lume.trace("displaying Text")
 				local newText = TimedText(displayText, self.x, self.y, 14)
 				Game:add(newText)
+				self.hitPlayer = true
 				self.range = 0
 			end
 		end
