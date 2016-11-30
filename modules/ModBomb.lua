@@ -14,7 +14,6 @@ function ModBomb:create()
 	self:setAreaSpread("fire","normal",8,8)
 	self.bombCoolDown = 0
 	self:setFade("fire")
-	lume.trace("Hello Hello")
 	self:addIcon(require("assets.spr.scripts.IcoBomb"))
 end
 

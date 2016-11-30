@@ -340,15 +340,16 @@ end
 function ModDrawable:addIcon( newIcon )
 	local newPieces
 	local newTable = {}
+	newIcon = util.deepcopy(newIcon)
 	for i,v in ipairs(self.icons) do
 		if v.path == newIcon.path then
 			return 
 		end
 	end
-	local iconName = "icon" .. #self.icons
+	local iconName = "icon" .. #self.icons + 1
 	newIcon.name = iconName
 	if #self.icons > 0 then
-		newIcon.connectSprite = "icon" .. (#self.icons - 1)
+		newIcon.connectSprite = "icon" .. (#self.icons)
 	elseif self.sprites["main"] then
 		newIcon.connectSprite = "main"
 		newIcon.connectPoint = "center"
@@ -367,16 +368,18 @@ function ModDrawable:removeIcon( iconPath   )
 			pushBack = true
 			self:delSpritePiece(v.name)
 			deletedInd = i
+			lume.trace("I is: ",i,"removed: ", v.name, "path: ",iconPath)
 		elseif pushBack then
 			self:delSpritePiece(v.name)
 			v.connectSprite = "icon" .. (i - 2)
 			v.name = "icon" .. (i - 1)
-			if (i-2) == 0 then
+			if (i-1) == 1 then
 				v.connectSprite = "main"
 				v.connectPoint = "center"
 				v.attachPoints.prevIco = {x=16,y=48}
 			end
-			lume.trace(v.connectSprite)
+			lume.trace("prev was: ", i, "Now is: " , v.name)
+			lume.trace("trying to connect to: " , v.connectSprite)
 			self:addSpritePiece(v)
 		end
 	end
