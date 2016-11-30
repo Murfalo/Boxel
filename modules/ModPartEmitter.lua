@@ -62,7 +62,6 @@ end
 function ModPartEmitter:destroy()
 	for k,v in pairs(self.psystems) do
 		v:reset()
-		lume.trace(k)
 		Game.scene:remove(self.nodes[k])
 	end
 end

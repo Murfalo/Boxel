@@ -79,5 +79,7 @@ end
 function ModSpawner:setSpawnRate( min, max )
 	self.minSpawnTime = min or 0.25
 	self.maxSpawnTime = max or min or 1
+	lume.trace(min)
+	self.timer = math.random(self.minSpawnTime,self.maxSpawnTime)
 end
 return ModSpawner

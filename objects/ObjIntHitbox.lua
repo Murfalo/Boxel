@@ -31,7 +31,7 @@ function ObjIntHitbox:create()
 	self.body:setUserData(self)	
 	self.fixture:setCategory(CL_INT)
 	self.fixture:setMask(CL_WALL, CL_NPC)
-	self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
+	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
 	self.fixture:setSensor(true)
 end
 

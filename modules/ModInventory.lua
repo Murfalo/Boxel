@@ -268,7 +268,6 @@ function  ModInventory:setEquipCreateItem(item ,animate)
 	local class = require( "objects." .. item )
 	local inst = class()
 	Game:add(inst)
-	lume.trace(inst.onPlayerInteract)
 	inst:onPlayerInteract(self)
 	return inst
 end

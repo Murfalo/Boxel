@@ -12,7 +12,6 @@ function ObjBomb:create()
 	self:addSpritePiece(require("assets.spr.scripts.SprBomb"))
 	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
 	self:addModule(require "modules.ModBomb")
-	util.print_table(self.sprites)
 end
 
 return ObjBomb
