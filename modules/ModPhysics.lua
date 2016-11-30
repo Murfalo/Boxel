@@ -6,9 +6,9 @@ ModPhysics.trackFunctions = {"onCollide"}
 
 function ModPhysics:create()
 	--set default stats
-	self.maxJumpTime = 9
+	self.maxJumpTime = self.maxJumpTime or 9
 	self.currentJumpTime = 0
-	self.jumpSpeed = 960
+	self.jumpSpeed = self.jumpSpeed or 960
 	self.deceleration = -12
 	self.maxXSpeed = 6 * 32
 	self.speedModifier = 1.0
@@ -333,7 +333,7 @@ function ModPhysics:mCheckGround(fixture, x, y, xn, yn, fraction )
 		local category = fixture:getCategory()
 		if other ~= nil then
 			local mask1, mask2, mask3 = fixture:getMask()
-			if fixture:isSensor() == false and category ~= CL_INT and other ~= self and mask1 ~= CL_CHAR then--and not (category == CL_PLAT and self.thruTimer > 0)  then
+			if fixture:isSensor() == false and category ~= CL_INT and other ~= self and mask1 ~= CL_CHAR and not (category == CL_PLAT and self.thruTimer > 0)  then
 					--and not Class.istype(other,"ObjChar") and other ~= self then
 				self.numContacts = self.numContacts + 1
 				if self.groundLevel then
