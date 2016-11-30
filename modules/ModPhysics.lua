@@ -10,7 +10,7 @@ function ModPhysics:create()
 	self.currentJumpTime = 0
 	self.jumpSpeed = self.jumpSpeed or 960
 	self.deceleration = -12
-	self.maxXSpeed = 6 * 32
+	self.maxXSpeed = self.maxXSpeed or 6 * 32
 	self.speedModifier = 1.0
 	self.acceleration = 20 * 32
 
