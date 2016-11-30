@@ -58,6 +58,13 @@ function ModSpawner:spawnObject(x,y)
 		if newObj:hasModule("ModPhysics") then
 			newObj:setPosition(x,y)
 		end
+		if newObj:hasModule("ModEnemy") then
+			for i,v in ipairs(self.modifiers) do
+				if math.random() < (v[2] * Game.round) then
+					newObj:addModule(require("modules."..v[1]))
+				end
+			end 
+		end
 	end
 	self.timer = 0
 end

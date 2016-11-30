@@ -143,7 +143,7 @@ end
 -- data about the collision, like collision points, etc. Thus, in this example, I create a hitbox, and if the hitbox hits anything,
 -- it will call this function. tap. 
 function ObjAttackHitbox:onCollide(other, collision)
-	if other ~= nil and other ~= self.attacker then
+	if other ~= nil and other ~= self.attacker and self.x then
 		-- for i = 1, #self.objectsHit do
 		-- 	if other == self.objectsHit[i] then
 		-- 		return

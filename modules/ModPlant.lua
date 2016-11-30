@@ -1,11 +1,11 @@
-local ModWooden = Class.create("ModWooden", Entity)
+local ModPlant = Class.create("ModPlant", Entity)
 local ObjSimpleEmitter = require "objects.ObjSimpleEmitter"
-ModWooden.dependencies = {"ModPartEmitter", "ModActive","ModHitboxMaker"}
+ModPlant.dependencies = {"ModPartEmitter", "ModActive","ModHitboxMaker"}
 
-ModWooden.trackFunctions = {}
-ModWooden.removable = true
+ModPlant.trackFunctions = {}
+ModPlant.removable = true
 
-function ModWooden:create()
+function ModPlant:create()
 	self:addEmitter("wood" , "assets/spr/woodchip.png")
 	self:setRandomDirection("wood" , 3 * 32)
 	self:setRandRotation("wood",32,0,1)
@@ -19,21 +19,21 @@ function ModWooden:create()
 	local fire = self.psystems["fire"]
 	fire:setParticleLifetime(1, 2);
 	self:setAreaSpread("fire","normal",8,8)
-	self.fireTime = 90
+	self.fireTime = 230 
 	self:setFade("fire")
 	self:addIcon(require("assets.spr.scripts.IcoWooden"))
 
 end
 
-function ModWooden:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
-	if element == "fire" then
+function ModPlant:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
+	if (not faction or faction ~= self.faction) and element == "fire" then
 		local function onFire(player,extraInfo)
 			if not extraInfo.frame then extraInfo.frame = 0 end
 			extraInfo.frame = extraInfo.frame + 1
 			local frame = extraInfo.frame
 
 			if frame % 16 == 0 then
-				self.health = self.health - 4
+				self.health = self.health - 2
 				self:createHitbox({width = 48, height = 48,xOffset = 0, yOffset = 0, damage = 15, guardDamage = 12,
 					stun = 35, persistence = 0.15,xKnockBack = 4 * 32, yKnockBack = -3 * 32, element = "fire"})
 				self:emit("fire", 2)
@@ -45,10 +45,13 @@ function ModWooden:setHitState(stunTime, forceX, forceY, damage, element,faction
 		end
 		self:setPassive("onFire",onFire)
 	end
+	if element == "light" then
+		self.health = self.health + 2
+	end
 	self:emit("wood", 4)
 end
 
-function ModWooden:destroy()
+function ModPlant:destroy()
 	local newEmitter = ObjSimpleEmitter(self.x,self.y)
 	Game:add(newEmitter)
 	newEmitter:setDestroyAfterEmpty(true)
@@ -61,8 +64,8 @@ function ModWooden:destroy()
 	newEmitter:emit("wood",16)
 end
 
-function ModWooden:onRemove()
+function ModPlant:onRemove()
 	self:removeIcon("assets/spr/wooden.png")
 end
 
-return ModWooden
+return ModPlant

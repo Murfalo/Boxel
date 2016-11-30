@@ -15,7 +15,7 @@ function ObjDupBox:create()
 
 	self:addModule(require "modules.ModDrawable")
 	self:addSprite(require("assets.spr.scripts.SprBox"))
-	self:addModule(require "modules.ModWooden")
+	self:addModule(require "modules.ModPlant")
 	self:addModule(require "modules.ModDuplicator")
 	-- lume.trace(self.onHitConfirm)
 	self.max_health = 100

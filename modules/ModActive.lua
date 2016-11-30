@@ -46,7 +46,7 @@ function ModActive:tick( dt )
 	if self.health <= 0 then
 		self.isAlive = false
 		self:onDeath()
-	else 
+	elseif not self.destroyed then
 		self.isAlive = true	
 		if #self.specialStates > 0 then
 		self:specialState( dt )
@@ -130,7 +130,9 @@ function ModActive:setHitState(stunTime, forceX, forceY, damage, element,faction
 
 		self:setHealth(self.redHealth - dm)
 		if not self.superArmor then
-			self.body:setLinearVelocity((forceX or 0) * ratio, (forceY or 0) * ratio)
+			if (forceX and forceX ~= 0) or (forceY and forceY ~= 0) then
+				self.body:setLinearVelocity((forceX or 0) * ratio, (forceY or 0) * ratio)
+			end
 		end
 		self.regainTime = 240
 		self.invincibleTime = 0

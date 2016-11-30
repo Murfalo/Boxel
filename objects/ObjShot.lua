@@ -18,7 +18,7 @@ function ObjShot:create()
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 	self:setFixture(self.shape, 22.6, true)
 	
-	self:addSpritePiece(require("assets.spr.scripts.SprShot"))
+	self:addSpritePiece(require(self.image or "assets.spr.scripts.SprShot"))
 	
 	--Sprite initialization
 	self.refresh = 30 
@@ -27,7 +27,7 @@ function ObjShot:create()
 	self.range = 120
 	self.forceX = 6 * 32
 	self.forceY = -6 * 32
-	self.element = "fire"
+	self.element = self.element or "hit"
 
 	if self.attacker.dir == 1 then
 		self:fireAtPoint(self.x + 128,self.y,4*32)
