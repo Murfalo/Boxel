@@ -19,31 +19,6 @@ function BasicMenu:leave(  )
 end
 
 function BasicMenu:update( dt )
-	local numItems = #self.items
-	local midX = love.graphics.getWidth() / 2
-	local midY = love.graphics.getHeight() / 2
-
-	local height = font:getHeight()
-	local width = nil
-
-	local startX = nil
-	local startY = midY - (height * numItems / 2)
-
-	local endX = nil
-	local endY = nil
-
-	local mouseX, mouseY = love.mouse.getPosition()
-	for k=1,numItems do
-		width = font:getWidth( self.items[k].text )
-		startX = midX - (width / 2)
-		endX = startX + width
-		endY = startY + height
-		if (mouseX > startX and mouseX < endX and mouseY > startY and mouseY < endY) then
-			self.index = k
-			break
-		end
-		startY = startY + height
-	end
 end
 
 function BasicMenu:draw()
@@ -95,11 +70,6 @@ function BasicMenu:keypressed( key, isrepeat )
 end
 
 function BasicMenu:mousepressed()
-	local item = self.items[self.index]
-	-- if the action returns true we don't pop
-	if not item.action( unpack( item.args or EMPTY ) ) then
-		Gamestate.pop()
-	end
 end
 
 local function new( items, bgcolor, fgcolor, selcolor)
