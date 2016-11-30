@@ -176,7 +176,7 @@ end
 
 
 function ModDrawable:animate()
-	local maxXSpeed, maxYSpeed = self.maxXSpeed, self.maxYSpeed
+	local maxSpeed, maxYSpeed = self.maxSpeed, self.maxYSpeed
 	local walkanim = math.abs(4 / self.velX)
 	local newVelX = self.velX - self.referenceVel
 	walkanim = math.max(walkanim, 0.18)
@@ -202,7 +202,7 @@ function ModDrawable:animate()
 				--self:freezeAnimation("body",0.0)
 				--self:freezeAnimation("head",0.0)
 			end 
-			if math.abs(newVelX) >= maxXSpeed - 52 then
+			if math.abs(newVelX) >= maxSpeed - 52 then
 				self:changeAnimation({"run","walk"})
 			else
 				self:changeAnimation("walk")

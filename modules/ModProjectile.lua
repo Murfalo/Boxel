@@ -217,7 +217,7 @@ function ModProjectile:decForce( dt, body)
 	forceY = 0
 
 	-- deceleration
-	if not self.inAir and ( not self.maxXSpeed or (math.abs(self.velX- self.referenceVel) > math.abs(self.maxXSpeed) * 1.1)) then
+	if not self.inAir and ( not self.maxSpeed or (math.abs(self.velX- self.referenceVel) > math.abs(self.maxSpeed) * 1.1)) then
 	 	forceX = velX * decForce
 	end
 	body:applyForce(forceX,forceY)

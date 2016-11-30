@@ -12,7 +12,7 @@ function EnShooter:init( )
 	self.jumpSpeed = 490
 	self.maxAirJumps = 1
 	self.deceleration = -9
-	self.maxSpeed = 6 * 32
+	self.maxSpeed = 3 * 32
 	self.acceleration = 20 * 32
 	self.x = 0
 	self.y = 0
@@ -21,7 +21,7 @@ end
 
 function EnShooter:create()
 	ObjBaseUnit.create(self)
-	lume.trace("HOhoh")
+	-- lume.trace("HOhoh")
 
 	self:addModule(require "modules.ModProjectileEnemy")
 	self:addModule(require "modules.ModShooter")

@@ -10,7 +10,7 @@ function ModPhysics:create()
 	self.currentJumpTime = 0
 	self.jumpSpeed = self.jumpSpeed or 960
 	self.deceleration = -12
-	self.maxXSpeed = self.maxXSpeed or 6 * 32
+	self.maxSpeed = self.maxSpeed or 6 * 32
 	self.speedModifier = 1.0
 	self.acceleration = 20 * 32
 
@@ -93,7 +93,7 @@ function ModPhysics:move( dt, body, forceX, forceY, isMovingX)
 	-- Staying stable on slopes
 	if not self.noGrav and self.groundLevel and not self.jumping and (self.state ~= 3) then
 		if self.groundLevel - self.y > 2 then
-			self.body:applyForce(0, self.body:getMass() * math.max(2500,(6000 * math.abs(self.velX/self.maxXSpeed))))
+			self.body:applyForce(0, self.body:getMass() * math.max(2500,(6000 * math.abs(self.velX/self.maxSpeed))))
 		end
 	end
 	if not self.noGrav and self.jumping or self.numContacts == 0 then
@@ -127,7 +127,7 @@ function ModPhysics:move( dt, body, forceX, forceY, isMovingX)
 		self.body:setGravityScale(1.0)
 	end
 	--deceleration
-	if not self.noGrav and not self.inAir and (isMovingX == false or math.abs(self.velX- self.referenceVel) > math.abs(self.maxXSpeed) * 1.1) then
+	if not self.noGrav and not self.inAir and (isMovingX == false or math.abs(self.velX- self.referenceVel) > math.abs(self.maxSpeed) * 1.1) then
 		if self.state == 3 then
 			forceX = velX * (decForce/4)
 		else
