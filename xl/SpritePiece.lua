@@ -119,7 +119,7 @@ function SpritePiece:addConnectPoint( sprite, pointName ,selfPoint)
 			if key == pointName then
 				self.rootSprite = sprite
 				self.rootPoint = pointName
-				break;
+				break
 			end
 		end
 	end

@@ -19,6 +19,7 @@ function ObjTest:create()
 	self:addModule(require "modules.ModWooden")
 	self:addModule(require "modules.ModDelicious")
 	self:addModule(require "modules.ModIrresistable")
+	self:addModule(require "modules.ModSuperHeavy")
 	-- lume.trace(self.onHitConfirm)
 	self.max_health = 100
 	self.health = self.max_health

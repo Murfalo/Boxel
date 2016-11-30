@@ -328,9 +328,9 @@
   <object id="4" type="ObjWall" x="128" y="256">
    <polyline points="0,0 64,0 64,64 224,64 288,0 416,0 480,64 544,64 544,-64 608,-64"/>
   </object>
-  <object id="8" type="ObjChar" x="288" y="256"/>
+  <object id="8" type="ObjChar" x="224" y="288"/>
   <object id="9" type="ObjDebugCamera" x="320" y="128"/>
-  <object id="10" type="ObjTest" x="224" y="224"/>
+  <object id="10" type="ObjTest" x="224" y="96"/>
   <object id="15" type="ObjSpawnZone" x="704" y="64" width="32" height="32"/>
   <object id="16" type="ObjMine" x="480" y="224"/>
   <object id="17" type="ObjBomb" x="640" y="256"/>

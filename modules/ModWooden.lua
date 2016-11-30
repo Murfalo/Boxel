@@ -21,6 +21,7 @@ function ModWooden:create()
 	self:setAreaSpread("fire","normal",8,8)
 	self.fireTime = 90
 	self:setFade("fire")
+	self:addIcon(require("assets.spr.scripts.IcoWooden"))
 
 end
 
@@ -58,6 +59,10 @@ function ModWooden:destroy()
 	wood:setParticleLifetime(1, 2);
 	newEmitter:setFade("wood")
 	newEmitter:emit("wood",16)
+end
+
+function ModWooden:onRemove()
+	self:removeIcon("assets/spr/wooden.png")
 end
 
 return ModWooden
