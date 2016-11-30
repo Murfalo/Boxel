@@ -16,9 +16,9 @@ function ObjChar:init( )
 	self.health = 500
 
 	--initialize movement data
-	self.maxJumpTime = 300
+	self.maxJumpTime = 9
 	self.currentJumpTime = 0
-	self.jumpSpeed = 490
+	self.jumpSpeed = 960
 	self.maxAirJumps = 1
 	self.airJumps = 0
 	self.deceleration = -9
