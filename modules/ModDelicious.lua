@@ -1,14 +1,20 @@
 local ModDelicious = Class.create("ModDelicious", Entity)
-ModDelicious.dependencies = {"ModActive", "ModInteractive"}
+ModDelicious.dependencies = {"ModPartEmitter","ModActive", "ModInteractive"}
 ModDelicious.removable = true
 
 function ModDelicious:create()
 	self:setDeliciousness(20)
+	self:addEmitter("crumb" , "assets/spr/crumb.png")
+	self:setRandomDirection("crumb" , 3 * 32)
+	self:setRandRotation("crumb",32,0,1)
+	local crumb = self.psystems["crumb"]
+	crumb:setParticleLifetime(1, 2);
+	self:setFade("crumb")
 	self:addIcon(require("assets.spr.scripts.IcoDelicious"))
 end
 
 function ModDelicious:onPlayerInteract(player) 
-	lume.trace(self.health)
+	self:emit("crumb",3)
 	self:setHitState(0, nil, nil, self.deliciousness, nil,nil)
 	player.health = player.health + self.deliciousness
 end

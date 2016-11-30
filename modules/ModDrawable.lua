@@ -133,7 +133,9 @@ end
 
 function ModDrawable:orientAllSprites()
 	for key,value in pairs(self.sprites) do
-		value:setScale(self.dir * value.mDir,1)
+		if value.setScale then
+			value:setScale(self.dir * value.mDir,1)
+		end
 		value.dir = self.dir
 		--self:setSprPos(self.x,self.y + 16 + self.charHeight/2)
 	end
@@ -313,9 +315,13 @@ end
 
 function ModDrawable:setSprPos( x , y )
 	for key, piece in pairs(self.sprites) do
-		local piecesPos = piece:updatePos(x,y)
-		for k,v in pairs(piecesPos) do
-			self.attachPositions[k] = v
+		if not piece.updatePos then
+			util.print_table(piece)
+		else
+			local piecesPos = piece:updatePos(x,y)
+			for k,v in pairs(piecesPos) do
+				self.attachPositions[k] = v
+			end
 		end
 	end
 	if self.sprite then
@@ -352,6 +358,10 @@ function ModDrawable:addIcon( newIcon )
 		newIcon.connectSprite = "icon" .. (#self.icons)
 	elseif self.sprites["main"] then
 		newIcon.connectSprite = "main"
+		newIcon.connectPoint = "center"
+		newIcon.attachPoints.prevIco = {x=16,y=48}
+	elseif self.sprites["legs"] then
+		newIcon.connectSprite = "legs"
 		newIcon.connectPoint = "center"
 		newIcon.attachPoints.prevIco = {x=16,y=48}
 	end

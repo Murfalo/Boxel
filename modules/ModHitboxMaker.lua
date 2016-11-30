@@ -27,7 +27,7 @@ function ModHitboxMaker:mCreateHitbox(wth, hgt, XOffset, YOffset, dmg, stn, pers
 		dmg = wth["damage"] or 10
 		stn = wth["stun"] or 20
 		pers = wth["persistence"] or 4
-		Xforce = wth["xKnockBack"] or 3 * 32
+		Xforce = wth["xKnockBack"] or 0
 		Yforce = wth["yKnockBack"] or 0
 		elem = wth["element"] or "hit"
 		deflect = wth["isDeflect"] or false

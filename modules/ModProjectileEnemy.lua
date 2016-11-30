@@ -1,13 +1,9 @@
 local ModProjectileEnemy = Class.create("ModProjectileEnemy", Entity)
-ModProjectileEnemy.dependencies = {"ModEnemy","ModHitboxMaker"}
-ModProjectileEnemy.trackFunctions = {"onMelee"}
+ModProjectileEnemy.dependencies = {"ModEnemy","ModShooter"}
 
-function ModProjectileEnemy:setProjectile( projectile )
-	self.projectile = projectile
+function ModProjectileEnemy:preProcessProjectile( projectile )
+	projectile.image = "assets.spr.scripts.SprEnShot"
 end
-function ModProjectileEnemy:onMelee()
-	local newShot = self.projectile(self.x,self.y,self)
-	Game:add(newShot)
-end
+
 
 return ModProjectileEnemy

@@ -49,13 +49,15 @@ function ObjSwapper:create()
 	self:addTickFunction(spin)
 
 	local function foundTarget(self,target, hitType, hitbox)
-		if Class.istype(target,"ObjBase") then
+		if Class.istype(target,"ObjBase") and not self.returningToPlayer then
 			if target ~= self.attacker then
+				self.returningToPlayer = true
 				if self.attacker.currentSwapper then
 					target:addModule(require("modules."..self.attacker.currentSwapper))
 					util.print_table(target:getAllRemovableModules())
 					self.attacker.currentSwapper = nil
 					self:changeAnimation("unactive")
+					self.haveSomething = true
 				else
 					self.range = 900
 					self.haveSomething = true
@@ -63,7 +65,7 @@ function ObjSwapper:create()
 					util.print_table(mods)
 					if #mods > 0 then
 						local removeMod = mods[math.random(1,#mods)]
-						target:removeModule(removeMod)
+						--target:removeModule(removeMod)
 						self.haveSomething = removeMod
 						self:changeAnimation("active")
 					end
@@ -74,13 +76,16 @@ function ObjSwapper:create()
 	self:addOnHitFunction(foundTarget)
 	self.hitPlayer = false
 	local function returnToPlayer(self)
-		if self.haveSomething then
+		if self.returningToPlayer or self.range < 20 and not self.hitPlayer then
+			self.returningToPlayer = true
+			self.range = 10
 			self:moveToPoint(self.attacker.x,self.attacker.y,0,7*32)
 			if self:getDistanceToPoint(self.attacker.x,self.attacker.y) < 16 and not self.hitPlayer then
 				local displayText = "Nothing"
-				if self.haveSomething ~= true then
+				if self.haveSomething and self.haveSomething ~= true then
 					displayText = self.haveSomething
 					self.attacker.currentSwapper = self.haveSomething
+					self.attacker:addModule(require("modules."..self.haveSomething))
 				end
 				lume.trace("displaying Text")
 				local newText = TimedText(displayText, self.x, self.y, 14)
@@ -97,6 +102,11 @@ function ObjSwapper:create()
 	end
 
 	self:addDestroyFunction(onDestroy)
+
+	if self.attacker.currentSwapper then
+		self.attacker:removeModule(self.attacker.currentSwapper)
+		self.haveSomething = self.attacker.currentSwapper
+	end
 end
 
 return ObjSwapper

@@ -5,7 +5,7 @@ local ObjIntHitbox = require "objects.ObjIntHitbox"
 local ObjSwapper = require "objects.ObjSwapper"
 
 
-ModControllable.dependencies = {"ModActive","ModInventory"}
+ModControllable.dependencies = {"ModActive","ModInventory","ModShooter"}
 ModControllable.trackFunctions = {"normalState"}
 --calculates necessary force to make the character move in a certain direction
 
@@ -217,6 +217,7 @@ end
 
 function ModControllable:onDeath()
 	if not self.textWritten then
+		Game.round = 1
 		local newText = TimedText("You died, Press I to Restart", self.x, self.y, 20)
 		Game:add(newText)
 		self.textWritten = true

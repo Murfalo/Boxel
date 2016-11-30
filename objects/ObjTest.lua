@@ -16,7 +16,7 @@ function ObjTest:create()
 	self:addModule(require "modules.ModDrawable")
 	self:addSpritePiece(require("assets.spr.scripts.SprBox"))
 
-	self:addModule(require "modules.ModWooden")
+	self:addModule(require "modules.ModPlant")
 	self:addModule(require "modules.ModIrresistable")
 	self:addModule(require "modules.ModDelicious")
 	self:addModule(require "modules.ModSuperHeavy")
