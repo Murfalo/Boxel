@@ -46,7 +46,7 @@ function ObjAttackHitbox:setIsLight(light)
 end
 
 function ObjAttackHitbox:create()
-	lume.trace(self.attacker.type)
+	-- lume.trace(self.attacker.type)
 	self.body = love.physics.newBody(self:world(), self.x, self.y, "dynamic")
 	self.body:setFixedRotation(true)
 	self.body:setUserData(self)

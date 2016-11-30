@@ -82,7 +82,7 @@ function ModEnemy:findTarget()
 	local minDist = 9999999
 	for i,v in ipairs(actList) do
 		if not self.faction or (v.faction and v.faction ~= self.faction) then
-			lume.trace(self.x,self.y)
+			-- lume.trace(self.x,self.y)
 			local dist = self:getDistanceToPoint(v.x,v.y) 
 			if dist < minDist then
 				minDist = dist
@@ -118,14 +118,14 @@ function ModEnemy:moveToPoint(destinationX, destinationY, proximity,grounded)
 			self.dir = -1
 		end
 
-		if dvX ~= 0 and math.abs(self.velX - self.referenceVel) < self.maxXSpeed * self.speedModifier then
+		if dvX ~= 0 and math.abs(self.velX - self.referenceVel) < self.maxSpeed * self.speedModifier then
 			self.forceX = dvX * accForce
 			if util.sign(self.velX) == dvX then
 				self.forceX = self.forceX * 2
 			end
 		end
 
-		self.forceX = self:calcForce( dvX, self.velX, accForce, self.maxXSpeed )
+		self.forceX = self:calcForce( dvX, self.velX, accForce, self.maxSpeed )
 		if self.inAir then
 			self.forceX = self.forceX * 0.8
 		end
