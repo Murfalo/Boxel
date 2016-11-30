@@ -17,4 +17,8 @@ function ModDelicious:setDeliciousness( deliciousness )
 	self.deliciousness = deliciousness
 end
 
+function ModDelicious:onRemove()
+	self:removeIcon("assets/spr/delicious.png")
+end
+
 return ModDelicious

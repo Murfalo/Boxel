@@ -3,9 +3,6 @@ local ObjBomb = Class.create("ObjBomb", ObjBaseUnit)
 	
 function ObjBomb:create()
 	ObjBaseUnit.create(self)
-	self:addModule(require "modules.ModBomb")
-	
-
 	self:createBody( "dynamic" ,false, true)
 	self.shape = love.physics.newRectangleShape(24,32)
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)
@@ -14,6 +11,8 @@ function ObjBomb:create()
 
 	self:addSpritePiece(require("assets.spr.scripts.SprBomb"))
 	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
+	self:addModule(require "modules.ModBomb")
+	util.print_table(self.sprites)
 end
 
 return ObjBomb

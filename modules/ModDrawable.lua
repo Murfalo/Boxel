@@ -132,9 +132,6 @@ function ModDrawable:updateSprites()
 end
 
 function ModDrawable:orientAllSprites()
-	if self.type == "ObjShot" then
-		lume.trace(self.dir)
-	end
 	for key,value in pairs(self.sprites) do
 		value:setScale(self.dir * value.mDir,1)
 		value.dir = self.dir
@@ -343,6 +340,11 @@ end
 function ModDrawable:addIcon( newIcon )
 	local newPieces
 	local newTable = {}
+	for i,v in ipairs(self.icons) do
+		if v.path == newIcon.path then
+			return 
+		end
+	end
 	local iconName = "icon" .. #self.icons
 	newIcon.name = iconName
 	if #self.icons > 0 then
@@ -352,8 +354,9 @@ function ModDrawable:addIcon( newIcon )
 		newIcon.connectPoint = "center"
 		newIcon.attachPoints.prevIco = {x=16,y=48}
 	end
-	self.icons[#self.icons + 1] = newIcon
 	self:addSpritePiece(newIcon)
+	self.icons[#self.icons + 1] = newIcon
+
 end
 
 function ModDrawable:removeIcon( iconPath   )
@@ -376,6 +379,7 @@ function ModDrawable:removeIcon( iconPath   )
 			self:addSpritePiece(v)
 		end
 	end
+
 	if deletedInd ~= 0 then
 		table.remove(self.icons,deletedInd)
 	else
