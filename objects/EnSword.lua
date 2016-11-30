@@ -21,7 +21,6 @@ end
 
 function EnSword:create()
 	ObjBaseUnit.create(self)
-	lume.trace("HOhoh")
 
 	self:addModule(require "modules.ModMeleeEnemy")
 	self:setMeleeHitbox({width = 60, height = 15,xOffset = 10, yOffset = -5, damage = 20, guardDamage = 12,

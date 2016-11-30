@@ -14,6 +14,7 @@ function ModEnemy:create( )
 	self.AICounter = 0
 	self.AIStatus = nil
 	self.timeSinceLastAttack = 0
+	self.faction = "enemy"
 	self.timeSinceLastJump = 0
 	-- lume.trace("Setting can be deflectined")
 	local function aggressiveAI( char, target )
@@ -80,7 +81,7 @@ function ModEnemy:findTarget()
 	local actList = Game:findObjectsWithModule("ModActive")
 	local minDist = 9999999
 	for i,v in ipairs(actList) do
-		if not self.faction or not v.faction or (v.faction and v.faction ~= self.faction) then
+		if not self.faction or (v.faction and v.faction ~= self.faction) then
 			lume.trace(self.x,self.y)
 			local dist = self:getDistanceToPoint(v.x,v.y) 
 			if dist < minDist then

@@ -155,7 +155,9 @@ function ModProjectile:onHitWall() end
 
 function ModProjectile:onHitConfirm(target, hitType, hitbox)
 	self.range = 0
-	self.attacker:onHitConfirm(target,hitType,hitbox)
+	if self.attacker and not self.attacker.destroyed then
+		self.attacker:onHitConfirm(target,hitType,hitbox)
+	end
 	if self.hitFuncts then
 		for i,v in ipairs(self.hitFuncts) do
 			v(self,target,hitType,hitbox)

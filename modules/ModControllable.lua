@@ -214,4 +214,18 @@ function ModControllable:onKill(target, hitType, hitbox)
 		Game:add(newText)
 	end
 end
+
+function ModControllable:onDeath()
+	if not self.textWritten then
+		local newText = TimedText("You died, Press I to Restart", self.x, self.y, 20)
+		Game:add(newText)
+		self.textWritten = true
+	end
+	self:changeAnimation("hit")
+	if Keymap.isDown("interact") then
+		lume.trace()
+		Game.playerIsDead = true
+		Game:loadRoom( "assets/rooms/testRoom" )
+	end
+end
 return ModControllable

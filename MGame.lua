@@ -333,6 +333,7 @@ end
 -- @param {string} name - Path of the room to load (like in a require statement)
 ----
 function MGame:loadRoom( name )
+	lume.trace()
 	if (type(name) == "table") then
 		-- lume.trace("load pre-loaded Table")
 		self.curMapTable = util.deepcopy(name)
@@ -341,8 +342,10 @@ function MGame:loadRoom( name )
 	end
 
 	if self.locked then
+		lume.trace()
 		self.next_room = name
 	else
+		lume.trace()
 		self:emitEvent( "roomend" )
 		-- save references to persistent entities
 		local persistentEntities = {}
@@ -351,10 +354,12 @@ function MGame:loadRoom( name )
 				table.insert(persistentEntities, v)
 			end
 		end
+		lume.trace()
 		self:i_loadRoom( name, true )
 		for k,v in pairs(persistentEntities) do
 			self:add(v)
 		end
+		lume.trace()
 	end
 	Background("assets/bkgs/space.png", true, 0, 9, 0, 1, 1)
 end
@@ -441,6 +446,7 @@ function MGame:i_loadRoom( name, loadData )
 	else
 		self.roomname = name
 	end
+		lume.trace()
 
 	-- clear all entities 
 	-- Before we can create a new room, we must clear our entities list to remove objects in the old room.
@@ -448,9 +454,10 @@ function MGame:i_loadRoom( name, loadData )
 	-- So we delete everything else.
 	while next( self.entities ) do
 		for key,value in pairs(self.entities) do
-			self:del(value)
+			self:mDel(value)
 		end
 	end
+		lume.trace()
 
 	-- reset room
 	-- We clear the other things as well.
@@ -458,6 +465,7 @@ function MGame:i_loadRoom( name, loadData )
 	self.scene:clear()
 	self.lights:clear()
 	self.tilelayers = {}
+		lume.trace()
 
 	-- reset world
 	self.world:destroy() -- leave the old world behind
@@ -469,7 +477,8 @@ function MGame:i_loadRoom( name, loadData )
 	-- like the character. Are copied back into the new world with the same parameters. tap me when done. Do that always.
 	self.world:setCallbacks(self.wrapOnContactBegin, self.wrapOnContactEnd, self.wrapPreSolve, self.wrapPostSolve)
 
-	
+			lume.trace()
+
 	-- load the new room and various properties/options/settings
 	if type(name) == "table" then
 		self.map = STI.fromTable(name)
@@ -477,6 +486,8 @@ function MGame:i_loadRoom( name, loadData )
 	else
 		self.map = STI.new(name)
 	end
+
+		lume.trace()
 
 	local p = self.map.properties
 	-- Here we grab a few variables from the map we loaded as set the physics world's properties, such as gravity.
@@ -491,6 +502,8 @@ function MGame:i_loadRoom( name, loadData )
 	end
 	self.world:setGravity(unpack(self.gravity)) -- we do it here. tap. Do you want me to talk more about world create or physics. Okay.
 	-- New file then.
+
+		lume.trace()
 
 
 	for _,layer in ipairs(self.map.layers) do
@@ -528,6 +541,9 @@ function MGame:i_loadRoom( name, loadData )
 		end
 	end
 
+			lume.trace()
+
+
 	if loadData then
 		local roomname = string.match( name, "([%w_]-)$" )
 		local success,func = pcall( require, "scripts/room/" .. roomname )
@@ -550,6 +566,8 @@ function MGame:i_loadRoom( name, loadData )
 		end
 		self:emitEvent( "roombegin" )
 	end
+		lume.trace()
+
 end
 
 ----

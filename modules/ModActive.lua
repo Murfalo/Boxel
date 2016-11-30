@@ -43,20 +43,22 @@ function ModActive:tick( dt )
 
 	self:processPassives()
 
-	if #self.specialStates > 0 then
-		self:specialState( dt )
-	elseif self.state ~= 3 then
-		self.status = "normal"
-		self:normalState()
-	end
-	
-	if self.health <= 0 and not self.immortal then
-		self.isAlive = false	
+	if self.health <= 0 then
+		self.isAlive = false
 		self:onDeath()
-	elseif self.state == 3 then
-		self:hitState() 			-- self.status = "stun"
-	end
+	else 
+		self.isAlive = true	
+		if #self.specialStates > 0 then
+		self:specialState( dt )
+		elseif self.state ~= 3 then
+			self.status = "normal"
+			self:normalState()
+		end
 	
+		if self.health > 0 and  self.state == 3 then
+			self:hitState() 			-- self.status = "stun"
+		end
+	end
 	self:updateHealth()
 end
 
@@ -287,7 +289,9 @@ function ModActive:getHealth(  )
 end
 
 function ModActive:onDeath()
-	Game:del(self)
+	if not self.immortal then
+		Game:del(self)
+	end
 end
 
 function ModActive:onHitConfirm(target, hitType, hitbox)

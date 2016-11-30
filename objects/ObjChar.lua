@@ -13,7 +13,7 @@ function ObjChar:init( )
 
 	-- init other data
 	self.max_health = 500
-	self.health = 500
+	self.health = 100
 
 	--initialize movement data
 	self.maxJumpTime = 9
@@ -28,7 +28,7 @@ function ObjChar:init( )
 	self.currentPrimary = nil
 	self.x = 0
 	self.y = 0
-	self.persistent = true
+	-- self.persistent = true
 	self.attackTimer = 0
 	-- self.charHeight = 22
 	self.canControl = true
@@ -37,6 +37,8 @@ function ObjChar:init( )
 	self.inventoryLocked = self.inventoryLocked or false
 	self.faction = "player"
 	Game.savedata["count_deaths"] = 0
+	self.immortal = true
+	Game.playerIsDead = false
 end
 
 --Initializes values of ObjChar which will occur at the beginning of every room
@@ -75,26 +77,6 @@ function ObjChar:create()
 	self:addModule(require "modules.ModInventory")
 	self:setEquipCreateItem("ObjGun")
 	-- self:setEquipCreateItem("EqpTest")
-end
-
---
-function ObjChar:onDeath()
-	self.isAlive = false
-	local function death( player, frame )
-		lume.trace(frame)
-		if frame == 1 then
-			Game.WorldManager:fade(2)
- 			Game.savedata["count_deaths"] = Game.savedata["count_deaths"] + 1
-		elseif frame > 120 then
-			Game.WorldManager:respawnFromDeath(self)
-			player.exit = true
-		end
-	end
-	if not self.die then
-		lume.trace("on death")
-		self.die = true
-		self:setSpecialState(death,false,true)
-	end
 end
 
 return ObjChar

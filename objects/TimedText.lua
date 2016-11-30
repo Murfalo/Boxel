@@ -18,6 +18,8 @@ function TimedText:init( text, x, y, ptSize)
 end
 
 function TimedText:create()
+	lume.trace(#self.text)
+	self.x = self.x - (#self.text * self.ptSize)/4
 	self.textObj = Text(self.text, self.x, self.y, 9000, true)
 	self.textObj:setPtsize(self.ptSize or 24)
 	Game.scene:insert(self.textObj)

@@ -46,6 +46,7 @@ function ObjAttackHitbox:setIsLight(light)
 end
 
 function ObjAttackHitbox:create()
+	lume.trace(self.attacker.type)
 	self.body = love.physics.newBody(self:world(), self.x, self.y, "dynamic")
 	self.body:setFixedRotation(true)
 	self.body:setUserData(self)
@@ -140,7 +141,7 @@ end
 -- other: whatever the other object this object collided with.
 -- collision: don't worry too much about it. I don't use this. But technically, this is a collision "event", with some
 -- data about the collision, like collision points, etc. Thus, in this example, I create a hitbox, and if the hitbox hits anything,
--- it will call this function. tapp. 
+-- it will call this function. tap. 
 function ObjAttackHitbox:onCollide(other, collision)
 	if other ~= nil and other ~= self.attacker then
 		-- for i = 1, #self.objectsHit do
