@@ -170,15 +170,18 @@ function MGame:draw()
 	self.hud:draw()
 	self:nocamera( false )
 
-	-- draw the round and health (this is gross but it works!)
+	-- draw the simplistic HUD (this is gross but it works!)
 	-- possibly change color if this becomes hard to read
 	local currFont = love.graphics.getFont()
-	love.graphics.setFont(love.graphics.newFont(12))
+	love.graphics.setFont(love.graphics.newFont(15))
 
-	love.graphics.print("Round: " .. Game.round, 10, 10)
-	love.graphics.rectangle("line", 5, 5, 115, 45)
-	if Game.player then
-		love.graphics.print("Health: " .. Game.player.health .. "/" .. Game.player.max_health, 10, 30)
+	if not Game.playerIsDead then
+		love.graphics.print("Round: " .. Game.round, 15, 10)
+		love.graphics.rectangle("line", 5, 5, 145, 75)
+		if Game.player then
+			love.graphics.print("Health: " .. Game.player.health .. "/" .. Game.player.max_health, 15, 30)
+			love.graphics.print("Defeated: " .. Game.player.killCount, 15, 50)
+		end
 	end
 	
 	love.graphics.setFont(currFont)
