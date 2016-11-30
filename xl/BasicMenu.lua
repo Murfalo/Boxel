@@ -1,6 +1,8 @@
 
 local Gamestate = require "hump.gamestate"
 local Keymap = require "xl.Keymap"
+local Background = require "xl.Background"
+
 local font = xl.getFont( 30 )
 
 local function __NULL__(  ) end
@@ -11,6 +13,8 @@ function BasicMenu:enter( previous )
 	love.keyboard.setKeyRepeat( true )
 	self.old_bgcolor = {love.graphics.getBackgroundColor()}
 	love.graphics.setBackgroundColor( self.bgcolor )
+	self.bkg = Background("assets/bkgs/space.png", true, 0, 9, 0, 1, 1)
+
 end
 
 function BasicMenu:leave(  )
@@ -23,6 +27,7 @@ end
 
 function BasicMenu:draw()
 	local loveGraphics = love.graphics
+	loveGraphics.draw( self.bkg.image, self.bkg.quad, self.bkg.x, self.bkg.y )
 	local numItems = #self.items
 	local height = font:getHeight()
 	local midX = loveGraphics.getWidth() / 2

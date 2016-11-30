@@ -13,7 +13,7 @@ function ObjChar:init( )
 
 	-- init other data
 	self.max_health = 500
-	self.health = 100
+	self.health = 500
 
 	--initialize movement data
 	self.maxJumpTime = 9
