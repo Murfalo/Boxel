@@ -813,7 +813,7 @@ return {
           name = "",
           type = "ObjLamp",
           shape = "rectangle",
-          x = 704,
+          x = 672,
           y = 640,
           width = 32,
           height = 32,
