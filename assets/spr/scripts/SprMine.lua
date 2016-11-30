@@ -7,8 +7,6 @@ local pce = {
 	height = 32,
 	imgX = 32,
 	imgY = 32,
-	originX = 16,
-	originY = 16,
 	attachPoints = 	{ center = {x = 16,y = 16}},
 	animations = ane
 }

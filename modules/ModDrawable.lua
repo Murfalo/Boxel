@@ -369,13 +369,14 @@ function ModDrawable:removeIcon( iconPath   )
 			deletedInd = i
 		elseif pushBack then
 			self:delSpritePiece(v.name)
-			v.connectSprite = "icon" .. (i - 1)
+			v.connectSprite = "icon" .. (i - 2)
 			v.name = "icon" .. (i - 1)
-			if (i-1) == 1 then
+			if (i-2) == 0 then
 				v.connectSprite = "main"
 				v.connectPoint = "center"
 				v.attachPoints.prevIco = {x=16,y=48}
 			end
+			lume.trace(v.connectSprite)
 			self:addSpritePiece(v)
 		end
 	end

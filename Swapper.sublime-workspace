@@ -4,12 +4,12 @@
 		"selected_items":
 		[
 			[
-				"self",
-				"self"
+				"for",
+				"forp\tfor k,v in pairs()"
 			],
 			[
-				"for",
-				"fori\tfor i,v in ipairs()"
+				"self",
+				"self"
 			],
 			[
 				"spawn",
@@ -20,64 +20,71 @@
 	"buffers":
 	[
 		{
-			"file": "objects/ObjAttackHitbox.lua",
-			"settings":
-			{
-				"buffer_size": 6190,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "objects/ObjDamageHitbox.lua",
-			"settings":
-			{
-				"buffer_size": 1887,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "ObjBase.lua",
 			"settings":
 			{
-				"buffer_size": 2972,
+				"buffer_size": 3414,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "objects/ObjChar.lua",
+			"file": "assets/spr/scripts/SprTree.lua",
 			"settings":
 			{
-				"buffer_size": 3187,
+				"buffer_size": 246,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "objects/ObjGun.lua",
+			"file": "modules/ModDrawable.lua",
 			"settings":
 			{
-				"buffer_size": 745,
+				"buffer_size": 10912,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "modules/ModShooter.lua",
+			"file": "modules/ModActive.lua",
 			"settings":
 			{
-				"buffer_size": 495,
+				"buffer_size": 7932,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "modules/ModSpawner.lua",
+			"file": "modules/ModWooden.lua",
 			"settings":
 			{
-				"buffer_size": 2092,
+				"buffer_size": 1962,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/spr/scripts/IcoIrresistable.lua",
+			"settings":
+			{
+				"buffer_size": 333,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "xl/SpritePiece.lua",
+			"settings":
+			{
+				"buffer_size": 5646,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModBomb.lua",
+			"settings":
+			{
+				"buffer_size": 1791,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -86,87 +93,16 @@
 			"file": "objects/ObjTest.lua",
 			"settings":
 			{
-				"buffer_size": 939,
+				"buffer_size": 850,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "modules/ModDuplicator.lua",
+			"file": "modules/ModSuperHeavy.lua",
 			"settings":
 			{
-				"buffer_size": 1490,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "util.lua",
-			"settings":
-			{
-				"buffer_size": 15342,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "objects/EnShooter.lua",
-			"settings":
-			{
-				"buffer_size": 1193,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModEnemy.lua",
-			"settings":
-			{
-				"buffer_size": 5084,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "objects/SpawnZone.lua",
-			"settings":
-			{
-				"buffer_size": 217,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "objects/ObjSpawnZone.lua",
-			"settings":
-			{
-				"buffer_size": 303,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModEquippable.lua",
-			"settings":
-			{
-				"buffer_size": 8860,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "objects/ObjShot.lua",
-			"settings":
-			{
-				"buffer_size": 924,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "modules/ModMeleeEnemy.lua",
-			"settings":
-			{
-				"buffer_size": 349,
+				"buffer_size": 710,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -208,65 +144,83 @@
 	],
 	"file_history":
 	[
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModProjectileEnemy.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEnemy.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjEnemy.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModProjectile.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnShooter.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModWeapon.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEquippable.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/extra.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModControllable.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModActive.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/TimedText.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModBomb.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjBomb.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjMine.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModInteractive.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModSuperHeavy.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/MGame.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjSwapper.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/Error",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDelicious.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/TimedText.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/xl/Text.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/IcoDelicious.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPartEmitter.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjAttackHitbox.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModHitboxMaker.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModActive.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/table",
+		"/C/Users/LuoLei Zhao/game-off-2016/xl/Background.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjTest.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprBox.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/IcoBomb.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModBomb.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprBomb.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/PceWheel.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/PceBody.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEquippable.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprMine.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModGlass.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModControllable.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModIrresistable.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPhysics.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjChar.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjCrate.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprSwapper.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModSpawner.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModProjectile.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDrawable.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjGun.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModShooter.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEnemy.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjShot.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjDamageHitbox.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprShot.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjDupBox.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnShooter.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModProjectileEnemy.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjIntHitbox.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/util.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDuplicator.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/hump/class.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjSimpleEmitter.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjUnit.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/SpawnZone.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjSpawnZone.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModMeleeEnemy.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjEnemy.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModWeapon.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/extra.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPowered.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModShield.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModWooden.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/MGame.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/rooms/testRoom.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjShot.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjUnit.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/ObjBase.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModIrresistable.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModInteractive.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModHasHUD.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/mixin/Healthbar.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjSpawnZone.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDuplicator.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/util.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjAttackHitbox.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprBox.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDrawable.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjBomb.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnSword.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/SpawnZone.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprKnife.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprKnifeEqp.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjChar.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprTorchEqp.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnBigSword.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModHitboxMaker.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModSpawner.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjGameInterface.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjTest.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjEnemyProjectile.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprShot.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPhysics.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjDamageHitbox.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjGun.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjEnemyShooter.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjWall.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjCrate.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModMeleeEnemy.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/rooms/testRoom.tmx",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjTorch.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjWeapon.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprTorch.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPartEmitter.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjSimpleEmitter.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/xl/Scene.lua"
 	],
 	"find":
@@ -288,6 +242,46 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"lume.trace",
+			"ObjBomb",
+			"delSpritePiece",
+			"addIcon",
+			"delSpritePiece",
+			"makeFont",
+			"setPtSize",
+			"loadRoom",
+			"offsetX",
+			"setHitstate",
+			"ModIrresistable",
+			"background",
+			"addBackground",
+			"onRemove",
+			"addIcon",
+			"delSpritepiece",
+			"del",
+			"spritePiece",
+			"addSpritePiece",
+			"wood",
+			"}\n",
+			"timedtext",
+			"FXSpellText",
+			"timedtext",
+			"orientAllSprites",
+			"self.destroyFuncts",
+			"hitfunct",
+			"normalState",
+			"function",
+			"ObjShot",
+			"objinteractive",
+			"interact",
+			"ObjTest",
+			"addMod",
+			"from",
+			"include_helper",
+			"include",
+			"copy",
+			"allFuncts",
+			"self.allFuncts",
 			"attackAni",
 			"onAttack",
 			"ModWeapon",
@@ -375,15 +369,7 @@
 			"onDeath",
 			"self.entities",
 			"entities",
-			"randomJump",
-			"faction",
-			"EIBasicAI",
-			"SimpleEnemy",
-			"ObjUnit",
-			"updateHealth",
-			"isAlive",
-			"health",
-			"normalMove"
+			"randomJump"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -391,6 +377,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"ObjMine",
+			"ModSuperHeavy",
+			"glass",
+			"TimedText",
+			"ObjSwapper",
+			"ObjDupBox",
 			"ModShooter",
 			"onStartAttack",
 			"attacker",
@@ -430,82 +422,24 @@
 	"groups":
 	[
 		{
-			"selected": 9,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "objects/ObjAttackHitbox.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6190,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5544,
-								5552
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3121.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "objects/ObjDamageHitbox.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1887,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								889,
-								889
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "ObjBase.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2972,
+						"buffer_size": 3414,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1582,
-								1582
+								2463,
+								2463
 							]
 						],
 						"settings":
@@ -514,27 +448,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 896.0,
+						"translation.y": 1791.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "objects/ObjChar.lua",
+					"buffer": 1,
+					"file": "assets/spr/scripts/SprTree.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3187,
+						"buffer_size": 246,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								539,
-								539
+								246,
+								246
 							]
 						],
 						"settings":
@@ -550,20 +484,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "objects/ObjGun.lua",
+					"buffer": 2,
+					"file": "modules/ModDrawable.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 745,
+						"buffer_size": 10912,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								81,
-								81
+								3422,
+								3422
 							]
 						],
 						"settings":
@@ -572,84 +506,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "modules/ModShooter.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 495,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								495,
-								495
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "modules/ModSpawner.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2092,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								745,
-								745
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 71.0,
+						"translation.y": 2181.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "objects/ObjTest.lua",
+					"buffer": 3,
+					"file": "modules/ModActive.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 939,
+						"buffer_size": 7932,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								634,
-								634
+								183,
+								183
 							]
 						],
 						"settings":
@@ -665,79 +542,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "modules/ModDuplicator.lua",
+					"buffer": 4,
+					"file": "modules/ModWooden.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1490,
+						"buffer_size": 1962,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								674,
-								674
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 151.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "util.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 15342,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6824,
-								6824
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5031.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "objects/EnShooter.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1193,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								623,
-								623
+								325,
+								325
 							]
 						],
 						"settings":
@@ -749,24 +567,111 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "modules/ModEnemy.lua",
+					"buffer": 5,
+					"file": "assets/spr/scripts/IcoIrresistable.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5084,
+						"buffer_size": 333,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								42,
-								48
+								135,
+								135
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "xl/SpritePiece.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5646,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3181,
+								3181
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2071.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "modules/ModBomb.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								647,
+								651
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 66.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "objects/ObjTest.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 850,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								243,
+								243
 							]
 						],
 						"settings":
@@ -782,20 +687,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "objects/SpawnZone.lua",
+					"buffer": 9,
+					"file": "modules/ModSuperHeavy.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 217,
+						"buffer_size": 710,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								197,
-								197
+								684,
+								684
 							]
 						],
 						"settings":
@@ -806,134 +711,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "objects/ObjSpawnZone.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 303,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								276,
-								276
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "modules/ModEquippable.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8860,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1913,
-								1913
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1131.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "objects/ObjShot.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 924,
-						"regions":
-						{
-							"mark":
-							{
-								"flags": 144,
-								"icon": "dot",
-								"regions":
-								[
-									[
-										253,
-										253
-									]
-								],
-								"scope": "mark"
-							}
-						},
-						"selection":
-						[
-							[
-								515,
-								515
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "modules/ModMeleeEnemy.lua",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 349,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								160,
-								160
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Lua/Lua.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -992,8 +770,352 @@
 		"selected_items":
 		[
 			[
+				"icob",
+				"assets\\spr\\scripts\\IcoBomb.lua"
+			],
+			[
+				"modwood",
+				"modules\\ModWooden.lua"
+			],
+			[
+				"modactive",
+				"modules\\ModActive.lua"
+			],
+			[
+				"modsuper",
+				"modules\\ModSuperHeavy.lua"
+			],
+			[
 				"objtest",
 				"objects\\ObjTest.lua"
+			],
+			[
+				"objmin",
+				"objects\\ObjMine.lua"
+			],
+			[
+				"objbomb",
+				"objects\\ObjBomb.lua"
+			],
+			[
+				"moddraw",
+				"modules\\ModDrawable.lua"
+			],
+			[
+				"objswap",
+				"objects\\ObjSwapper.lua"
+			],
+			[
+				"modbomb",
+				"modules\\ModBomb.lua"
+			],
+			[
+				"text",
+				"xl\\Text.lua"
+			],
+			[
+				"timedtext",
+				"objects\\TimedText.lua"
+			],
+			[
+				"icod",
+				"assets\\spr\\scripts\\IcoDelicious.lua"
+			],
+			[
+				"moddelic",
+				"modules\\ModDelicious.lua"
+			],
+			[
+				"moddrawable",
+				"modules\\ModDrawable.lua"
+			],
+			[
+				"swapper",
+				"objects\\ObjSwapper.lua"
+			],
+			[
+				"mgame",
+				"MGame.lua"
+			],
+			[
+				"hitboxmak",
+				"modules\\ModHitboxMaker.lua"
+			],
+			[
+				"parte",
+				"modules\\ModPartEmitter.lua"
+			],
+			[
+				"hitboxma",
+				"modules\\ModHitboxMaker.lua"
+			],
+			[
+				"objattack",
+				"objects\\ObjAttackHitbox.lua"
+			],
+			[
+				"modac",
+				"modules\\ModActive.lua"
+			],
+			[
+				"modirr",
+				"modules\\ModIrresistable.lua"
+			],
+			[
+				"modintera",
+				"modules\\ModInteractive.lua"
+			],
+			[
+				"backgr",
+				"xl\\Background.lua"
+			],
+			[
+				"objbase",
+				"ObjBase.lua"
+			],
+			[
+				"sprbox",
+				"assets\\spr\\scripts\\SprBox.lua"
+			],
+			[
+				"icode",
+				"assets\\spr\\scripts\\IcoDelicious.lua"
+			],
+			[
+				"delic",
+				"modules\\ModDelicious.lua"
+			],
+			[
+				"modde",
+				"modules\\ModDelicious.lua"
+			],
+			[
+				"modbobm",
+				"modules\\ModBomb.lua"
+			],
+			[
+				"moddeli",
+				"modules\\ModDelicious.lua"
+			],
+			[
+				"ico",
+				"assets\\spr\\scripts\\IcoBomb.lua"
+			],
+			[
+				"moddra",
+				"modules\\ModDrawable.lua"
+			],
+			[
+				"sprbomb",
+				"assets\\spr\\scripts\\SprBomb.lua"
+			],
+			[
+				"objmine",
+				"objects\\ObjMine.lua"
+			],
+			[
+				"objbom",
+				"objects\\ObjBomb.lua"
+			],
+			[
+				"icobom",
+				"assets\\spr\\scripts\\IcoBomb.lua"
+			],
+			[
+				"pcebo",
+				"assets\\spr\\scripts\\PceBody.lua"
+			],
+			[
+				"sprshot",
+				"assets\\spr\\scripts\\SprShot.lua"
+			],
+			[
+				"pcebody",
+				"assets\\spr\\scripts\\PceBody.lua"
+			],
+			[
+				"sprwhee",
+				"assets\\spr\\scripts\\PceWheel.lua"
+			],
+			[
+				"modeq",
+				"modules\\ModEquippable.lua"
+			],
+			[
+				"draw",
+				"modules\\ModDrawable.lua"
+			],
+			[
+				"modglass",
+				"modules\\ModGlass.lua"
+			],
+			[
+				"sprswa",
+				"assets\\spr\\scripts\\SprSwapper.lua"
+			],
+			[
+				"sprbobm",
+				"assets\\spr\\scripts\\SprBomb.lua"
+			],
+			[
+				"moddel",
+				"modules\\ModDelicious.lua"
+			],
+			[
+				"modpartem",
+				"modules\\ModPartEmitter.lua"
+			],
+			[
+				"objcrate",
+				"objects\\ObjCrate.lua"
+			],
+			[
+				"objswa",
+				"objects\\ObjSwapper.lua"
+			],
+			[
+				"modswa",
+				"modules\\ModSpawner.lua"
+			],
+			[
+				"modcont",
+				"modules\\ModControllable.lua"
+			],
+			[
+				"timedte",
+				"objects\\TimedText.lua"
+			],
+			[
+				"modco",
+				"modules\\ModControllable.lua"
+			],
+			[
+				"objdama",
+				"objects\\ObjDamageHitbox.lua"
+			],
+			[
+				"objattackhit",
+				"objects\\ObjAttackHitbox.lua"
+			],
+			[
+				"objda",
+				"objects\\ObjDamageHitbox.lua"
+			],
+			[
+				"objshot",
+				"objects\\ObjShot.lua"
+			],
+			[
+				"modproj",
+				"modules\\ModProjectile.lua"
+			],
+			[
+				"moddrawa",
+				"modules\\ModDrawable.lua"
+			],
+			[
+				"modpro",
+				"modules\\ModProjectile.lua"
+			],
+			[
+				"objchar",
+				"objects\\ObjChar.lua"
+			],
+			[
+				"sprwhe",
+				"assets\\spr\\scripts\\PceWheel.lua"
+			],
+			[
+				"sprbod",
+				"assets\\spr\\scripts\\PceBody.lua"
+			],
+			[
+				"sprswap",
+				"assets\\spr\\scripts\\SprSwapper.lua"
+			],
+			[
+				"modcon",
+				"modules\\ModControllable.lua"
+			],
+			[
+				"objswaap",
+				"objects\\ObjSwapper.lua"
+			],
+			[
+				"ph",
+				"modules\\ModPhysics.lua"
+			],
+			[
+				"modproje",
+				"modules\\ModProjectile.lua"
+			],
+			[
+				"objatt",
+				"objects\\ObjAttackHitbox.lua"
+			],
+			[
+				"modproject",
+				"modules\\ModProjectileEnemy.lua"
+			],
+			[
+				"modcontr",
+				"modules\\ModControllable.lua"
+			],
+			[
+				"odshoot",
+				"modules\\ModShooter.lua"
+			],
+			[
+				"shooter",
+				"objects\\EnShooter.lua"
+			],
+			[
+				"objgun",
+				"objects\\ObjGun.lua"
+			],
+			[
+				"modinter",
+				"modules\\ModInteractive.lua"
+			],
+			[
+				"modene",
+				"modules\\ModEnemy.lua"
+			],
+			[
+				"modsho",
+				"modules\\ModShooter.lua"
+			],
+			[
+				"inte",
+				"modules\\ModInteractive.lua"
+			],
+			[
+				"modphy",
+				"modules\\ModPhysics.lua"
+			],
+			[
+				"modcontro",
+				"modules\\ModControllable.lua"
+			],
+			[
+				"modacti",
+				"modules\\ModActive.lua"
+			],
+			[
+				"objac",
+				"objects\\ObjAttackHitbox.lua"
+			],
+			[
+				"class",
+				"hump\\class.lua"
+			],
+			[
+				"util",
+				"util.lua"
+			],
+			[
+				"obju",
+				"objects\\ObjUnit.lua"
 			],
 			[
 				"modspawn",
@@ -1006,10 +1128,6 @@
 			[
 				"enshooter",
 				"objects\\EnShooter.lua"
-			],
-			[
-				"objchar",
-				"objects\\ObjChar.lua"
 			],
 			[
 				"objspawn",
@@ -1044,24 +1162,12 @@
 				"objects\\EnShooter.lua"
 			],
 			[
-				"modproj",
-				"modules\\ModProjectile.lua"
-			],
-			[
-				"modproje",
-				"modules\\ModProjectile.lua"
-			],
-			[
 				"objsho",
 				"objects\\ObjShot.lua"
 			],
 			[
 				"objsh",
 				"objects\\ObjShot.lua"
-			],
-			[
-				"objgun",
-				"objects\\ObjGun.lua"
 			],
 			[
 				"modeqp",
@@ -1080,24 +1186,8 @@
 				"objects\\TimedText.lua"
 			],
 			[
-				"objshot",
-				"objects\\ObjShot.lua"
-			],
-			[
-				"modpro",
-				"modules\\ModProjectile.lua"
-			],
-			[
-				"objdama",
-				"objects\\ObjDamageHitbox.lua"
-			],
-			[
 				"objut",
 				"objects\\ObjUnit.lua"
-			],
-			[
-				"modacti",
-				"modules\\ModActive.lua"
 			],
 			[
 				"objuni",
@@ -1108,19 +1198,7 @@
 				"modules\\ModWooden.lua"
 			],
 			[
-				"modac",
-				"modules\\ModActive.lua"
-			],
-			[
-				"modinter",
-				"modules\\ModInteractive.lua"
-			],
-			[
 				"irre",
-				"modules\\ModIrresistable.lua"
-			],
-			[
-				"modirr",
 				"modules\\ModIrresistable.lua"
 			],
 			[
@@ -1140,27 +1218,11 @@
 				"objects\\ObjAttackHitbox.lua"
 			],
 			[
-				"modeq",
-				"modules\\ModEquippable.lua"
-			],
-			[
-				"obju",
-				"objects\\ObjUnit.lua"
-			],
-			[
-				"util",
-				"util.lua"
-			],
-			[
 				"objba",
 				"ObjBase.lua"
 			],
 			[
 				"modba",
-				"modules\\ModBomb.lua"
-			],
-			[
-				"modbomb",
 				"modules\\ModBomb.lua"
 			],
 			[
@@ -1218,242 +1280,6 @@
 			[
 				"hud",
 				"modules\\ModHasHUD.lua"
-			],
-			[
-				"objbase",
-				"ObjBase.lua"
-			],
-			[
-				"objch",
-				"objects\\ObjChar.lua"
-			],
-			[
-				"phys",
-				"modules\\ModPhysics.lua"
-			],
-			[
-				"modene",
-				"modules\\ModEnemy.lua"
-			],
-			[
-				"objspaw",
-				"objects\\ObjSpawnZone.lua"
-			],
-			[
-				"mgm",
-				"MGame.lua"
-			],
-			[
-				"modco",
-				"modules\\ModControllable.lua"
-			],
-			[
-				"objpro",
-				"objects\\ObjEnemyProjectile.lua"
-			],
-			[
-				"objen",
-				"objects\\ObjEnemy.lua"
-			],
-			[
-				"timed",
-				"objects\\TimedText.lua"
-			],
-			[
-				"modcon",
-				"modules\\ModControllable.lua"
-			],
-			[
-				"objattack",
-				"objects\\ObjAttackHitbox.lua"
-			],
-			[
-				"objcr",
-				"objects\\ObjCrate.lua"
-			],
-			[
-				"hitbox",
-				"modules\\ModHitboxMaker.lua"
-			],
-			[
-				"modwoo",
-				"modules\\ModWooden.lua"
-			],
-			[
-				"objbom",
-				"objects\\ObjBomb.lua"
-			],
-			[
-				"modwo",
-				"modules\\ModWooden.lua"
-			],
-			[
-				"objatt",
-				"objects\\ObjAttackHitbox.lua"
-			],
-			[
-				"shot",
-				"assets\\spr\\scripts\\SprShot.lua"
-			],
-			[
-				"sprshot",
-				"assets\\spr\\scripts\\SprShot.lua"
-			],
-			[
-				"sprbox",
-				"assets\\spr\\scripts\\SprBox.lua"
-			],
-			[
-				"drawa",
-				"modules\\ModDrawable.lua"
-			],
-			[
-				"objcrat",
-				"objects\\ObjCrate.lua"
-			],
-			[
-				"modhit",
-				"modules\\ModHitboxMaker.lua"
-			],
-			[
-				"objenem",
-				"objects\\ObjEnemy.lua"
-			],
-			[
-				"modhitbo",
-				"modules\\ModHitboxMaker.lua"
-			],
-			[
-				"modwood",
-				"modules\\ModWooden.lua"
-			],
-			[
-				"objenemypr",
-				"objects\\ObjEnemyProjectile.lua"
-			],
-			[
-				"modmele",
-				"modules\\ModMeleeEnemy.lua"
-			],
-			[
-				"objac",
-				"objects\\ObjAttackHitbox.lua"
-			],
-			[
-				"modact",
-				"modules\\ModActive.lua"
-			],
-			[
-				"objattackhit",
-				"objects\\ObjAttackHitbox.lua"
-			],
-			[
-				"objattackhi",
-				"objects\\ObjAttackHitbox.lua"
-			],
-			[
-				"modwe",
-				"modules\\ModWeapon.lua"
-			],
-			[
-				"objdamag",
-				"objects\\ObjDamageHitbox.lua"
-			],
-			[
-				"objun",
-				"objects\\ObjUnit.lua"
-			],
-			[
-				"mode",
-				"modules\\ModEnemy.lua"
-			],
-			[
-				"mgam",
-				"MGame.lua"
-			],
-			[
-				"modcont",
-				"modules\\ModControllable.lua"
-			],
-			[
-				"phy",
-				"modules\\ModPhysics.lua"
-			],
-			[
-				"objcon",
-				"objects\\ObjEnemy.lua"
-			],
-			[
-				"objwall",
-				"objects\\ObjWall.lua"
-			],
-			[
-				"moden",
-				"modules\\ModEnemy.lua"
-			],
-			[
-				"modph",
-				"modules\\ModPhysics.lua"
-			],
-			[
-				"modmelee",
-				"modules\\ModMeleeEnemy.lua"
-			],
-			[
-				"modmel",
-				"modules\\ModMeleeEnemy.lua"
-			],
-			[
-				"modweapon",
-				"modules\\ModWeapon.lua"
-			],
-			[
-				"objtorc",
-				"objects\\ObjTorch.lua"
-			],
-			[
-				"sprtor",
-				"assets\\spr\\scripts\\SprTorch.lua"
-			],
-			[
-				"objwea",
-				"objects\\ObjWeapon.lua"
-			],
-			[
-				"objtorch",
-				"objects\\ObjTorch.lua"
-			],
-			[
-				"spbox",
-				"assets\\spr\\scripts\\SprBox.lua"
-			],
-			[
-				"sprsho",
-				"assets\\spr\\scripts\\SprShot.lua"
-			],
-			[
-				"modprojec",
-				"modules\\ModProjectile.lua"
-			],
-			[
-				"drawabl",
-				"modules\\ModDrawable.lua"
-			],
-			[
-				"objtro",
-				"objects\\ObjTorch.lua"
-			],
-			[
-				"mgame",
-				"MGame.lua"
-			],
-			[
-				"objunit",
-				"objects\\ObjUnit.lua"
-			],
-			[
-				"scene",
-				"xl\\Scene.lua"
 			]
 		],
 		"width": 0.0

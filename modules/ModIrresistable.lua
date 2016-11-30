@@ -15,6 +15,7 @@ function ModIrresistable:create()
 	-- self:setFade("fire")
 	self.users = {}
 	self.refreshTime = 1
+	self:addIcon(require("assets.spr.scripts.IcoIrresistable"))
 end
 
 function ModIrresistable:tick( dt )
@@ -39,5 +40,7 @@ function ModIrresistable:onCollide(other, collision)
 		end
 	end
 end
-
+function ModIrresistable:onRemove()
+	self:removeIcon("assets/spr/irresistable.png")
+end
 return ModIrresistable
