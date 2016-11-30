@@ -3,6 +3,7 @@ local Keymap  = require "xl.Keymap"
 local TimedText = require "objects.TimedText"
 local ObjIntHitbox = require "objects.ObjIntHitbox"
 local ObjSwapper = require "objects.ObjSwapper"
+local swapperSound = love.audio.newSource("/assets/sounds/Swapper.wav");
 
 
 ModControllable.dependencies = {"ModActive","ModInventory","ModShooter"}
@@ -165,6 +166,7 @@ function ModControllable:proccessInventory()
 	if Keymap.isPressed("use") and not self.swapperOut then
 		local newShot = ObjSwapper(self.x,self.y,self)
 		Game:add(newShot)
+		swapperSound:play()
 	end
 
 	self:setPrimary(Keymap.isPressed("primary"))
@@ -196,13 +198,13 @@ end
 function ModControllable:onKill(target, hitType, hitbox)
 	local Advanced = true
 	-- lume.trace(self.killCount)
-	if self.killCount == 1 then
+	if self.killCount == 3 then
 		Game.round = 2
-	elseif self.killCount == 5 then
-		Game.round = 3
 	elseif self.killCount == 10 then
+		Game.round = 3
+	elseif self.killCount == 22 then
 		Game.round = 4
-	elseif self.killCount == 20 then
+	elseif self.killCount == 45 then
 		Game.round = 5
 	else 
 		Advanced = false

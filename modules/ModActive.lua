@@ -1,4 +1,5 @@
 local ModActive = Class.create("ModActive", Entity)
+local hitSound = love.audio.newSource("/assets/sounds/GenericImpact.wav")
 
 ModActive.trackFunctions = {"setHitState","normalState","hitState","onDeath","onHitConfirm","onKill"}
 
@@ -128,6 +129,7 @@ function ModActive:setHitState(stunTime, forceX, forceY, damage, element,faction
 		
 		self.stun = st
 
+		hitSound:play()
 		self:setHealth(self.redHealth - dm)
 		if not self.superArmor then
 			if (forceX and forceX ~= 0) or (forceY and forceY ~= 0) then

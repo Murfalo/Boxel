@@ -1,5 +1,6 @@
 local ModShooter = Class.create("ModShooter", Entity)
 local ObjShot = require "objects.ObjShot"
+local laserSound = love.audio.newSource("/assets/sounds/Laser.wav");
 
 ModShooter.trackFunctions = {"onAttack","preProcessProjectile","postProcessProjectile"}
 
@@ -19,6 +20,7 @@ function ModShooter:shoot()
 	if self.user and self.user.postProcessProjectile then
 		self.user:postProcessProjectile(newShot)
 	end
+	laserSound:play()
 end
 
 function ModShooter:preProcessProjectile( projectile )
