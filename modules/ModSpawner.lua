@@ -22,7 +22,7 @@ function ModSpawner:create()
 	self.maxX = tonumber(self.maxX) or 0
 	self.minY = tonumber(self.minY) or 0
 	self.maxY = tonumber(self.maxY) or 0
-	self:setActive(false)
+	self:setActive(true)
 end
 
 function ModSpawner:tick(dt)
@@ -45,6 +45,7 @@ function ModSpawner:tick(dt)
 end
 
 function ModSpawner:spawnObject(x,y)
+	lume.trace()
 	local x = x or self.x + math.random(self.minX,self.maxX)
 	local y = y or self.y + math.random(self.minY, self.maxY)
 	if self.object then
