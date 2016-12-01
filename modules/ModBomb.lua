@@ -20,11 +20,15 @@ end
 
 function ModBomb:tick( dt )
 	self.bombCoolDown = self.bombCoolDown - dt
+	if self.toExplode then
+		self:onAttack()
+		self.toExplode = false
+	end
 end
 function ModBomb:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
 	if element == "fire" and self.bombCoolDown <= 0 then
 		self.bombCoolDown = 2.0
-		self:onAttack()
+		self.toExplode = true
 	end
 end
 

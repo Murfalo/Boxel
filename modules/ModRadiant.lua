@@ -13,14 +13,16 @@ function ModRadiant:create()
 	self.pulseColor3 = 0
 	self.pulseRadius = 0
 	self.radius = 60
-	self.circleNode = Scene.wrapNode( function (  )
-		love.graphics.setColor( 220 + self.pulseColor1, 220 + self.pulseColor2, 50 + self.pulseColor3 , 170 + self.pulseAlpha)
-		love.graphics.circle("fill", self.x, self.y + 16, self.radius + self.pulseRadius, 100)
-		love.graphics.setColor(255,255,255,255)
-	end,
-	9000)
-	Game.scene:insert( self.circleNode )
-	Game.scene:move(self.circleNode, 9000)
+	if not self.circleNode then
+		self.circleNode = Scene.wrapNode( function (  )
+			love.graphics.setColor( 220 + self.pulseColor1, 220 + self.pulseColor2, 50 + self.pulseColor3 , 120 + self.pulseAlpha)
+			love.graphics.circle("fill", self.x, self.y + 16, self.radius + self.pulseRadius, 100)
+			love.graphics.setColor(255,255,255,255)
+		end,
+		9000)
+		Game.scene:insert( self.circleNode )
+		Game.scene:move(self.circleNode, 9000)
+	end
 end
 
 function ModRadiant:tick( dt )
@@ -47,9 +49,11 @@ end
 function ModRadiant:onRemove()
 	Game.scene:remove( self.circleNode )
 	self:removeIcon("assets/spr/radiant.png")
+	self.circleNode = nil
 end
 
 function ModRadiant:destroy()
 	Game.scene:remove( self.circleNode )
+	self.circleNode = nil
 end
 return ModRadiant

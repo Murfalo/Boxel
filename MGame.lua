@@ -101,7 +101,14 @@ function MGame:update( dt )
 	-- xl.DScreen.print("Character DT: ", "(%f)", (love.timer.getTime() - baseTime))
 	baseTime = love.timer.getTime()
 
-	lume.each(self.entities, "tick", dt) --The game loops through all the entities in the entity list and calls the tick function for everyone of them.
+ --The game loops through all the entities in the entity list and calls the tick function for everyone of them.
+	-- lume.trace(self.tagag)
+	-- lume.trace(self.entities[self.tagag])
+	for _, v in pairs(self.entities) do 
+		if self.entities[v] then
+			v["tick"](v, dt) 
+		end
+	end
 	xl.DScreen.print("Entities DT: ", "(%f)", (love.timer.getTime() - baseTime))
 
 	self:emitEvent( "posttick" )
@@ -269,6 +276,11 @@ end
 ----
 function MGame:add(entity)
 	-- add entity to the entity list
+	-- lume.trace(entity)
+	-- if entity.type == "EnShooter" then
+	-- 	lume.trace(entity)
+	-- 	self.tagag = entity
+	-- end
 	self.entities[entity] = entity
 	-- try to call load on the entity
 	if entity.permanentid and self.permdata[entity.permanentid] then
@@ -291,6 +303,8 @@ end
 -- @return entity
 ----
 function MGame:del(entity)
+	self.entities[entity].destroyed = true
+	self.entities[entity] = nil
 	self.toDestroy[entity] = entity
 end
 
@@ -302,7 +316,6 @@ function MGame:mDel( entity )
 		entity:save( self.permdata[permid] )
 	end
 	entity:destroy()
-	self.entities[entity].destroyed = true
 	self.entities[entity] = nil
 
 	-- remove entity from listeners
@@ -461,7 +474,6 @@ function MGame:i_loadRoom( name, loadData )
 			self:mDel(value)
 		end
 	end
-		lume.trace()
 
 	-- reset room
 	-- We clear the other things as well.

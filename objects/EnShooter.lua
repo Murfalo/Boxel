@@ -3,8 +3,8 @@ local EnShooter = Class.create("EnShooter", ObjBaseUnit)
 
 function EnShooter:init( )
 	-- init other data
-	self.max_health = 100
-	self.health = 100
+	self.max_health = 40
+	self.health = 40
 
 	--initialize movement data
 	self.maxJumpTime = 300
@@ -35,7 +35,6 @@ function EnShooter:create()
 
 
 	self:setDepth(self.depth or 5000)
-
 	self:createBody( "dynamic" ,true, true)
 	self.shape = love.physics.newRectangleShape(7, 16)
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)

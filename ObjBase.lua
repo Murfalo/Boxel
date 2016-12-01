@@ -36,7 +36,10 @@ function ObjBase:addModule( newModule )
 	end
 
 	local modName = newModule.type
-
+	-- if self:hasModule(modName) then
+	-- 	lume.trace(self.type .. "already has module of type: " .. modName)
+	-- 	return
+	-- end
 	if newModule.dependencies then
 		for i,v in ipairs(newModule.dependencies) do
 			if not self:hasModule(v) then
@@ -76,6 +79,7 @@ function ObjBase:addModule( newModule )
 	for i,v in ipairs(self.overRideFuncts) do
 		local function iterateFunctions( self, ... )
 			local returnVals = {}
+			--if self.destroyed then return end
 			for k,funct in pairs(self.allFuncts[v]) do
 				if funct then
 					local ret = funct(self,...)

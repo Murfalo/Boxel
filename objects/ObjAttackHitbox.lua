@@ -101,10 +101,7 @@ function ObjAttackHitbox:tick(dt)
 end
 
 function ObjAttackHitbox:destroy()
-	if not self.destroyed then
-		self.body:destroy()
-		self.destroyed = true
-	end
+	self.body:destroy()
 end
 
 function ObjAttackHitbox:setFollow(followObj,offsetX,offsetY)

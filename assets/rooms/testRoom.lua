@@ -8,7 +8,7 @@ return {
   height = 50,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 56,
+  nextobjectid = 57,
   properties = {},
   tilesets = {
     {
@@ -817,6 +817,19 @@ return {
           y = 640,
           width = 32,
           height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 56,
+          name = "",
+          type = "EnShooter",
+          shape = "rectangle",
+          x = 1184,
+          y = 800,
+          width = 0,
+          height = 0,
           rotation = 0,
           visible = true,
           properties = {}

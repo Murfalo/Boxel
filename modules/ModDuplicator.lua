@@ -14,22 +14,29 @@ function ModDuplicator:create()
 	-- self:setAreaSpread("fire","normal",8,8)
 	-- self.bombCoolDown = 0
 	-- self:setFade("fire")
-
+	self:addIcon(require("assets.spr.scripts.IcoDuplicator"))
 end
 
 function ModDuplicator:onDeath()
 	self:removeModule("ModDuplicator")
 	local selfType = require("objects."..self.type)
-	for i=1,3 do
-		local newCopy = selfType(self)
-		Class.include(newCopy,self)
-		newCopy.health = self.max_health
-		newCopy.destroyed = false
+	for i=1,4 do
+		local newCopy = selfType()	
 		Game:add(newCopy)
+		--Class.include(newCopy,self)
+		Game.tagag = newCopy
+
+		newCopy.x = self.x
+		newCopy.y = self.y
+		-- newCopy.health = 100 --self.max_health
+		-- newCopy.max_health = 100
+		newCopy:setPosition(self.x,self.y)
+		for i,v in ipairs(self:getAllRemovableModules()) do
+			newCopy:addModule(require ("modules." .. v))
+		end
 		newCopy:removeModule("ModDuplicator")
 		newCopy.body:setLinearVelocity(math.random(-4,4) * 32, -12 * 32)
 	end
-
 	-- local newEmitter = ObjSimpleEmitter(self.x,self.y)
 	-- Game:add(newEmitter)
 	-- newEmitter:setDestroyAfterEmpty(true)
@@ -40,6 +47,10 @@ function ModDuplicator:onDeath()
 	-- fire:setParticleLifetime(1, 2);
 	-- newEmitter:setFade("fire")
 	-- newEmitter:emit("fire",16)
+end
+
+function ModDuplicator:onRemove()
+	self:removeIcon("assets/spr/duplicator.png")
 end
 
 return ModDuplicator

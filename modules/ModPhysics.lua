@@ -24,6 +24,7 @@ function ModPhysics:create()
 	self.isMoving = false
 	self.slopeDir = 0
 	self.numContacts = 0
+	self.numJumpThru = 0
 	self.height = self.height or 32
 
 	--default state information
@@ -38,6 +39,7 @@ function ModPhysics:create()
 
 	self.wrapCheckGround = lume.fn(ModPhysics.mCheckGround, self)
 	self.checkJumpThru = lume.fn(ModPhysics.mCheckJumpThru, self)
+	-- lume.trace(Game:getTicks())
 end
 
 function ModPhysics:tick(dt) 
@@ -159,8 +161,7 @@ function ModPhysics:createBody( bodyType ,isFixedRotation, isBullet)
 	--initialize b2 Physics bodies. Everytime we create a new object, not only do we need to create
 	-- a "game logic" instance of the object (which is just this file), but we also need to add the object to the physics world.
 	-- Of course, some objects don't need to be added to the physics world, like special effects (no collisions).
-
-	-- We start by defining a body. A body is simply any single physics object. Bodies have mass, as well as a position.
+	-- We start by defining a body. A body is simply any single physics object. Bodies have mass, as well as a position.sk
 	self.body = love.physics.newBody( Game.world, self.x, self.y, bodyType ) -- Here we make a new body, 
 		-- We tell it which world we want to put it in. In this case, the game's current world. (my game only has one world at a time.)
 		-- We specify the location of the body
@@ -367,6 +368,7 @@ function ModPhysics:mCheckGround(fixture, x, y, xn, yn, fraction )
 end
 
 function ModPhysics:destroy()
+	self.destroyed = true
 	if self.body then
 		self.body:destroy()
 	end

@@ -31,6 +31,8 @@ function ModEnemy:setAttackFunction( script )
 	self.attackFunct= script
 end
 function ModEnemy:normalState()
+	if self == Game.tagag then
+	end
 	self.status = "normal"
 	if not self.target or self.target.destroyed then
 		self:findTarget()

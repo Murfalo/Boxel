@@ -65,7 +65,9 @@ function ObjSwapper:create()
 					util.print_table(mods)
 					if #mods > 0 then
 						local removeMod = mods[math.random(1,#mods)]
-						--target:removeModule(removeMod)
+						if target:hasModule("ModEnemy") then
+							target:removeModule(removeMod)
+						end
 						self.haveSomething = removeMod
 						self:changeAnimation("active")
 					end
@@ -87,7 +89,6 @@ function ObjSwapper:create()
 					self.attacker.currentSwapper = self.haveSomething
 					self.attacker:addModule(require("modules."..self.haveSomething))
 				end
-				lume.trace("displaying Text")
 				local newText = TimedText(displayText, self.x, self.y, 14)
 				Game:add(newText)
 				self.hitPlayer = true
