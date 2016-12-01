@@ -9,10 +9,11 @@ function ObjTree:create()
 	self:setFixture(self.shape, 50)
 	self.health = 200
 	self.max_health = 200
-
+	lume.trace(Game:getTicks())
 	self:addSpritePiece(require("assets.spr.scripts.SprTree"))
 	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
 	self:addModule(require "modules.ModPlant")
+	self:addModule(require "modules.ModDuplicator")
 end
 
 return ObjTree

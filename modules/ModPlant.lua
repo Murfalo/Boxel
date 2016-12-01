@@ -22,7 +22,7 @@ function ModPlant:create()
 	self.fireTime = 230 
 	self:setFade("fire")
 	self:addIcon(require("assets.spr.scripts.IcoWooden"))
-
+	lume.trace(Game:getTicks())
 end
 
 function ModPlant:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)

@@ -28,4 +28,11 @@ end
 
 function ModShooter:postProcessProjectile( projectile )
 end
+
+function ModShooter:onDeath()
+	if self == Game.tagag then
+		-- fhwoh()
+	end
+end
+
 return ModShooter

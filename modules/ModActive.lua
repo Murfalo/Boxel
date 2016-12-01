@@ -30,6 +30,7 @@ end
 
 function ModActive:destroy()
 	if not self.destroyed then
+		self.destroyed = true
 		if self.dmgHitbox then
 			Game:del(self.dmgHitbox)
 		end

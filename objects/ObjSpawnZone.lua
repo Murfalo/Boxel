@@ -8,13 +8,14 @@ function ObjSpawnZone:create()
 	-- lume.trace("Spawner created")
 	self:setSpawnRate(4,20)
 	self.modifiers = {
-		{"ModDuplicator",0.03},
+		{"ModDuplicator",0.01},
 		{"ModFlaming",0.03},
 		{"ModPlant",0.02},
 		{"ModBomb",0.04},
 		{"ModSuperHeavy",0.03},
-		{"ModVampiric",1}
+		{"ModVampiric",0.03}
 	}
+	--self:setActive(false)
 	--ModFlaming
 end
 

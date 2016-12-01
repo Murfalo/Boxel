@@ -13,7 +13,7 @@ function ModDrawable:create()
 	self.initImgW = 64
 	self.animationsPending = {}
 	self.attachPositions = {}
-	self.icons = self.icons or {}
+	self.icons = {}
 end
 
 function ModDrawable:tick(dt)
@@ -331,6 +331,9 @@ end
 
 function ModDrawable:setSprAngle( angle )
 	for key, piece in pairs(self.sprites) do
+		if not piece.setAngle then
+			lume.trace(key)
+		end
 		piece:setAngle(angle)
 	end
 	if self.sprite then
@@ -365,7 +368,13 @@ function ModDrawable:addIcon( newIcon )
 		newIcon.connectPoint = "center"
 		newIcon.attachPoints.prevIco = {x=16,y=48}
 	end
+	-- lume.trace(newIcon.path)
+	-- lume.trace(iconName)
+	-- util.print_table(self.icons)
+	-- lume.trace(Game:getTicks())
+
 	self:addSpritePiece(newIcon)
+	-- lume.trace(self.sprites[newIcon.name].setAngle)
 	self.icons[#self.icons + 1] = newIcon
 
 end
@@ -378,7 +387,7 @@ function ModDrawable:removeIcon( iconPath   )
 			pushBack = true
 			self:delSpritePiece(v.name)
 			deletedInd = i
-			lume.trace("I is: ",i,"removed: ", v.name, "path: ",iconPath)
+			-- lume.trace("I is: ",i,"removed: ", v.name, "path: ",iconPath)
 		elseif pushBack then
 			self:delSpritePiece(v.name)
 			v.connectSprite = "icon" .. (i - 2)
