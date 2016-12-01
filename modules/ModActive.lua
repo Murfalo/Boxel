@@ -130,7 +130,10 @@ function ModActive:setHitState(stunTime, forceX, forceY, damage, element,faction
 		
 		self.stun = st
 
-		hitSound:play()
+		if (dm > 0) then
+			hitSound:play()
+		end
+		
 		self:setHealth(self.redHealth - dm)
 		if not self.superArmor then
 			if (forceX and forceX ~= 0) or (forceY and forceY ~= 0) then

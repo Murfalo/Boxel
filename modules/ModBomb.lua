@@ -33,13 +33,13 @@ function ModBomb:setHitState(stunTime, forceX, forceY, damage, element,faction,h
 end
 
 function ModBomb:onAttack()
-	bombSound:play()
 	self:createHitbox({radius = 64,xOffset = 0, yOffset = 0, damage = 40, guardDamage = 12,
 	stun = 35, persistence = 0.35,xKnockBack = 3 * 32, yKnockBack = -12 * 32, element = "fire"})
 	self:setHitState(2, 0, -8 * 32, 40, "fire",nil,40)
 	self:emit("fire",8)
 end
 function ModBomb:destroy()
+	bombSound:play()
 	local newEmitter = ObjSimpleEmitter(self.x,self.y)
 	Game:add(newEmitter)
 	newEmitter:setDestroyAfterEmpty(true)
