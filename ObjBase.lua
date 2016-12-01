@@ -76,11 +76,13 @@ function ObjBase:addModule( newModule )
 	for i,v in ipairs(self.overRideFuncts) do
 		local function iterateFunctions( self, ... )
 			local returnVals = {}
-			for k,funct in pairs(self.allFuncts[v]) do
-				if funct then
-					local ret = funct(self,...)
-					if ret then
-						table.insert(returnVals,ret)
+			if self.allFuncts[v] then
+				for k,funct in pairs(self.allFuncts[v]) do
+					if funct then
+						local ret = funct(self,...)
+						if ret then
+							table.insert(returnVals,ret)
+						end
 					end
 				end
 			end
