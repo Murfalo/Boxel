@@ -35,7 +35,7 @@ function ModRadiant:tick( dt )
 
 	if self.timeSinceLast <= 0 then
 		self:createHitbox({radius = 64,xOffset = 0, yOffset = 0, damage = 0, guardDamage = 0,
-			stun = 0, persistence = 0.35, element = "light"})
+			stun = 0, persistence = 0.35, element = "light",faction = "none"})
 		self.timeSinceLast = 1.5
 	else
 		self.timeSinceLast = self.timeSinceLast - dt

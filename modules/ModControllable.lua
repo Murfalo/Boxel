@@ -218,17 +218,19 @@ function ModControllable:onKill(target, hitType, hitbox)
 end
 
 function ModControllable:onDeath()
-	if not self.textWritten then
-		Game.round = 1
-		local newText = TimedText("You died, Press I to Restart\nEnemies Defeated: " .. self.killCount, self.x, self.y, 20)
-		Game:add(newText)
-		self.textWritten = true
-	end
-	self:changeAnimation("hit")
-	if Keymap.isDown("interact") then
-		lume.trace()
-		Game.playerIsDead = true
-		Game:loadRoom( "assets/rooms/testRoom" )
+	if not self:hasModule("ModDuplicator") then
+		if not self.textWritten then
+			Game.round = 1
+			local newText = TimedText("You died, Press I to Restart\nEnemies Defeated: " .. self.killCount, self.x, self.y, 20)
+			Game:add(newText)
+			self.textWritten = true
+		end
+		self:changeAnimation("hit")
+		if Keymap.isDown("interact") then
+			lume.trace()
+			Game.playerIsDead = true
+			Game:loadRoom( "assets/rooms/testRoom" )
+		end
 	end
 end
 return ModControllable
