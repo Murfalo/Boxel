@@ -10,7 +10,7 @@ local Scene  = require "xl.Scene"
 local STI    = require "libs.sti"
 local Camera = require "hump.camera"
 local Keymap = require "xl.Keymap"
-local Lights = require "xl.Lights"
+-- local Lights = require "xl.Lights"
 local Gamestate = require "hump.gamestate"
 local Background = require "xl.Background"
 
@@ -57,7 +57,7 @@ function MGame:init()
 	self.entities  = {}  -- list of entities. This is a list of everything currently in the world. It is importante because.....
 	self.toDestroy = {}
 	self.world     = love.physics.newWorld()
-	self.lights    = Lights.newLightScene(GAME_SIZE.w, GAME_SIZE.h)
+	-- self.lights    = Lights.newLightScene(GAME_SIZE.w, GAME_SIZE.h)
 	self.wrapPreSolve  = lume.fn(self.preSolve, self)
 	self.wrapPostSolve = lume.fn(self.postSolve, self)
 	self.wrapOnContactBegin = lume.fn(self.onContactBegin, self)
@@ -152,7 +152,8 @@ function MGame:draw()
 	-- draw backgrounds
 
 	love.graphics.setCanvas(self.ActiveCanvas)
-	self.ActiveCanvas:clear(0,0,0,0)
+	-- self.ActiveCanvas:clear(0,0,0,0)
+	love.graphics.clear()
 	
 	-- draw tilelayers
 	for k,v in pairs(self.tilelayers) do
@@ -162,9 +163,9 @@ function MGame:draw()
 	self.scene:draw()     -- < draw the scene
 	
 	loveGraphics.setShader()
-	self.lights:process() -- < draw lights to light canvas
+	-- self.lights:process() -- < draw lights to light canvas
 	self.cam:detach()     -- < undo the camera adjustment
-	self.lights:overlay() -- < overlay the light canvas
+	-- self.lights:overlay() -- < overlay the light canvas
 
 	love.graphics.setCanvas()
 	self.cam:attach() -- < do camera movements
@@ -201,7 +202,7 @@ end
 -- Gamestate callback
 ----
 function MGame:resize(w,h)
-	self.lights:resize( w,h )
+	-- self.lights:resize( w,h )
 
 	local scale, sciz = 1, self.scissor
 	scale, sciz[1], sciz[2], sciz[3], sciz[4], sciz.ox, sciz.oy = xl.calculateViewport(GAME_SIZE, w, h, 1, 16)
@@ -482,7 +483,7 @@ function MGame:i_loadRoom( name, loadData )
 	-- We clear the other things as well.
 	self.backgrounds:clear()
 	self.scene:clear()
-	self.lights:clear()
+	-- self.lights:clear()
 	self.tilelayers = {}
 		lume.trace()
 
@@ -511,7 +512,7 @@ function MGame:i_loadRoom( name, loadData )
 	local p = self.map.properties
 	-- Here we grab a few variables from the map we loaded as set the physics world's properties, such as gravity.
 	self.gravity = {(p.gravX or 0), (p.gravY or 480)}
-	self.lights.enabled = (p.use_lights == "true")
+	-- self.lights.enabled = (p.use_lights == "true")
 	if p.camOffX then
 		Game.debugCam.offsetx = p.camOffX
 	end
