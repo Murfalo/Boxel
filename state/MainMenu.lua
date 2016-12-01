@@ -15,11 +15,6 @@ local Items = {
 	{
 		text = "Start Game",
 		action = goto_room,
-		args = { "assets/rooms/initial_room" },
-	},
-	{
-		text = "Debug Room",
-		action = goto_room,
 		args = { "assets/rooms/testRoom" },
 	},
 }
