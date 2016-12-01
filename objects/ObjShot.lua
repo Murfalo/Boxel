@@ -22,17 +22,17 @@ function ObjShot:create()
 	
 	--Sprite initialization
 	self.refresh = 30 
-	self.damage = 20
-	self.stun = 20
-	self.range = 120
+	self.damage = self.damage or 20
+	self.stun = self.stun or 20
+	self.range = self.range or 120
 	self.forceX = 6 * 32
 	self.forceY = -6 * 32
 	self.element = self.element or "hit"
 
 	if self.attacker.dir == 1 then
-		self:fireAtPoint(self.x + 128,self.y,4*32)
+		self:fireAtPoint(self.x + (self.firePointX or 128),self.y +(self.firePointY or 0),self.speed or 4*32)
 	else
-		self:fireAtPoint(self.x - 128,self.y,4*32)
+		self:fireAtPoint(self.x - (self.firePointX or 128),self.y + (self.firePointY or 0),self.speed or 4*32)
 	end
 
 	self.fixture:setSensor(true)

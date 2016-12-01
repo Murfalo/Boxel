@@ -13,14 +13,6 @@ function ModPlant:create()
 	wood:setParticleLifetime(1, 2);
 	self:setFade("wood")
 
-	self:addEmitter("fire" , "assets/spr/fire.png")
-	self:setRandomDirection("fire" , 3 * 32)
-	self:setRandRotation("fire",32,0,1)
-	local fire = self.psystems["fire"]
-	fire:setParticleLifetime(1, 2);
-	self:setAreaSpread("fire","normal",8,8)
-	self.fireTime = 230 
-	self:setFade("fire")
 	self:addIcon(require("assets.spr.scripts.IcoWooden"))
 	lume.trace(Game:getTicks())
 end
@@ -49,7 +41,9 @@ function ModPlant:setHitState(stunTime, forceX, forceY, damage, element,faction,
 	if element == "light" then
 		self:setHealth(self.health + 2)
 	end
-	self:emit("wood", 4)
+	if (not faction or faction ~= self.faction)  and damage > 0 then
+		self:emit("wood", 4)
+	end
 end
 
 function ModPlant:destroy()

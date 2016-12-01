@@ -42,5 +42,30 @@ function ModFlaming:preProcessProjectile( projectile )
 	projectile.damage = 25
 end
 
+function ModFlaming:postProcessProjectile( projectile )
+	local function setOnFire(self,target,hitType,hitbox)
+		if Class.istype(target,"ObjBase") and target:hasModule("ModActive") and not target:hasModule("ModFlaming") then
+			local function onFire(player,extraInfo)
+				if not extraInfo.frame then extraInfo.frame = 0 end
+				extraInfo.frame = extraInfo.frame + 1
+				local frame = extraInfo.frame
+
+				if frame % 16 == 0 then
+					-- self.health = self.health - 2
+					player:setHealth(player.health - 2)
+					--player:createHitbox({width = 48, height = 48,xOffset = 0, yOffset = 0, damage = 15, guardDamage = 12,
+						--stun = 35, persistence = 0.15,xKnockBack = 4 * 32, yKnockBack = -3 * 32, element = "fire"})
+					player:emit("fire", 2)
+				end
+				
+				if frame > 90 then
+					player:setPassive("onFire",nil)
+				end
+			end
+			target:setPassive("onFire",onFire)
+		end
+	end
+	projectile:addOnHitFunction(setOnFire)
+end
 
 return ModFlaming

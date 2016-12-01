@@ -12,6 +12,7 @@ function ModActive:create()
 	self.specialObj = self.specialObj or {}
 	self.passiveEffects = {}
 	self.passiveVars = {}
+	self.maxAirJumps = 0
 
 	self.state = 1 --Intend to Phase out and replace with "status" fully, but too many uses
 	self.status = "normal"
@@ -43,6 +44,15 @@ function ModActive:create()
 	heal:setParticleLifetime(1, 1);
 	self:setAreaSpread("heal","normal",2,2)
 	self:setFade("heal")
+
+	self:addEmitter("fire" , "assets/spr/fire.png")
+	self:setRandomDirection("fire" , 3 * 32)
+	self:setRandRotation("fire",32,0,1)
+	local fire = self.psystems["fire"]
+	fire:setParticleLifetime(1, 2);
+	self:setAreaSpread("fire","normal",8,8)
+	self.fireTime = 230 
+	self:setFade("fire")
 end
 
 function ModActive:destroy()

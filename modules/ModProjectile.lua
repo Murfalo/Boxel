@@ -15,6 +15,7 @@ end
 
 function ModProjectile:fireAtPoint( pointX,pointY,speed )
 	local ang = self:getAngleToPoint(pointX,pointY)
+	self:setSprAngle(ang)
 	self:setInitialVelocity(speed * math.cos(ang),speed * math.sin(ang))
 end
 
@@ -51,7 +52,7 @@ function ModProjectile:tick( dt )
 	end
 	if self.initialVelocity then
 		self.body:setLinearVelocity(self.iVelX,self.iVelY)
-		self.initialVelocity = false
+		--self.initialVelocity = false
 	end
 	--self.sprite:setScale(self.dir * 1,1)
 
