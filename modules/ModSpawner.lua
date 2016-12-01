@@ -1,5 +1,5 @@
 local ModSpawner = Class.create("ModSpawner", Entity)
-
+ModSpawner.dependencies = {"ModPartEmitter"}
 ModSpawner.trackFunctions = {"spawnObject"}
 function ModSpawner:init( x,y,object,minSpawntime,maxSpawntime, lifeTime, minX, maxX, minY, maxY)
 	self.x = x
@@ -23,13 +23,21 @@ function ModSpawner:create()
 	self.minY = tonumber(self.minY) or 0
 	self.maxY = tonumber(self.maxY) or 0
 	self:setActive(true)
+
+	self:addEmitter("spawn" , "assets/spr/spawn.png")
+	self:setRandomDirection("spawn" , 3 * 32)
+	--self:setRandRotation("spawn",32,0,1)
+	local spawn = self.psystems["spawn"]
+	spawn:setParticleLifetime(1, 2);
+	self:setFade("spawn")
+
 end
 
 function ModSpawner:tick(dt)
 	self.timer = self.timer - dt
 	if self.isActive and self.minSpawnTime then
 		if not self.spawnTime or self.timer <= 0 then
-			self.spawnTime = math.random(self.minSpawnTime, self.maxSpawnTime)
+			self.spawnTime = math.random(self.minSpawnTime, self.maxSpawnTime) * (1/(Game.round *0.5 + 0.5))
 		end
 		if self.timer <= 0 then
 			self:spawnObject()
@@ -46,9 +54,10 @@ end
 
 function ModSpawner:spawnObject(x,y)
 	-- lume.trace()
-	local x = x or self.x + math.random(self.minX,self.maxX)
+	local x = x or self.x + self.width/2 + math.random(self.minX,self.maxX)
 	local y = y or self.y + math.random(self.minY, self.maxY)
 	if self.object then
+		self:emit("spawn", 5)
 		local objectName = self.object
 		if type(self.object) =="table" then
 			objectName = self.object[math.random(1,#self.object)]

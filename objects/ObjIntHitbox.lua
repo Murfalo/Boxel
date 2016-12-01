@@ -25,7 +25,7 @@ function ObjIntHitbox:create()
 		positionY = positionY + 6	
 	-- end
 	self.body = love.physics.newBody(self:world(), positionX, positionY, "dynamic")
-	self.shape = love.physics.newRectangleShape(16, 48)
+	self.shape = love.physics.newRectangleShape(32, 48)
 
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 	self.body:setUserData(self)	

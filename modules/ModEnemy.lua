@@ -1,5 +1,5 @@
 local ModEnemy = Class.create("ModEnemy", Entity)
-ModEnemy.dependencies = {"ModActive"}
+ModEnemy.dependencies = {"ModActive","ModHitboxMaker"}
 
 ModEnemy.trackFunctions = {"onAttack","onAttackStart"}
 

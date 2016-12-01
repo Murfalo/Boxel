@@ -39,7 +39,7 @@ function ModPlant:setHitState(stunTime, forceX, forceY, damage, element,faction,
 		self:setPassive("onFire",onFire)
 	end
 	if element == "light" then
-		self:setHealth(self.health + 2)
+		self:setHealth(self.health + 6)
 	end
 	if (not faction or faction ~= self.faction)  and damage > 0 then
 		self:emit("wood", 4)

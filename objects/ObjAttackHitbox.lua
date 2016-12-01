@@ -61,7 +61,7 @@ function ObjAttackHitbox:create()
 	self.fixture:setSensor(true)
 	self.objectsHit = {}
 	self.refresh = 0
-	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
+	--self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
 	-- lume.trace(self.guardDamage)
 end
  

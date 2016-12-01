@@ -12,7 +12,7 @@ function ObjTree:create()
 	self:addSpritePiece(require("assets.spr.scripts.SprTree"))
 	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
 	self:addModule(require "modules.ModPlant")
-	-- self:addModule(require "modules.ModDuplicator")
+	self:addModule(require "modules.ModFruity")
 	-- self:addModule(require "modules.ModEmitter")
 
 end
