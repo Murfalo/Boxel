@@ -26,15 +26,15 @@ function ObjSwapper:create()
 	self.refresh = 30 
 	self.damage = 0
 	self.stun = 0
-	self.range = 120
+	self.range = 60
 	self.forceX = 0
 	self.forceY = 0
 	self.element = "hit"
 
 	if self.attacker.dir == 1 then
-		self:fireAtPoint(self.x + 128,self.y,4*32)
+		self:fireAtPoint(self.x + 128,self.y,7*32)
 	else
-		self:fireAtPoint(self.x - 128,self.y,4*32)
+		self:fireAtPoint(self.x - 128,self.y,7*32)
 	end
 
 	self.fixture:setSensor(true)
@@ -81,7 +81,7 @@ function ObjSwapper:create()
 		if self.returningToPlayer or self.range < 20 and not self.hitPlayer then
 			self.returningToPlayer = true
 			self.range = 10
-			self:moveToPoint(self.attacker.x,self.attacker.y,0,7*32)
+			self:moveToPoint(self.attacker.x,self.attacker.y,0,12*32)
 			if self:getDistanceToPoint(self.attacker.x,self.attacker.y) < 16 and not self.hitPlayer then
 				local displayText = "Nothing"
 				if self.haveSomething and self.haveSomething ~= true then

@@ -198,6 +198,7 @@ end
 function ModControllable:onKill(target, hitType, hitbox)
 	local Advanced = true
 	-- lume.trace(self.killCount)
+	--Game.round = 5
 	if self.killCount == 3 then
 		Game.round = 2
 	elseif self.killCount == 10 then

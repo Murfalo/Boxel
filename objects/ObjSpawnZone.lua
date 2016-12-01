@@ -4,9 +4,9 @@ local ModSpawner = require "modules.ModSpawner"
 	
 function ObjSpawnZone:create()
 	self:addModule(ModSpawner)
-	self:setObject({"EnSword","EnShooter","EnTorch"})
+	self:setObject({"EnSword","EnShooter","EnShooter","EnTorch"})
 	-- lume.trace("Spawner created")
-	self:setSpawnRate(4,20)
+	self:setSpawnRate(15,25)
 	self.modifiers = {
 		{"ModDuplicator",0.02},
 		{"ModFlaming",0.04},

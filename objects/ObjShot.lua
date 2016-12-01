@@ -25,8 +25,8 @@ function ObjShot:create()
 	self.damage = self.damage or 20
 	self.stun = self.stun or 20
 	self.range = self.range or 120
-	self.forceX = 6 * 32
-	self.forceY = -6 * 32
+	self.forceX = self.forceX or 12 * 32
+	self.forceY = self.forceY or -6 * 32
 	self.element = self.element or "hit"
 
 	if self.attacker.dir == 1 then

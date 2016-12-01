@@ -2,7 +2,7 @@ local ModIrresistable = Class.create("ModIrresistable", Entity)
 ModIrresistable.dependencies = {"ModPartEmitter", "ModInteractive"}
 
 ModIrresistable.trackFunctions = {"onCollide"}
-ModIrresistable.removable = true
+-- ModIrresistable.removable = true
 
 function ModIrresistable:create()
 	-- self:addEmitter("fire" , "assets/spr/fire.png")
@@ -15,7 +15,7 @@ function ModIrresistable:create()
 	-- self:setFade("fire")
 	self.users = {}
 	self.refreshTime = 1
-	self:addIcon(require("assets.spr.scripts.IcoIrresistable"))
+	-- self:addIcon(require("assets.spr.scripts.IcoIrresistable"))
 end
 
 function ModIrresistable:tick( dt )
@@ -41,6 +41,6 @@ function ModIrresistable:onCollide(other, collision)
 	end
 end
 function ModIrresistable:onRemove()
-	self:removeIcon("assets/spr/irresistable.png")
+	-- self:removeIcon("assets/spr/irresistable.png")
 end
 return ModIrresistable
