@@ -10,7 +10,7 @@ function ModProjectile:create()
 	self.tickFuncts = {}
 	self.destroyFuncts ={}
 	self.hitFuncts = {}
-	self.dir = self.attacker.dir
+	self.dir = 1--self.attacker.dir
 end
 
 function ModProjectile:fireAtPoint( pointX,pointY,speed )
