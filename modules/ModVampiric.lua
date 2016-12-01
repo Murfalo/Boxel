@@ -13,7 +13,7 @@ function ModVampiric:setHitState(stunTime, forceX, forceY, damage, element,facti
 end
 
 function ModVampiric:onHitConfirm(target, hitType, hitbox) 
-	self.health = self.health + 3
+	self:setHealth(self.health+4)
 end
 
 function ModVampiric:onRemove()

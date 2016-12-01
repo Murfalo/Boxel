@@ -40,7 +40,7 @@ function ModLighting:tick( dt )
 end
 
 function ModLighting:onHitConfirm(target, hitType, hitbox) 
-	self.health = self.health + 3
+	self:setHealth(self.health + 3)
 end
 
 function ModLighting:onRemove()
