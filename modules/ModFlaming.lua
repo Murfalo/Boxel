@@ -39,6 +39,7 @@ end
 function ModFlaming:preProcessProjectile( projectile )
 	projectile.image = "assets.spr.scripts.SprFireShot"
 	projectile.element = "fire"
+	projectile.damage = 25
 end
 
 

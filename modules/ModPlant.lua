@@ -33,7 +33,8 @@ function ModPlant:setHitState(stunTime, forceX, forceY, damage, element,faction,
 			local frame = extraInfo.frame
 
 			if frame % 16 == 0 then
-				self.health = self.health - 2
+				-- self.health = self.health - 2
+				self:setHealth(self.health - 2)
 				self:createHitbox({width = 48, height = 48,xOffset = 0, yOffset = 0, damage = 15, guardDamage = 12,
 					stun = 35, persistence = 0.15,xKnockBack = 4 * 32, yKnockBack = -3 * 32, element = "fire"})
 				self:emit("fire", 2)
@@ -46,7 +47,7 @@ function ModPlant:setHitState(stunTime, forceX, forceY, damage, element,faction,
 		self:setPassive("onFire",onFire)
 	end
 	if element == "light" then
-		self.health = self.health + 2
+		self:setHealth(self.health + 2)
 	end
 	self:emit("wood", 4)
 end

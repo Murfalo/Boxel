@@ -43,7 +43,6 @@ function ModRadiant:tick( dt )
 end
 
 function ModRadiant:onHitConfirm(target, hitType, hitbox) 
-	self.health = self.health + 3
 end
 
 function ModRadiant:onRemove()

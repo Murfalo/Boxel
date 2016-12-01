@@ -1,6 +1,6 @@
 local ModActive = Class.create("ModActive", Entity)
 local hitSound = love.audio.newSource("/assets/sounds/GenericImpact.wav")
-
+ModActive.dependencies = {"ModPartEmitter"}
 ModActive.trackFunctions = {"setHitState","normalState","hitState","onDeath","onHitConfirm","onKill"}
 
 function ModActive:create()
@@ -26,6 +26,23 @@ function ModActive:create()
 	self.redHealth = self.health
 	self.redHealthDelay = 0
 	self.killCount = 0
+
+	self:addEmitter("hitFX" , "assets/spr/hit.png")
+	self:setRandomDirection("hitFX" , 3 * 32)
+	self:setRandRotation("hitFX",2,0,1)
+	local hitFX = self.psystems["hitFX"]
+	hitFX:setParticleLifetime(1, 2);
+	self:setFade("hitFX")
+
+	self:addEmitter("heal" , "assets/spr/heal.png")
+	--self:setRandRotation("heal",32,0,1)
+	local heal = self.psystems["heal"]
+	heal:setDirection(((3*math.pi)/2))
+	heal:setSpeed(64)
+	heal:setSpread(math.pi/4)
+	heal:setParticleLifetime(1, 1);
+	self:setAreaSpread("heal","normal",2,2)
+	self:setFade("heal")
 end
 
 function ModActive:destroy()
@@ -288,8 +305,14 @@ function ModActive:specialState(dt )
 end
 
 function ModActive:setHealth( health )
+	local diff = health - self.health
 	self.health = math.min(self.max_health,math.max(health,0))
 	self.redHealth = math.min(self.redHealth,self.health)
+	if diff > 0 then
+		self:emit("heal", math.max(math.min(math.floor(math.abs(diff)/4),2),2))
+	elseif diff < 0 then
+		self:emit("hitFX", math.max(math.min(math.floor(math.abs(diff)/4),2),2))
+	end
 end
 
 function ModActive:getHealth(  )

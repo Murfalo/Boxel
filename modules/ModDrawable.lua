@@ -393,7 +393,11 @@ function ModDrawable:removeIcon( iconPath   )
 			v.connectSprite = "icon" .. (i - 2)
 			v.name = "icon" .. (i - 1)
 			if (i-1) == 1 then
-				v.connectSprite = "main"
+				if self.sprites["main"] then
+					v.connectSprite = "main"
+				else
+					v.connectSprite = "legs"
+				end
 				v.connectPoint = "center"
 				v.attachPoints.prevIco = {x=16,y=48}
 			end
