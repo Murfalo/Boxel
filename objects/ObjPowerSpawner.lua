@@ -4,7 +4,7 @@ local ModSpawner = require "modules.ModSpawner"
 	
 function ObjPowerSpawner:create()
 	self:addModule(ModSpawner)
-	self:setObject({"ObjPowerup"})
+	self:setObject({"ObjPowerUp"})
 	-- lume.trace("Spawner created")
 	self:setSpawnRate(30,40)
 	--self:setActive(false)
