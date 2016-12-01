@@ -149,10 +149,12 @@ function ModActive:setHitState(stunTime, forceX, forceY, damage, element,faction
 		local dm = damage or 0
 		local ratio = self.KBRatio or 1
 
-		if forceX and (forceX > 0) then
-			self.dir = -1
-		else
-			self.dir = 1
+		if forceX and  math.abs(forceX) > 0 then
+			if forceX and (forceX > 0) then
+				self.dir = -1
+			else
+				self.dir = 1
+			end
 		end
 		
 		self.stun = st

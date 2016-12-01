@@ -40,8 +40,5 @@ function ObjSimpleEmitter:tick( dt )
 	end
 end
 
-function ObjSimpleEmitter:destroy()
-	lume.trace()
-end
 
 return ObjSimpleEmitter

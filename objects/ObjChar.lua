@@ -76,7 +76,7 @@ function ObjChar:create()
 	--initialize Inventory
 	self:addModule(require "modules.ModInventory")
 	self:setEquipCreateItem("ObjGun")
-	-- self:addModule(require "modules.ModGlass")
+	self:addModule(require "modules.ModDuplicator")
 	-- self:addModule(require "modules.ModFlaming")
 	-- self:addModule(require "modules.ModNinja")
 	-- self:setEquipCreateItem("EqpTest")
