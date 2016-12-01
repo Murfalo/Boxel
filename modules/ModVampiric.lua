@@ -8,12 +8,12 @@ end
 
 function ModVampiric:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
 	if element == "light" then
-		self.health = 0 
+		self:setHealth(0)
 	end
 end
 
 function ModVampiric:onHitConfirm(target, hitType, hitbox) 
-	self:setHealth(self.health+4)
+	self:setHealth(self.health+5)
 end
 
 function ModVampiric:onRemove()

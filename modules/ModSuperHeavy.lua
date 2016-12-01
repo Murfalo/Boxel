@@ -14,6 +14,9 @@ function ModSuperHeavy:create( ... )
 	smoke:setParticleLifetime(1, 2);
 	self:setFade("smoke")
 	self:addIcon(require("assets.spr.scripts.IcoSuperHeavy"))
+	self.oldMaxSpeed = self.maxSpeed
+
+	self.maxSpeed = self.maxSpeed * 0.8
 end
 
 function ModSuperHeavy:tick( dt )
@@ -27,7 +30,7 @@ function ModSuperHeavy:tick( dt )
 end
 function ModSuperHeavy:onCollide(other, collision)
 	if other ~= nil and other ~= self.attacker then
-		if self.fallTime > 0.2 and self.smashTime <= 0 then
+		if self.fallTime > 0.12 and self.smashTime <= 0 then
 			local danger = math.floor(self.velY - (6 * 32))
 			self.smashTime = 1.5
 			self:emit("smoke",2)
@@ -37,6 +40,7 @@ function ModSuperHeavy:onCollide(other, collision)
 end
 
 function ModSuperHeavy:onRemove()
+	self.maxSpeed = self.oldMaxSpeed
 	self:removeIcon("assets/spr/superHeavy.png")
 end
 return ModSuperHeavy
