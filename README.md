@@ -1,7 +1,7 @@
 # Boxel
 
 ## Description
-Boxel is a 2D side scrolling action game.  The name of the game is to
+Boxel is a 2D side-scrolling action game.  The name of the game is to
 defeat as many greenie meanies as possible using your trusty laser rifle
 and modular replicator.  Objects in Boxel each have special modules, which
 can be acquired or swapped using the modular replicator.  Players can
@@ -27,7 +27,7 @@ you wipe out round after round of greanie meanies!  Will you survive?
 | Image | Module | Effect
 --- | --- | ---
 ![Bomb][Bomb] | Bomb | Causes explosions on use, impact, or coming in contact with fire
-![Delicious][Delicious] | Delicious  | Enables eating of objects to regain health
+![Delicious][Delicious] | Delicious  | Object possessing this module can be eaten to regain health
 ![Duplicator][Duplicator] | Duplicator | Creates duplicates on death<br>Causes player to revive with half health
 ![Emitter][Emitter] | Emitter | Periodically release shots in random directions
 ![Glass][Glass] | Glass | Take additional damage and shatter on death<br>Shots shatter after a short distance<br>Falling from great heights causes death
