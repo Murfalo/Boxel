@@ -39,10 +39,14 @@ you wipe out round after round of greanie meanies!  Will you survive?
 ![Vampiric][Vampiric] | Vampiric | Heals on dealing damage<br>Can be killed by light
 
 ## Building the Game
-\<how to build/compile it>
+There are two methods to running the game.  The first is to download the
+Boxel source code and Love2D v0.9.2 for your platform from
+[here][Love2DVersions].  Then you can run the game using [these
+instructions][Love2DGettingStarted].  Alternatively, you can just download
+and run a version of the game from the [releases page][Releases].
 
 ## Dependencies
-* [Love2D]
+* [Love2D] \(v0.9.2\)
 
 ## Special Thanks
 Big shout out to [Sonniss] and [OurMusicBox] for providing free music and sound effects for the betterment of the game development community!
@@ -72,3 +76,6 @@ https://raw.githubusercontent.com/Murfalo/game-off-2016/master/assets/spr/radian
 https://raw.githubusercontent.com/Murfalo/game-off-2016/master/assets/spr/superHeavy.png
 [Vampiric]:
 https://raw.githubusercontent.com/Murfalo/game-off-2016/master/assets/spr/vampiric.png
+[Love2DVersions]: https://bitbucket.org/rude/love/downloads
+[Love2DGettingStarted]: https://love2d.org/wiki/Getting_Started
+[Releases]: https://github.com/Murfalo/game-off-2016/releases
