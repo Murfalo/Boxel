@@ -64,7 +64,7 @@ function MGame:init()
 	self.wrapOnContactEnd   = lume.fn(self.onContactEnd, self)
 	self.round =1
 
-	self.bgTheme = love.audio.newSource("/assets/sounds/WeirdElectro.wav")
+	self.bgTheme = love.audio.newSource("/assets/sounds/WeirdElectro.mp3")
 	self.bgTheme:setLooping(true);
 	self.bgTheme:play()
 
