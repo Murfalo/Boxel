@@ -13,10 +13,16 @@ local Items = {
 	-- 	args = { 1 },
 	-- },
 	{
+		text = "Tutorial",
+		action = goto_room,
+		args = { "assets/rooms/tutorial" },
+	},
+	{
 		text = "Start Game",
 		action = goto_room,
 		args = { "assets/rooms/testRoom" },
 	},
+
 }
 
 local MainMenu = BasicMenu.new( Items, BasicMenu.GREEN_PALLET )

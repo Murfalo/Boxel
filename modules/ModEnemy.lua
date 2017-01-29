@@ -25,6 +25,10 @@ function ModEnemy:create( )
 	end
 	self:setRandomJumpProbability(0.01,2)
 	self:setAttackFunction(aggressiveAI)
+
+	if self.searchRadius then
+		self.searchRadius = tonumber(self.searchRadius)
+	end
 end
 
 function ModEnemy:setAttackFunction( script )
@@ -36,7 +40,7 @@ function ModEnemy:normalState()
 	self.status = "normal"
 	if not self.target or self.target.destroyed then
 		self:findTarget()
-	else
+	elseif not self.searchRadius or self:testProximity(self.target.x,self.target.y, self.searchRadius) then
 		self.attackFunct(self,self.target)
 	end
 	self:animate()
@@ -80,7 +84,7 @@ function ModEnemy:onAttack() end
 function ModEnemy:findTarget()
 	if self.x == 0 and self.y == 0 then return end
 	local found = false
-	local actList = Game:findObjectsWithModule("ModActive")
+	local actList = Game:findObjectsWithModule("ModControllable")
 	local minDist = 9999999
 	for i,v in ipairs(actList) do
 		if not self.faction or (v.faction and v.faction ~= self.faction) then

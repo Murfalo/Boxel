@@ -7,10 +7,13 @@ local ObjChar = Class.create("ObjChar", ObjBaseUnit)
 
 -- Initializes values of ObjChar, only runs once at the start of the game
 -- sets up values which initial conditions
-function ObjChar:init( )
+function ObjChar:init(x,y )
 	-- inventory initialization
 	self.inventory = Inventory(3,3)
 
+	self.position = {}
+	self.position.x = x
+	self.position.y = y
 	-- init other data
 	self.max_health = 500
 	self.health = 500

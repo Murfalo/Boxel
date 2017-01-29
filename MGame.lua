@@ -34,7 +34,7 @@ TileLayermt.__index = TileLayermt
 -- MGamestate callback
 function MGame:init()
 	self.locked = false     -- is the game state locked or isn't it
-	self.ticks  = 0         -- how many ticks have we run through so far? One way of measuring time
+	self.ticks  = 0         -- how many ticks have we run through so far?
 	self.scene  = Scene.new(40)      -- the main drawing scene. Scene = everything that is on screen in the Game world. Very important and very common in every game
 	self.hud    = Scene.new(20)      -- the HUD scene. 
 	self.backgrounds = Scene.new(10) -- the level backgrounds.
@@ -97,6 +97,9 @@ function MGame:update( dt )
 
 	self:emitEvent( "pretick" )
 	xl.DScreen.print("Num Objs: ", "(%f)", util.tablelength(self.entities))
+	xl.DScreen.print("Num Enemies: ", "(%f)", util.tablelength(self:findObjectsWithModule("ModEnemy")))
+
+	--
 	-- self.player:tick( dt, true ) -- The player object is ALWAYS updated first. Game logic.
 	-- xl.DScreen.print("Character DT: ", "(%f)", (love.timer.getTime() - baseTime))
 	baseTime = love.timer.getTime()
@@ -355,10 +358,13 @@ end
 ----
 function MGame:loadRoom( name )
 	lume.trace()
+
 	if (type(name) == "table") then
 		-- lume.trace("load pre-loaded Table")
 		self.curMapTable = util.deepcopy(name)
+		self.currentRoom = self.curMapTable.name
 	else
+		self.currentRoom = name
 		assert(love.filesystem.isFile(name..".lua"), "Room resource '" .. name .. "' doesn't exist")
 	end
 

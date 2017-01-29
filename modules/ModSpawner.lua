@@ -56,7 +56,7 @@ function ModSpawner:spawnObject(x,y)
 	-- lume.trace()
 	local x = x or self.x + self.width/2 + math.random(self.minX,self.maxX)
 	local y = y or self.y + math.random(self.minY, self.maxY)
-	if self.object then
+	if self.object and Game.player.isAlive and util.tablelength(Game:findObjectsWithModule("ModEnemy")) < 20 then
 		self:emit("spawn", 5)
 		local objectName = self.object
 		if type(self.object) =="table" then

@@ -41,6 +41,9 @@ function EnShooter:create()
 	self:setFixture(self.shape, 22.6)
 
 	self.fixture:setCategory(CL_NPC)
+	if self.mModule then
+		self:addModule(require( "modules.".. self.mModule))
+	end
 end
 
 return EnShooter

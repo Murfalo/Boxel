@@ -28,7 +28,7 @@ function ObjDamageHitbox:create()
 	self.objectsHit = {}
 	self.active = true
 	self.refresh = 0
-	--self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
+	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
 	-- ObjAttackHitbox.create(self)
 end
 

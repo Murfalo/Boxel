@@ -3,7 +3,7 @@ ModDelicious.dependencies = {"ModPartEmitter","ModActive", "ModInteractive"}
 ModDelicious.removable = true
 
 function ModDelicious:create()
-	self:setDeliciousness(20)
+	self:setDeliciousness(25)
 	self:addEmitter("crumb" , "assets/spr/crumb.png")
 	self:setRandomDirection("crumb" , 3 * 32)
 	self:setRandRotation("crumb",32,0,1)
@@ -16,7 +16,7 @@ end
 function ModDelicious:onPlayerInteract(player) 
 	self:emit("crumb",3)
 	self:setHitState(0, nil, nil, self.deliciousness, nil,nil)
-	player.health = player.health + self.deliciousness
+	player:setHealth( player.health + self.deliciousness )
 end
 
 function ModDelicious:setDeliciousness( deliciousness )

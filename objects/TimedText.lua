@@ -24,11 +24,13 @@ function TimedText:create()
 	self.textObj:setPtsize(self.ptSize or 24)
 	Game.scene:insert(self.textObj)
 	self.alpha = 255
+	self.scrollSpeed = self.scrollSpeed or 0.5
+	self.alphaSpeed = self.alphaSpeed or 1.4
 end
 
 function TimedText:tick(dt)
-	self.textObj:setPosition(self.textObj.x, self.textObj.y - 0.5)
-	self.alpha = self.alpha - 1.4
+	self.textObj:setPosition(self.textObj.x, self.textObj.y - self.scrollSpeed)
+	self.alpha = self.alpha - self.alphaSpeed
 	self.textObj:setColor(255,255,255,self.alpha)
 	if self.alpha < 10 then
 		Game:del(self)

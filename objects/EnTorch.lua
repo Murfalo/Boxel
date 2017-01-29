@@ -3,8 +3,8 @@ local EnTorch = Class.create("EnTorch", ObjBaseUnit)
 
 function EnTorch:init( )
 	-- init other data
-	self.max_health = 100
-	self.health = 100
+	self.max_health = 60
+	self.health = 60
 
 	--initialize movement data
 	self.maxJumpTime = 300
@@ -27,7 +27,7 @@ function EnTorch:create()
 	stun = 35, persistence = 0.15,xKnockBack = 4 * 32, yKnockBack = -3 * 32, element = "fire"})
 	self:setFrameData(8,10,10)
 	self:setAttackAnimation("slash")
-	self:setAttackRangeRate(50,1)
+	self:setAttackRangeRate(50,1.5)
 
 	self:addSpritePiece(require("assets.spr.scripts.PceWheel"))
 	self:addSpritePiece(require("assets.spr.scripts.PceEvilBody"))
@@ -42,6 +42,9 @@ function EnTorch:create()
 	self:setFixture(self.shape, 22.6)
 
 	self.fixture:setCategory(CL_NPC)
+	if self.mModule then
+		self:addModule(require( "modules.".. self.mModule))
+	end
 end
 
 return EnTorch
