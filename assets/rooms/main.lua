@@ -1,14 +1,14 @@
 return {
   version = "1.1",
   luaversion = "5.1",
-  tiledversion = "0.17.1",
+  tiledversion = "0.18.0",
   orientation = "orthogonal",
   renderorder = "right-down",
   width = 70,
   height = 50,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 67,
+  nextobjectid = 70,
   properties = {},
   tilesets = {
     {
@@ -913,6 +913,19 @@ return {
           y = 352,
           width = 32,
           height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 67,
+          name = "",
+          type = "ObjMusicStarter",
+          shape = "rectangle",
+          x = 736,
+          y = 448,
+          width = 0,
+          height = 0,
           rotation = 0,
           visible = true,
           properties = {}

@@ -3,7 +3,7 @@ local ObjTree = Class.create("ObjTree", ObjBaseUnit)
 	
 function ObjTree:create()
 	ObjBaseUnit.create(self)
-	self:createBody( "dynamic" ,false, true)
+	self:createBody( "dynamic" ,true, true)
 	self.shape = love.physics.newRectangleShape(16,16)
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 	self:setFixture(self.shape, 50)

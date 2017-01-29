@@ -93,15 +93,15 @@ function ObjDebugCamera:itrack()
 		end
 
 		-- detect player direction
-		if player.dir ~= self.lastDirection then
-			self.offsetx = self.offsetx + (player.dir * self.adjustSpeed)
-		end
-		self.lastDirection = player.dir
-		if math.abs(self.offsetx) < (self.maxAdjust) then
-			self.offsetx = self.offsetx + self.lastDirection
-		end
+		-- if player.dir ~= self.lastDirection then
+		-- 	self.offsetx = self.offsetx + (player.dir * self.adjustSpeed)
+		-- end
+		-- self.lastDirection = player.dir
+		-- if math.abs(self.offsetx) < (self.maxAdjust) then
+		-- 	self.offsetx = self.offsetx + self.lastDirection
+		-- end
 		local px, py = player.body:getPosition()
-		self.x = math.floor( px + (self.offsetx))
+		self.x = math.floor( px )--+ (self.offsetx))
 		self.y = math.floor( py + self.offsety )
 	end
 	self.x = math.max(self.minX, self.x - GAME_SIZE.w/4) + GAME_SIZE.w/4

@@ -12,9 +12,11 @@ function ObjPowerUp:create()
 
 	self:addSpritePiece(require("assets.spr.scripts.SprPowerChip"))
 	self.choices =  {"ModDuplicator","ModFlaming","ModPlant","ModBomb","ModSuperHeavy","ModVampiric","ModNinja","ModDelicious","ModGlass","ModRadiant","ModEmitter"}
-	local mModule = self.choices[math.random(1,#self.choices)]
+	local mModule = self.mModule or self.choices[math.random(1,#self.choices)]
 	self:addModule(require ("modules."..mModule))
-	self:addModule(require "modules.ModTemp")
+	if not self.permanent then
+		self:addModule(require "modules.ModTemp")
+	end
 end
 
 return ObjPowerUp

@@ -22,7 +22,7 @@ function ModDuplicator:onDeath()
 	self:removeModule("ModDuplicator")
 
 	if self:hasModule("ModControllable") then
-		self.health = 250
+		self:setHealth(250)
 		lume.trace()
 		self.isAlive = true
 		local newText = TimedText("A clone has replaced you", self.x, self.y, 20)

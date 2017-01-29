@@ -230,7 +230,7 @@ function ModControllable:onDeath()
 		if Keymap.isDown("interact") then
 			lume.trace()
 			Game.playerIsDead = true
-			Game:loadRoom( "assets/rooms/testRoom" )
+			Game:loadRoom( Game.currentRoom)
 		end
 	end
 end

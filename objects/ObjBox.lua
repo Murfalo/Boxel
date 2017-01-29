@@ -1,21 +1,17 @@
-local ObjBase = require "ObjBase"
-local ObjBox = Class.create("ObjBox", ObjBase)
+local ObjBaseUnit = require "objects.ObjBaseUnit"
+local ObjTable = Class.create("ObjTable", ObjBaseUnit)
 	
-function ObjBox:create()
-	-- local active = require "modules.ModActive"
-	-- self:addModule(active)
-	local body = require "modules.ModActive"
-	self:addModule(body)
-	self:createBody( "dynamic" ,true, true)
-
-	self.shape = love.physics.newRectangleShape(32, 32)
+function ObjTable:create()
+	ObjBaseUnit.create(self)
+	self:createBody( "dynamic" ,false, true)
+	self.shape = love.physics.newRectangleShape(32,32)
 	self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-	self:setFixture(self.shape, 22.6)
-	-- local drawable = require "modules.ModDrawable"
-	-- self:addModule(drawable)
-	--self:addSpritePiece(require("assets.spr.scripts.PceWheel"))
-	self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
+	self:setFixture(self.shape, 50)
+	self.health = 90
+	self.max_health = 90
 
+	self:addSpritePiece(require("assets.spr.scripts.SprBox"))
+	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture)
 end
 
-return ObjBox
+return ObjTable

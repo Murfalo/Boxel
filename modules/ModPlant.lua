@@ -14,7 +14,6 @@ function ModPlant:create()
 	self:setFade("wood")
 
 	self:addIcon(require("assets.spr.scripts.IcoWooden"))
-	lume.trace(Game:getTicks())
 end
 
 function ModPlant:setHitState(stunTime, forceX, forceY, damage, element,faction,hitbox)
