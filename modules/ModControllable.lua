@@ -143,10 +143,10 @@ end
 --Manages character's inventory management, item usage and environmental interaction code.
 function ModControllable:proccessInventory()
 	--Open Inventory
-	if Keymap.isDown("inv") and not self.inventoryLocked then
-		--Sound.playFX("stapler.mp3")
-		InventoryMenu:open(self.inventory)
-	end
+	-- if Keymap.isDown("inv") and not self.inventoryLocked then
+	-- 	--Sound.playFX("stapler.mp3")
+	-- 	InventoryMenu:open(self.inventory)
+	-- end
 	--Item using code
 	-- if Keymap.isPressed("use") and self.currentEquips["neutral"] then
 	-- 	lume.trace()
@@ -211,7 +211,7 @@ function ModControllable:onKill(target, hitType, hitbox)
 		Advanced = false
 	end
 	if Advanced then
-		lume.trace(self.killCount)
+		-- lume.trace(self.killCount)
 		local newText = TimedText("Round Advanced", self.x, self.y, 20)
 
 		Game:add(newText)
@@ -219,7 +219,7 @@ function ModControllable:onKill(target, hitType, hitbox)
 end
 
 function ModControllable:onDeath()
-	if not self:hasModule("ModDuplicator") then
+	if not self:hasModule("ModDuplicator") and not self.reviving then
 		if not self.textWritten then
 			Game.round = 1
 			local newText = TimedText("You died, Press I to Restart\nEnemies Defeated: " .. self.killCount, self.x, self.y, 20)
@@ -233,5 +233,6 @@ function ModControllable:onDeath()
 			Game:loadRoom( Game.currentRoom)
 		end
 	end
+	self.reviving = false
 end
 return ModControllable

@@ -10,7 +10,7 @@ function ObjRoomChanger:create()
 
 	self:setFixture(self.shape, 1)
 	self.fixture:setSensor(true)
-	self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture) --Uncomment to see hitbox.
+	-- self.fixtureDRAW = xl.SHOW_HITBOX(self.fixture) --Uncomment to see hitbox.
 
 end
 

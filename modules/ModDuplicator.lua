@@ -25,6 +25,7 @@ function ModDuplicator:onDeath()
 		self:setHealth(250)
 		lume.trace()
 		self.isAlive = true
+		self.reviving = true
 		local newText = TimedText("A clone has replaced you", self.x, self.y, 20)
 		Game:add(newText)
 		self.textWritten = false

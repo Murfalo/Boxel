@@ -54,13 +54,13 @@ end
 local EMPTY = {}
 
 function BasicMenu:keypressed( key, isrepeat )
-	if Keymap.check( "up", key ) then
+	if Keymap.check( "up", key ) or Keymap.check("menuUp", key) then
 		self.index = self.index > 1 and self.index - 1 or #self.items
 	end
-	if Keymap.check( "down", key ) then
+	if Keymap.check( "down", key ) or Keymap.check("menuDown", key) then
 		self.index = self.index < #self.items and self.index + 1 or 1
 	end
-	if Keymap.check( "use", key ) then
+	if Keymap.check( "use", key ) or Keymap.check("menuEnter", key) then
 		local item = self.items[self.index]
 		-- if the action returns true we don't pop
 		if not item.action( unpack( item.args or EMPTY ) ) then

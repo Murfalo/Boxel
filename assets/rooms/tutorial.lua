@@ -1056,7 +1056,7 @@ return {
           name = "",
           type = "EnShooter",
           shape = "rectangle",
-          x = 856,
+          x = 768,
           y = 1320,
           width = 0,
           height = 0,
@@ -1100,13 +1100,14 @@ return {
           name = "",
           type = "EnSword",
           shape = "rectangle",
-          x = 736,
-          y = 1288,
+          x = 960,
+          y = 1328,
           width = 0,
           height = 0,
           rotation = 0,
           visible = true,
           properties = {
+            ["mModule"] = "ModVampiric",
             ["searchRadius"] = "128"
           }
         },
@@ -1272,7 +1273,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["text"] = "FLAME set enemies on fire and burns nearby objects"
+            ["text"] = "FLAME sets enemies on fire and burns nearby objects"
           }
         },
         {
@@ -1491,7 +1492,7 @@ return {
           name = "",
           type = "ObjMusicStarter",
           shape = "rectangle",
-          x = 456,
+          x = 454,
           y = 144,
           width = 0,
           height = 0,

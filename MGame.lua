@@ -357,7 +357,6 @@ end
 -- @param {string} name - Path of the room to load (like in a require statement)
 ----
 function MGame:loadRoom( name )
-	lume.trace()
 
 	if (type(name) == "table") then
 		-- lume.trace("load pre-loaded Table")

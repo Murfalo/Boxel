@@ -318,8 +318,11 @@ end
 
 function ModActive:setHealth( health )
 	local diff = health - self.health
+	if self:hasModule("ModControllable") then
+		lume.trace(self.health, health,diff)
+	end
 	self.health = math.min(self.max_health,math.max(health,0))
-	self.redHealth = math.min(self.redHealth,self.health)
+	self.redHealth = self.health --math.min(self.redHealth,self.health)
 	if diff > 0 then
 		self:emit("heal", math.max(math.min(math.floor(math.abs(diff)/4),2),2))
 	elseif diff < 0 then

@@ -5,6 +5,7 @@ ModDrawable.trackFunctions = {"draw"}
 function ModDrawable:create()
 	self.animations = self.animations or {}
 	self.sprites = self.sprites or {}
+	self.spritePieceNames = self.spritePieceNames or {}
 	self.idleCounter = 0
 	-- self.angle = 0
 	self.imgX = 64
@@ -121,9 +122,10 @@ function ModDrawable:updateSprites()
 	if not self.angle and (self.body and not self.body:isFixedRotation()) then
 		self:setSprAngle(self.body:getAngle())
 	end
-	for key,value in pairs(self.sprites) do
-		if self.sprites[key].noLoop == false then
-			self:changeAnimation(self.sprites[key].currentAnim )
+	for i,spriteName in ipairs(self.spritePieceNames) do
+		local spr = self.sprites[spriteName]
+		if spr.noLoop == false then
+			self:changeAnimation(spr.currentAnim )
 		end
 	end
 	self.referenceVel = 0
@@ -256,11 +258,26 @@ function ModDrawable:addSprite( piece )
 	self:changeAnimation(1,1,0, 1)
 	Game.scene:insert(self.sprite)
 end
+
 function ModDrawable:addSpritePiece( piece , d)
 	local sprite
 	local SpritePiece = require "xl.SpritePiece"
 	d = d or self.depth or 9000
 	self.advancedSprites = true
+	if not util.hasValue(self.spritePieceNames,piece) then
+		if #self.spritePieceNames > 0 then
+			for i,v in ipairs(self.spritePieceNames) do
+				-- lume.trace(v,piece.connectSprite)
+				if not piece.connectSprite or v == piece.connectSprite then
+					-- lume.trace("added",piece.name, "at ", i)
+					table.insert(self.spritePieceNames,i+1,piece.name)
+					break
+				end
+			end
+		else
+			table.insert(self.spritePieceNames,piece.name)
+		end
+	end
 	sprite = SpritePiece(piece.path, (piece.width or 128), (piece.height or 128),0,d)
 	--sprite:setOrigin(16,16)
 	sprite:setOrigin((piece.originX or piece.width/2), (piece.originY or piece.height/2))
@@ -305,6 +322,8 @@ end
 function ModDrawable:delSpritePiece( pieceName )
 	if self.sprites[pieceName] then
 		Game.scene:remove(self.sprites[pieceName])
+		-- lume.trace("delete",pieceName)
+		util.deleteFromTable(self.spritePieceNames,pieceName)
 		self.sprites[pieceName] = nil
 	end
 end
@@ -314,14 +333,12 @@ function ModDrawable:getAttachPos(attachPoint )
 end
 
 function ModDrawable:setSprPos( x , y )
-	for key, piece in pairs(self.sprites) do
-		if not piece.updatePos then
-			util.print_table(piece)
-		else
-			local piecesPos = piece:updatePos(x,y)
-			for k,v in pairs(piecesPos) do
-				self.attachPositions[k] = v
-			end
+	self.lastY = y
+	for i, spriteName in ipairs(self.spritePieceNames) do
+		local piece = self.sprites[spriteName]
+		local piecesPos = piece:updatePos(x,y)
+		for k,v in pairs(piecesPos) do
+			self.attachPositions[k] = v
 		end
 	end
 	if self.sprite then

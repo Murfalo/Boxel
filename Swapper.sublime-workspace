@@ -4,8 +4,12 @@
 		"selected_items":
 		[
 			[
+				"conn",
+				"connectSprite"
+			],
+			[
 				"for",
-				"for\tfor i=1,10"
+				"fori\tfor i,v in ipairs()"
 			],
 			[
 				"self",
@@ -20,100 +24,118 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/loader_readsnap.py",
+			"file": "/C/Users/LuoLei Zhao/GameDevelopmentStudio/Assets/Script/Player.cs",
 			"settings":
 			{
-				"buffer_size": 1657,
+				"buffer_size": 2478,
+				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/firefly_config_min_readsnap.py",
+			"file": "objects/EnShooter.lua",
 			"settings":
 			{
-				"buffer_size": 999,
+				"buffer_size": 1274,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModProjectileEnemy.lua",
+			"settings":
+			{
+				"buffer_size": 276,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 200 files for \"hitboxMaker\"\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModBomb.lua:\n    2  local ObjSimpleEmitter = require \"objects.ObjSimpleEmitter\"\n    3  local bombSound = love.audio.newSource(\"assets/sounds/Bomb.wav\")\n    4: ModBomb.dependencies = {\"ModPartEmitter\", \"ModActive\",\"ModHitboxMaker\",\"ModInteractive\",\"ModShooter\"}\n    5  \n    6  ModBomb.trackFunctions = {\"onAttack\"}\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModEnemy.lua:\n    1  local ModEnemy = Class.create(\"ModEnemy\", Entity)\n    2: ModEnemy.dependencies = {\"ModActive\",\"ModHitboxMaker\"}\n    3  \n    4  ModEnemy.trackFunctions = {\"onAttack\",\"onAttackStart\"}\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModFlaming.lua:\n    1  local ModFlaming = Class.create(\"ModFlaming\", Entity)\n    2  local ObjSimpleEmitter = require \"objects.ObjSimpleEmitter\"\n    3: ModFlaming.dependencies = {\"ModPartEmitter\", \"ModActive\",\"ModHitboxMaker\"}\n    4  \n    5  ModFlaming.trackFunctions = {\"preProcessProjectile\"}\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModGlass.lua:\n    1  local ModGlass = Class.create(\"ModGlass\", Entity)\n    2  local ObjSimpleEmitter = require \"objects.ObjSimpleEmitter\"\n    3: ModGlass.dependencies = {\"ModPartEmitter\", \"ModActive\",\"ModHitboxMaker\"}\n    4  local ObjShot = require \"objects.ObjShot\"\n    5  \n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModHitboxMaker.lua:\n    1: local ModHitboxMaker = Class.create(\"ModHitboxMaker\", Entity)\n    2  local ObjAttackHitbox = require \"objects.ObjAttackHitbox\"\n    3: ModHitboxMaker.trackFunctions = {\"onHitConfirm\"}\n    4  \n    5: function ModHitboxMaker:tick( dt )\n    6  \tif self.toCreateHitbox then\n    7  \t\tself:mCreateHitbox(unpack(self.toCreateHitbox))\n    .\n    9  \tend\n   10  end\n   11: function ModHitboxMaker:createHitbox( ... )\n   12  \tself.toCreateHitbox = {...}\n   13  end\n   14: function ModHitboxMaker:mCreateHitbox(wth, hgt, XOffset, YOffset, dmg, stn, pers, Xforce, Yforce, elem, deflect)\n   15  \tlocal myWidth = wth\n   16  \tlocal guardDamage\n   ..\n   60  end\n   61  \n   62: function ModHitboxMaker:onHitConfirm(target, hitType, hitbox) \n   63  end\n   64  \n   65: function ModHitboxMaker:addToAttackList( prob,conditionCheck,funct,properties)\n   66  \tlocal newList = {}\n   67  \tnewList.weight = prob\n   ..\n   77  end\n   78  \n   79: return ModHitboxMaker\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModLighting.lua:\n    1  local ModLighting = Class.create(\"ModLighting\", Entity)\n    2: ModLighting.dependencies = {\"ModActive\", \"ModHitboxMaker\"}\n    3  ModLighting.removable = true\n    4  local Scene = require \"xl.Scene\"\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModMeleeEnemy.lua:\n    1  local ModMeleeEnemy = Class.create(\"ModMeleeEnemy\", Entity)\n    2  local attackSound = love.audio.newSource(\"/assets/sounds/EnemyAttack.wav\")\n    3: ModMeleeEnemy.dependencies = {\"ModEnemy\",\"ModHitboxMaker\"}\n    4  ModMeleeEnemy.trackFunctions = {\"onAttack\"}\n    5  \n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModNinja.lua:\n    1  local ModNinja = Class.create(\"ModNinja\", Entity)\n    2: ModNinja.dependencies = {\"ModPartEmitter\",\"ModActive\",\"ModHitboxMaker\"}\n    3  \n    4  ModNinja.trackFunctions = {\"onCollide\"}\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModPlant.lua:\n    1  local ModPlant = Class.create(\"ModPlant\", Entity)\n    2  local ObjSimpleEmitter = require \"objects.ObjSimpleEmitter\"\n    3: ModPlant.dependencies = {\"ModPartEmitter\", \"ModActive\",\"ModHitboxMaker\"}\n    4  \n    5  ModPlant.trackFunctions = {}\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModPowered.lua:\n    1  local ModPowered = Class.create(\"ModPowered\", Entity)\n    2  local ObjSimpleEmitter = require \"objects.ObjSimpleEmitter\"\n    3: ModPowered.dependencies = {\"ModActive\",\"ModInteractable\",\"ModHitboxMaker\"}\n    4  \n    5  ModPowered.trackFunctions = {}\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModRadiant.lua:\n    1  local ModRadiant = Class.create(\"ModRadiant\", Entity)\n    2: ModRadiant.dependencies = {\"ModActive\", \"ModHitboxMaker\"}\n    3  ModRadiant.removable = true\n    4  local Scene = require \"xl.Scene\"\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModSuperHeavy.lua:\n    1  local ModSuperHeavy = Class.create(\"ModSuperHeavy\", Entity)\n    2: ModSuperHeavy.dependencies = {\"ModPartEmitter\",\"ModActive\",\"ModHitboxMaker\"}\n    3  \n    4  ModSuperHeavy.trackFunctions = {\"onCollide\"}\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModTemp.lua:\n    1  local ModTemp = Class.create(\"ModTemp\", Entity)\n    2: ModTemp.dependencies = {\"ModPartEmitter\", \"ModActive\",\"ModHitboxMaker\",\"ModInteractive\",\"ModShooter\"}\n    3  \n    4  function ModTemp:create()\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\modules\\ModVampiric.lua:\n    1  local ModVampiric = Class.create(\"ModVampiric\", Entity)\n    2: ModVampiric.dependencies = {\"ModActive\", \"ModHitboxMaker\"}\n    3  ModVampiric.removable = true\n    4  \n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\objects\\ObjTorch.lua:\n    4  function ObjTorch:create()\n    5  \tself:addModule( require \"modules.ModWeapon\")\n    6: \tself:addModule( require \"modules.ModHitboxMaker\")\n    7  \n    8  \tself.shape = love.physics.newRectangleShape(32,32)\n\nC:\\Users\\LuoLei Zhao\\oldGames\\game-off-2016\\objects\\ObjWeapon.lua:\n    4  function ObjWeapon:create()\n    5  \tself:addModule( require \"modules.ModEquippable\")\n    6: \tself:addModule( require \"modules.ModHitboxMaker\")\n    7  \tself:addModule(require \"modules.ModDrawable\")\n    8  \n\n24 matches across 16 files\n",
+			"settings":
+			{
+				"buffer_size": 5527,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "modules/ModHitboxMaker.lua",
+			"settings":
+			{
+				"buffer_size": 2335,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModShooter.lua",
+			"settings":
+			{
+				"buffer_size": 918,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "objects/ObjShot.lua",
+			"settings":
+			{
+				"buffer_size": 1175,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModFlaming.lua",
+			"settings":
+			{
+				"buffer_size": 2260,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModNinja.lua",
+			"settings":
+			{
+				"buffer_size": 1262,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModMeleeEnemy.lua",
+			"settings":
+			{
+				"buffer_size": 444,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "modules/ModProjectile.lua",
+			"settings":
+			{
+				"buffer_size": 5599,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/LuoLei Zhao/NLPGoldenGlobes/NLPGoldenGlobes/tweet.py",
+			"settings":
+			{
+				"buffer_size": 516,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/loader_min_readsnap.py",
-			"settings":
-			{
-				"buffer_size": 1020,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/readsnap.py",
-			"settings":
-			{
-				"buffer_size": 18996,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/render.py",
+			"file": "/C/Users/LuoLei Zhao/NLPGoldenGlobes/NLPGoldenGlobes/tfidf.py",
 			"settings":
 			{
-				"buffer_size": 4349,
+				"buffer_size": 1142,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/signac/NumpyLoader.cpp",
+			"file": "/C/Users/LuoLei Zhao/NLPGoldenGlobes/NLPGoldenGlobes/parser.py",
 			"settings":
 			{
-				"buffer_size": 2728,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/shaders/point.vert",
-			"settings":
-			{
-				"buffer_size": 618,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/signac/Dataset.cpp",
-			"settings":
-			{
-				"buffer_size": 4014,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/signac/PointCloud.cpp",
-			"settings":
-			{
-				"buffer_size": 7046,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/signac/PointBatch.cpp",
-			"settings":
-			{
-				"buffer_size": 8937,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/signac/Dataset.h",
-			"settings":
-			{
-				"buffer_size": 3361,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/firefly.py",
-			"settings":
-			{
-				"buffer_size": 1005,
+				"buffer_size": 1841,
 				"line_ending": "Windows"
 			}
 		}
@@ -150,46 +172,76 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/LuoLei Zhao/game-off-2016"
+		"/C/Users/LuoLei Zhao/oldGames/game-off-2016"
 	],
 	"file_history":
 	[
-		"/C/Users/defaultuser0/omegalib/firefly/modules/signac/NumpyLoader.cpp",
-		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/loaderGuide.txt",
-		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/render.py",
+		"/C/Users/LuoLei Zhao/oldGames/game-off-2016/modules/ModEnemy.lua",
+		"/C/Users/LuoLei Zhao/NLPGoldenGlobes/NLPGoldenGlobes/correlation.py",
+		"/C/qrg/HW4",
+		"/C/Users/LuoLei Zhao/NLPGoldenGlobes/NLPGoldenGlobes/main.py",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDrawable.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModControllable.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModRoomChanger.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjRoomChanger.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDuplicator.lua",
+		"/C/Users/LuoLei Zhao/GameDevelopmentStudio/Assets/Script/Controller2D.cs",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModTextZone.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjTextZone.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModActive.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjMusicStarter.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/util.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/SettingManager.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/MGame.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/state/MainMenu.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/xl/BasicMenu.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjDebugCamera.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/hump/camera.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjChar.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/TimedText.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjBox.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPhysics.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/extra.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/xl/Lights.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprBox.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/xl/Sound.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModTemp.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjPowerUp.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnTorch.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModSpawner.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEnemy.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnSword.lua",
+		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnShooter.lua",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/loader_readsnap.py",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/firefly_config_min_readsnap.py",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/loader_min_readsnap.py",
 		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/readsnap.py",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/render.py",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/signac/NumpyLoader.cpp",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/shaders/point.vert",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/signac/Dataset.cpp",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/signac/PointCloud.cpp",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/signac/PointBatch.cpp",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/signac/Dataset.h",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/firefly.py",
+		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/loaderGuide.txt",
 		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/shaders/point-depthFilter.vert",
 		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/shaders/point.frag",
 		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/shaders/point-fixedColor.frag",
-		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/shaders/point.vert",
-		"/C/Users/defaultuser0/omegalib/firefly/modules/signac/PointCloud.cpp",
-		"/C/Users/defaultuser0/omegalib/firefly/modules/signac/Dataset.cpp",
 		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/shaders/colormapper.vert",
 		"/C/Users/defaultuser0/omegalib/firefly/modules/signac/shaders/base.vert",
-		"/C/Users/defaultuser0/omegalib/firefly/modules/signac/Dataset.h",
 		"/C/Users/defaultuser0/omegalib/firefly/modules/firefly/config-file.py",
-		"/C/Users/LuoLei Zhao/game-off-2016/MGame.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/ObjBase.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjChar.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/SettingManager.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/startup.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModActive.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjUnit.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPhysics.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjDamageHitbox.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/extra.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModInteractive.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjIntHitbox.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDrawable.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPartEmitter.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjTest.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprBox.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModControllable.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModSpawner.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/Error",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/SpawnZone.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjSpawnZone.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjDebugCamera.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjTree.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjSwapper.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModFruity.lua",
@@ -197,27 +249,19 @@
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModBomb.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModPlant.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModInventory.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjPowerUp.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjMine.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprPowerChip.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModTemp.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprBombShot.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprBomb.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnShooter.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModProjectile.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEnemy.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjAttackHitbox.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjShot.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDuplicator.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjPowerSpawner.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjBombSpawner.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModDelicious.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnSword.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjCake.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/EnTorch.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/libs/class.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/hump/class.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/xl/Lights.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/conf.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/xl/Keymap.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprTable.lua",
@@ -259,29 +303,7 @@
 		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjTable.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprFireShot.lua",
 		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/IcoFlaming.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModInventoryControl.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjDupBox.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModWooden.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/hump/gamestate.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/xl/Background.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/state/MainMenu.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/xl/BasicMenu.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/main.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/TimedText.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/IcoIrresistable.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjWall.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/util.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprMine.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/IcoWooden.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/xl/Text.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/IcoDelicious.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/table",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/IcoBomb.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/PceBody.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModEquippable.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/objects/ObjCrate.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/assets/spr/scripts/SprSwapper.lua",
-		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModMeleeEnemy.lua"
+		"/C/Users/LuoLei Zhao/game-off-2016/modules/ModInventoryControl.lua"
 	],
 	"find":
 	{
@@ -302,6 +324,41 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"hitboxMaker",
+			"count_occurences",
+			"reviving",
+			"redhealth",
+			"setHealth",
+			"isAlive",
+			"self.reviving",
+			"isAlive",
+			"setHealth",
+			"self.isAlive",
+			"isAlive",
+			"addSpritePiece",
+			"icon",
+			"updateSprites",
+			"self.spritePieceNames",
+			"deleteFromTable",
+			"self.spritePieceNames",
+			"delSpritePiece",
+			"setSprPos",
+			"setSprPos\\",
+			"setSprPos",
+			"addSpritePiece",
+			"setSprPos",
+			"loadRoom",
+			"worldManager",
+			"speedModObjs",
+			"timedText",
+			"ModSpeedZone",
+			"ObjBox",
+			"attackFunct",
+			"aggressiveAI",
+			"findTarget",
+			"aggressiveAI",
+			"playMusic",
+			"music",
 			"pointbatch",
 			"myBatches",
 			"load",
@@ -394,42 +451,7 @@
 			"ObjMine",
 			"maxXSpeed",
 			"MainMenu",
-			"background",
-			"MainMenu",
-			"elseif",
-			"next",
-			"mgame",
-			"Mgame:del",
-			"loadRoom",
-			"findTarget",
-			"immortal",
-			"immorta",
-			"hitstate",
-			"interact",
-			"ondeath",
-			"wrapCheckGround",
-			"mCheckground",
-			"checkGround",
-			">>>",
-			"960",
-			"jump",
-			"lume.trace",
-			"ObjBomb",
-			"delSpritePiece",
-			"addIcon",
-			"delSpritePiece",
-			"makeFont",
-			"setPtSize",
-			"loadRoom",
-			"offsetX",
-			"setHitstate",
-			"ModIrresistable",
-			"background",
-			"addBackground",
-			"onRemove",
-			"addIcon",
-			"delSpritepiece",
-			"del"
+			"background"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -437,6 +459,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"ModTextZone",
+			"ObjTextZone",
 			"ModTemp",
 			"ObjPowerUp",
 			"ObjPowerSpawner",
@@ -502,34 +526,33 @@
 	"groups":
 	[
 		{
-			"selected": 9,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/loader_readsnap.py",
+					"file": "/C/Users/LuoLei Zhao/GameDevelopmentStudio/Assets/Script/Player.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1657,
+						"buffer_size": 2478,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								397,
-								397
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 502.0,
+						"translation.y": 613.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 10,
@@ -537,27 +560,28 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/firefly_config_min_readsnap.py",
+					"file": "objects/EnShooter.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 999,
+						"buffer_size": 1274,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								339,
-								339
+								317,
+								317
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 331.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 8,
@@ -565,236 +589,191 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/loader_min_readsnap.py",
+					"file": "modules/ModProjectileEnemy.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1020,
+						"buffer_size": 276,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								650,
-								650
+								248,
+								248
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/readsnap.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18996,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3183,
-								3183
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1945.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/render.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4349,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1600,
-								1600
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 118.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/signac/NumpyLoader.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2728,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/shaders/point.vert",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 618,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/signac/Dataset.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4014,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								882,
-								882
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 256.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/signac/PointCloud.cpp",
+					"buffer": 3,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7046,
+						"buffer_size": 5527,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										308,
+										319
+									],
+									[
+										577,
+										588
+									],
+									[
+										926,
+										937
+									],
+									[
+										1265,
+										1276
+									],
+									[
+										1425,
+										1436
+									],
+									[
+										1456,
+										1467
+									],
+									[
+										1553,
+										1564
+									],
+									[
+										1626,
+										1637
+									],
+									[
+										1790,
+										1801
+									],
+									[
+										1888,
+										1899
+									],
+									[
+										2087,
+										2098
+									],
+									[
+										2176,
+										2187
+									],
+									[
+										2342,
+										2353
+									],
+									[
+										2539,
+										2550
+									],
+									[
+										2902,
+										2913
+									],
+									[
+										3164,
+										3175
+									],
+									[
+										3490,
+										3501
+									],
+									[
+										3813,
+										3824
+									],
+									[
+										4054,
+										4065
+									],
+									[
+										4352,
+										4363
+									],
+									[
+										4612,
+										4623
+									],
+									[
+										4882,
+										4893
+									],
+									[
+										5138,
+										5149
+									],
+									[
+										5423,
+										5434
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								1705,
-								1715
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 768.0,
+						"translation.y": 66.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/signac/PointBatch.cpp",
+					"buffer": 4,
+					"file": "modules/ModHitboxMaker.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8937,
+						"buffer_size": 2335,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								503,
-								503
+								0,
+								2335
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -804,30 +783,173 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/signac/Dataset.h",
+					"buffer": 5,
+					"file": "modules/ModShooter.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3361,
+						"buffer_size": 918,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								952,
-								961
+								255,
+								255
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 416.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "objects/ObjShot.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1175,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								202,
+								202
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "modules/ModFlaming.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2260,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 718.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "modules/ModNinja.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1262,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								714,
+								714
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 380.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "modules/ModMeleeEnemy.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								361,
+								361
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "modules/ModProjectile.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5599,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								806,
+								806
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 9,
@@ -835,19 +957,19 @@
 				},
 				{
 					"buffer": 11,
-					"file": "/C/Users/defaultuser0/omegalib/firefly/modules/firefly/firefly.py",
+					"file": "/C/Users/LuoLei Zhao/NLPGoldenGlobes/NLPGoldenGlobes/tweet.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1005,
+						"buffer_size": 516,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								778,
-								778
+								0,
+								0
 							]
 						],
 						"settings":
@@ -857,10 +979,69 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 119.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/C/Users/LuoLei Zhao/NLPGoldenGlobes/NLPGoldenGlobes/tfidf.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1142,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								573,
+								573
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/C/Users/LuoLei Zhao/NLPGoldenGlobes/NLPGoldenGlobes/parser.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1841,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
 					"type": "text"
 				}
 			]
@@ -899,7 +1080,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 310.0
+		"height": 188.0
 	},
 	"output.find_results":
 	{
@@ -919,8 +1100,200 @@
 		"selected_items":
 		[
 			[
+				"modhitbox",
+				"modules\\ModHitboxMaker.lua"
+			],
+			[
+				"moden",
+				"modules\\ModEnemy.lua"
+			],
+			[
+				"melee",
+				"modules\\ModMeleeEnemy.lua"
+			],
+			[
+				"modninja",
+				"modules\\ModNinja.lua"
+			],
+			[
+				"modflami",
+				"modules\\ModFlaming.lua"
+			],
+			[
+				"objshot",
+				"objects\\ObjShot.lua"
+			],
+			[
+				"modproj",
+				"modules\\ModProjectile.lua"
+			],
+			[
+				"modshoot",
+				"modules\\ModShooter.lua"
+			],
+			[
+				"modprojectilee",
+				"modules\\ModProjectileEnemy.lua"
+			],
+			[
+				"enshoo",
+				"objects\\EnShooter.lua"
+			],
+			[
+				"objroom",
+				"objects\\ObjRoomChanger.lua"
+			],
+			[
+				"modroomch",
+				"modules\\ModRoomChanger.lua"
+			],
+			[
+				"modtextz",
+				"modules\\ModTextZone.lua"
+			],
+			[
+				"objtext",
+				"objects\\ObjTextZone.lua"
+			],
+			[
+				"modduplic",
+				"modules\\ModDuplicator.lua"
+			],
+			[
+				"modcont",
+				"modules\\ModControllable.lua"
+			],
+			[
+				"music",
+				"objects\\ObjMusicStarter.lua"
+			],
+			[
+				"mgam",
+				"MGame.lua"
+			],
+			[
+				"util",
+				"util.lua"
+			],
+			[
+				"moddraw",
+				"modules\\ModDrawable.lua"
+			],
+			[
+				"moddup",
+				"modules\\ModDuplicator.lua"
+			],
+			[
+				"setting",
+				"SettingManager.lua"
+			],
+			[
+				"basicm",
+				"xl\\BasicMenu.lua"
+			],
+			[
+				"mainmen",
+				"state\\MainMenu.lua"
+			],
+			[
+				"modco",
+				"modules\\ModControllable.lua"
+			],
+			[
+				"mgame",
+				"MGame.lua"
+			],
+			[
+				"objcamera",
+				"objects\\ObjDebugCamera.lua"
+			],
+			[
+				"camera",
+				"hump\\camera.lua"
+			],
+			[
+				"objroomc",
+				"objects\\ObjRoomChanger.lua"
+			],
+			[
+				"modtextzo",
+				"modules\\ModTextZone.lua"
+			],
+			[
+				"sprbox",
+				"assets\\spr\\scripts\\SprBox.lua"
+			],
+			[
+				"objtable",
+				"objects\\ObjTable.lua"
+			],
+			[
+				"extra",
+				"extra.lua"
+			],
+			[
+				"xl",
+				"xl\\Lights.lua"
+			],
+			[
+				"timedte",
+				"objects\\TimedText.lua"
+			],
+			[
 				"objchar",
 				"objects\\ObjChar.lua"
+			],
+			[
+				"objtextz",
+				"objects\\ObjTextZone.lua"
+			],
+			[
+				"obj",
+				"objects\\ObjBox.lua"
+			],
+			[
+				"modphys",
+				"modules\\ModPhysics.lua"
+			],
+			[
+				"drawable",
+				"modules\\ModDrawable.lua"
+			],
+			[
+				"timed",
+				"objects\\TimedText.lua"
+			],
+			[
+				"entor",
+				"objects\\EnTorch.lua"
+			],
+			[
+				"ensw",
+				"objects\\EnSword.lua"
+			],
+			[
+				"enshoot",
+				"objects\\EnShooter.lua"
+			],
+			[
+				"modene",
+				"modules\\ModEnemy.lua"
+			],
+			[
+				"modspawner",
+				"modules\\ModSpawner.lua"
+			],
+			[
+				"modtemp",
+				"modules\\ModTemp.lua"
+			],
+			[
+				"objpowerup",
+				"objects\\ObjPowerUp.lua"
+			],
+			[
+				"mainm",
+				"state\\MainMenu.lua"
 			],
 			[
 				"objint",
@@ -939,10 +1312,6 @@
 				"objects\\ObjDamageHitbox.lua"
 			],
 			[
-				"modcont",
-				"modules\\ModControllable.lua"
-			],
-			[
 				"modphy",
 				"modules\\ModPhysics.lua"
 			],
@@ -953,10 +1322,6 @@
 			[
 				"modcontr",
 				"modules\\ModControllable.lua"
-			],
-			[
-				"sprbox",
-				"assets\\spr\\scripts\\SprBox.lua"
 			],
 			[
 				"objtest",
@@ -991,10 +1356,6 @@
 				"ObjBase.lua"
 			],
 			[
-				"mgame",
-				"MGame.lua"
-			],
-			[
 				"class",
 				"libs\\class.lua"
 			],
@@ -1005,10 +1366,6 @@
 			[
 				"modspawne",
 				"modules\\ModSpawner.lua"
-			],
-			[
-				"mgam",
-				"MGame.lua"
 			],
 			[
 				"objsapw",
@@ -1057,10 +1414,6 @@
 			[
 				"cake",
 				"objects\\ObjCake.lua"
-			],
-			[
-				"setting",
-				"SettingManager.lua"
 			],
 			[
 				"entorch",
@@ -1119,28 +1472,12 @@
 				"objects\\SpawnZone.lua"
 			],
 			[
-				"modspawner",
-				"modules\\ModSpawner.lua"
-			],
-			[
-				"modproj",
-				"modules\\ModProjectile.lua"
-			],
-			[
-				"objshot",
-				"objects\\ObjShot.lua"
-			],
-			[
 				"modbomb",
 				"modules\\ModBomb.lua"
 			],
 			[
 				"objbom",
 				"objects\\ObjBomb.lua"
-			],
-			[
-				"objpowerup",
-				"objects\\ObjPowerUp.lua"
 			],
 			[
 				"modplan",
@@ -1199,10 +1536,6 @@
 				"objects\\ObjAttackHitbox.lua"
 			],
 			[
-				"modene",
-				"modules\\ModEnemy.lua"
-			],
-			[
 				"modprojectile",
 				"modules\\ModProjectile.lua"
 			],
@@ -1259,10 +1592,6 @@
 				"modules\\ModShooter.lua"
 			],
 			[
-				"enshoot",
-				"objects\\EnShooter.lua"
-			],
-			[
 				"modhea",
 				"modules\\ModSuperHeavy.lua"
 			],
@@ -1275,160 +1604,12 @@
 				"modules\\ModControllable.lua"
 			],
 			[
-				"moddup",
-				"modules\\ModDuplicator.lua"
-			],
-			[
 				"radia",
 				"modules\\ModRadiant.lua"
 			],
 			[
 				"span",
 				"objects\\ObjSpawnZone.lua"
-			],
-			[
-				"modnin",
-				"modules\\ModNinja.lua"
-			],
-			[
-				"modninja",
-				"modules\\ModNinja.lua"
-			],
-			[
-				"objc",
-				"objects\\ObjChar.lua"
-			],
-			[
-				"modvam",
-				"modules\\ModVampiric.lua"
-			],
-			[
-				"modheav",
-				"modules\\ModSuperHeavy.lua"
-			],
-			[
-				"modpaln",
-				"modules\\ModPlant.lua"
-			],
-			[
-				"glass",
-				"modules\\ModGlass.lua"
-			],
-			[
-				"objcahr",
-				"objects\\ObjChar.lua"
-			],
-			[
-				"enshoo",
-				"objects\\EnShooter.lua"
-			],
-			[
-				"flamin",
-				"modules\\ModFlaming.lua"
-			],
-			[
-				"modfi",
-				"modules\\ModFlaming.lua"
-			],
-			[
-				"sprshot",
-				"assets\\spr\\scripts\\SprShot.lua"
-			],
-			[
-				"modfla",
-				"modules\\ModFlaming.lua"
-			],
-			[
-				"modglas",
-				"modules\\ModGlass.lua"
-			],
-			[
-				"modflaming",
-				"modules\\ModFlaming.lua"
-			],
-			[
-				"modn",
-				"modules\\ModNinja.lua"
-			],
-			[
-				"modpro",
-				"modules\\ModProjectile.lua"
-			],
-			[
-				"moddr",
-				"modules\\ModDrawable.lua"
-			],
-			[
-				"modshot",
-				"modules\\ModShooter.lua"
-			],
-			[
-				"objsho",
-				"objects\\ObjShot.lua"
-			],
-			[
-				"iconin",
-				"assets\\spr\\scripts\\IcoNinja.lua"
-			],
-			[
-				"modninaj",
-				"modules\\ModNinja.lua"
-			],
-			[
-				"modninj",
-				"modules\\ModNinja.lua"
-			],
-			[
-				"icobomb",
-				"assets\\spr\\scripts\\IcoBomb.lua"
-			],
-			[
-				"superheav",
-				"modules\\ModSuperHeavy.lua"
-			],
-			[
-				"modsuperh",
-				"modules\\ModSuperHeavy.lua"
-			],
-			[
-				"modsuperheav",
-				"modules\\ModSuperHeavy.lua"
-			],
-			[
-				"modproje",
-				"modules\\ModProjectile.lua"
-			],
-			[
-				"modglass",
-				"modules\\ModGlass.lua"
-			],
-			[
-				"modact",
-				"modules\\ModActive.lua"
-			],
-			[
-				"radiant",
-				"modules\\ModRadiant.lua"
-			],
-			[
-				"modflai",
-				"modules\\ModFlaming.lua"
-			],
-			[
-				"modplant",
-				"modules\\ModPlant.lua"
-			],
-			[
-				"flaming",
-				"modules\\ModFlaming.lua"
-			],
-			[
-				"testroom",
-				"assets\\rooms\\testRoom.lua"
-			],
-			[
-				"modenem",
-				"modules\\ModEnemy.lua"
 			]
 		],
 		"width": 0.0

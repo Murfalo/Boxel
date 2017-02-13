@@ -30,7 +30,7 @@ function ModTextZone:tick( dt )
 end
 
 function ModTextZone:addInZone(other)
-	self.newText = TimedText(self.text, self.x + 64, self.y, 10)
+	self.newText = TimedText(self.text, self.x + 32, self.y, 10)
 	self.newText.scrollSpeed = 0
 	self.newText.alphaSpeed = 0
 	Game:add(self.newText)

@@ -298,7 +298,9 @@ end
 
 function util.deleteFromTable(searchTable, goal)
     for index, value in ipairs (searchTable) do
-        table.remove(searchTable,index)
+        if value == goal then
+          table.remove(searchTable,index)
+        end
     end
     return false
 end
